@@ -1,6 +1,39 @@
+import { cache } from 'react'
 import { getPayloadClient } from '@/lib/payload'
 import { AnimateIn, AnimateInGroup, AnimateInItem } from '@/components/ui/AnimateIn'
 import { TextReveal } from '@/components/ui/TextReveal'
+
+type TestimonialDoc = {
+  id: string | number
+  name: string
+  role?: string
+  company?: string
+  quote?: string | { el?: string; en?: string }
+  rating?: number
+  avatar?: { url?: string; alt?: string } | null
+}
+
+/** React cache() deduplicates this call per render pass and memoizes the result */
+const fetchTestimonials = cache(async (locale: 'el' | 'en') => {
+  try {
+    const payload = await getPayloadClient()
+    const result = await payload.find({
+      collection: 'testimonials',
+      where: {
+        and: [
+          { status: { equals: 'published' } },
+          { featured: { equals: true } },
+        ],
+      },
+      locale,
+      sort: 'order',
+      limit: 6,
+    })
+    return result.docs as TestimonialDoc[]
+  } catch {
+    return []
+  }
+})
 
 const copy = {
   el: {
@@ -41,40 +74,10 @@ function StarRow({ rating }: { rating: number }) {
   )
 }
 
-type TestimonialDoc = {
-  id: string | number
-  name: string
-  role?: string
-  company?: string
-  quote?: string | { el?: string; en?: string }
-  rating?: number
-  avatar?: { url?: string; alt?: string } | null
-}
-
 export async function Testimonials({ locale }: { locale: 'el' | 'en' }) {
   const t = copy[locale]
 
-  let docs: TestimonialDoc[] = []
-
-  try {
-    const payload = await getPayloadClient()
-    const result = await payload.find({
-      collection: 'testimonials',
-      where: {
-        and: [
-          { status: { equals: 'published' } },
-          { featured: { equals: true } },
-        ],
-      },
-      locale,
-      sort: 'order',
-      limit: 6,
-    })
-    docs = result.docs as TestimonialDoc[]
-  } catch {
-    // During build / before first migration, just render nothing
-    return null
-  }
+  const docs = await fetchTestimonials(locale)
 
   if (!docs.length) return null
 

@@ -1,20 +1,46 @@
 import type { Metadata } from 'next'
+import { Suspense } from 'react'
+import dynamic from 'next/dynamic'
+
+// ── Above-the-fold: static imports (blocking is OK, they're needed for LCP) ──
 import { Hero } from '@/components/sections/Hero'
 import { Marquee } from '@/components/layout/Marquee'
 import { Services } from '@/components/sections/Services'
 import { About } from '@/components/sections/About'
-import { CaseStudies } from '@/components/sections/CaseStudies'
-import { StatsMarquee } from '@/components/sections/StatsMarquee'
-import { Testimonials } from '@/components/sections/Testimonials'
-import { SocialProof } from '@/components/sections/SocialProof'
-import { TechLogos } from '@/components/sections/TechLogos'
-import dynamic from 'next/dynamic'
 
-const Manifesto = dynamic(() => import('@/components/sections/Manifesto').then((m) => m.Manifesto), {
-  loading: () => <div className="py-32" />,
-})
-import { BlogPreview } from '@/components/sections/BlogPreview'
-import { CTASection } from '@/components/sections/CTASection'
+// ── Below-the-fold: dynamic imports (code-split, non-blocking) ──
+const CaseStudies = dynamic(
+  () => import('@/components/sections/CaseStudies').then((m) => m.CaseStudies),
+  { loading: () => <div className="bg-nc-surface py-24" /> },
+)
+const StatsMarquee = dynamic(
+  () => import('@/components/sections/StatsMarquee').then((m) => m.StatsMarquee),
+  { loading: () => <div className="py-6" /> },
+)
+const Testimonials = dynamic(
+  () => import('@/components/sections/Testimonials').then((m) => m.Testimonials),
+  { ssr: true, loading: () => <div className="bg-nc-surface py-24" /> },
+)
+const SocialProof = dynamic(
+  () => import('@/components/sections/SocialProof').then((m) => m.SocialProof),
+  { loading: () => <div className="py-10" /> },
+)
+const TechLogos = dynamic(
+  () => import('@/components/sections/TechLogos').then((m) => m.TechLogos),
+  { loading: () => <div className="bg-nc-surface py-16" /> },
+)
+const Manifesto = dynamic(
+  () => import('@/components/sections/Manifesto').then((m) => m.Manifesto),
+  { loading: () => <div className="py-32" /> },
+)
+const BlogPreview = dynamic(
+  () => import('@/components/sections/BlogPreview').then((m) => m.BlogPreview),
+  { loading: () => <div className="bg-nc-surface py-24" /> },
+)
+const CTASection = dynamic(
+  () => import('@/components/sections/CTASection').then((m) => m.CTASection),
+  { loading: () => <div className="py-20" /> },
+)
 
 export async function generateMetadata({
   params,
@@ -57,18 +83,45 @@ export default async function HomePage({
 
   return (
     <>
+      {/* ── Critical path — renders first ── */}
       <Hero locale={loc} />
       <Marquee />
       <Services locale={loc} />
       <About locale={loc} />
-      <CaseStudies locale={loc} />
-      <StatsMarquee locale={loc} />
-      <Testimonials locale={loc} />
-      <SocialProof locale={loc} />
-      <TechLogos locale={loc} />
-      <Manifesto locale={loc} />
-      <BlogPreview locale={loc} />
-      <CTASection locale={loc} />
+
+      {/* ── Below fold — streamed in as they resolve ── */}
+      <Suspense fallback={<div className="bg-nc-surface py-24" />}>
+        <CaseStudies locale={loc} />
+      </Suspense>
+
+      <Suspense fallback={<div className="py-6" />}>
+        <StatsMarquee locale={loc} />
+      </Suspense>
+
+      {/* Testimonials does a DB query — Suspense lets the rest stream while it loads */}
+      <Suspense fallback={<div className="bg-nc-surface py-24" />}>
+        <Testimonials locale={loc} />
+      </Suspense>
+
+      <Suspense fallback={<div className="py-10" />}>
+        <SocialProof locale={loc} />
+      </Suspense>
+
+      <Suspense fallback={<div className="bg-nc-surface py-16" />}>
+        <TechLogos locale={loc} />
+      </Suspense>
+
+      <Suspense fallback={<div className="py-32" />}>
+        <Manifesto locale={loc} />
+      </Suspense>
+
+      <Suspense fallback={<div className="bg-nc-surface py-24" />}>
+        <BlogPreview locale={loc} />
+      </Suspense>
+
+      <Suspense fallback={<div className="py-20" />}>
+        <CTASection locale={loc} />
+      </Suspense>
     </>
   )
 }
