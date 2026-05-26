@@ -1,7 +1,7 @@
 'use client'
 
 /**
- * Nouvo Collective — Payload Admin Favicon/Icon
+ * Nouvo — Payload Admin Favicon/Icon
  * Shown in browser tab and mobile bookmarks for the admin.
  */
 export function AdminIcon() {

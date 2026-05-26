@@ -6,7 +6,7 @@ export const SiteSettings: GlobalConfig = {
     {
       name: 'siteName',
       type: 'text',
-      defaultValue: 'Nouvo Collective',
+      defaultValue: 'Nouvo',
     },
     {
       name: 'siteDescription',

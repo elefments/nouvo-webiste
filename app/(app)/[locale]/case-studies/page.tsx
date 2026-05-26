@@ -10,7 +10,7 @@ const copy = {
   el: {
     eyebrow: 'Case Studies',
     h1: 'Δεν παρουσιάζουμε εντυπώσεις. Παρουσιάζουμε αποτελέσματα.',
-    subtext: 'Κάθε project που αναλαμβάνουμε έχει μετρήσιμο στόχο. Εδώ παρουσιάζουμε την εργασία μας και τα αποτελέσματά της, για να δεις ακριβώς τι σημαίνει να δουλεύεις με τη Nouvo Collective.',
+    subtext: 'Κάθε project που αναλαμβάνουμε έχει μετρήσιμο στόχο. Εδώ παρουσιάζουμε την εργασία μας και τα αποτελέσματά της, για να δεις ακριβώς τι σημαίνει να δουλεύεις με τη Nouvo.',
     filterHeading: 'Φιλτράρετε ανά υπηρεσία.',
     filters: ['Όλα τα Projects', 'Ιστοσελίδες & Eshop', 'SEO & Ορατότητα', 'Digital Marketing', 'AI & Αυτοματισμός', 'IT Support'],
     workHeading: 'Η εργασία μας.',
@@ -27,7 +27,7 @@ const copy = {
   en: {
     eyebrow: 'Case Studies',
     h1: 'We do not present impressions. We present outcomes.',
-    subtext: 'Every project we take on has a measurable goal. Here we present our work and its results, so you can see exactly what working with Nouvo Collective means.',
+    subtext: 'Every project we take on has a measurable goal. Here we present our work and its results, so you can see exactly what working with Nouvo means.',
     filterHeading: 'Filter by service.',
     filters: ['All Projects', 'Websites & Eshop', 'SEO & Visibility', 'Digital Marketing', 'AI & Automation', 'IT Support'],
     workHeading: 'Our work.',
@@ -53,8 +53,8 @@ export async function generateMetadata({
 
   return {
     title: isEn
-      ? 'Case Studies | Work and Results | Nouvo Collective'
-      : 'Case Studies | Εργασία και Αποτελέσματα | Nouvo Collective',
+      ? 'Case Studies | Work and Results | Nouvo'
+      : 'Case Studies | Εργασία και Αποτελέσματα | Nouvo',
     description: isEn
       ? 'Real results from website, eshop, SEO and digital marketing projects. Not impressions. Outcomes. View our work.'
       : 'Πραγματικά αποτελέσματα από projects ιστοσελίδων, eshop, SEO και digital marketing. Δεν παρουσιάζουμε εντυπώσεις. Παρουσιάζουμε αποτελέσματα. Δείτε την εργασία μας.',

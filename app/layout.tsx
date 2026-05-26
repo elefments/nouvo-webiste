@@ -8,8 +8,8 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: 'Nouvo Collective | Beyond Digital. Pure Strategy.',
-    template: '%s | Nouvo Collective',
+    default: 'Nouvo | Beyond Digital. Pure Strategy.',
+    template: '%s | Nouvo',
   },
   description:
     'Boutique digital agency. Websites, eshop, SEO, AI and marketing with architectural thinking and measurable value.',
@@ -22,14 +22,14 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'el_GR',
     alternateLocale: 'en_US',
-    siteName: 'Nouvo Collective',
-    title: 'Nouvo Collective | Beyond Digital. Pure Strategy.',
+    siteName: 'Nouvo',
+    title: 'Nouvo | Beyond Digital. Pure Strategy.',
     description:
       'Boutique digital agency. Websites, eshop, SEO, AI and marketing with architectural thinking and measurable value.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Nouvo Collective',
+    title: 'Nouvo',
     description: 'Beyond Digital. Pure Strategy.',
   },
   robots: {

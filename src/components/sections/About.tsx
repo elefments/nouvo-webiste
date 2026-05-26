@@ -9,7 +9,7 @@ const copy = {
   el: {
     eyebrow: 'Ποιοι Είμαστε',
     heading: 'Ένας μηχανισμός αναβάθμισης, όχι ένα ακόμα agency.',
-    p1: 'Η Nouvo Collective γεννήθηκε για να λύσει ένα πρόβλημα που βλέπαμε επανειλημμένα: στρατηγική που υπάρχει στα χαρτιά και υλοποίηση που δεν την ακολουθεί. Σύμβουλοι που σχεδιάζουν και εξαφανίζονται. Ομάδες που τρέχουν εργαλεία χωρίς αρχιτεκτονική.',
+    p1: 'Η Nouvo γεννήθηκε για να λύσει ένα πρόβλημα που βλέπαμε επανειλημμένα: στρατηγική που υπάρχει στα χαρτιά και υλοποίηση που δεν την ακολουθεί. Σύμβουλοι που σχεδιάζουν και εξαφανίζονται. Ομάδες που τρέχουν εργαλεία χωρίς αρχιτεκτονική.',
     p2: 'Λειτουργούμε ως ο συνδετικός κρίκος ανάμεσα στην απόφαση και την εφαρμογή της. Μεταφράζουμε τη στρατηγική σε συστήματα. Εγκαθιστούμε μόνο ό,τι έχει πρακτική αξία.',
     stats: [
       { value: '20+', label: 'Χρόνια εμπειρίας' },
@@ -22,7 +22,7 @@ const copy = {
   en: {
     eyebrow: 'Who We Are',
     heading: 'An upgrade mechanism, not another agency.',
-    p1: 'Nouvo Collective was built to solve a problem we kept seeing: strategy that exists on paper and execution that never follows. Consultants who design and disappear. Teams running tools with no architecture behind them.',
+    p1: 'Nouvo was built to solve a problem we kept seeing: strategy that exists on paper and execution that never follows. Consultants who design and disappear. Teams running tools with no architecture behind them.',
     p2: 'We operate as the connective link between decision and implementation. We translate strategy into systems. We install only what creates real value.',
     stats: [
       { value: '20+', label: 'Years of experience' },

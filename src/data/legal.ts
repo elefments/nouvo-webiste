@@ -27,10 +27,10 @@ export const legalPages: LegalPage[] = [
     title: { el: 'Πολιτικη Απορρητου', en: 'Privacy Policy' },
     lastUpdated: { el: 'Τελευταια ενημερωση: Μαιος 2026', en: 'Last updated: May 2026' },
     meta: {
-      title: { el: 'Πολιτικη Απορρητου | Nouvo Collective', en: 'Privacy Policy | Nouvo Collective' },
+      title: { el: 'Πολιτικη Απορρητου | Nouvo', en: 'Privacy Policy | Nouvo' },
       description: {
-        el: 'Η πολιτικη απορρητου της Nouvo Collective: πως συλλεγουμε και διαχειριζομαστε τα προσωπικα σας δεδομενα. GDPR-compliant, διαφανης, περιοδικα ενημερωμενη.',
-        en: 'The Nouvo Collective privacy policy: how we collect and manage your personal data. GDPR-compliant, transparent and periodically updated.',
+        el: 'Η πολιτικη απορρητου της Nouvo: πως συλλεγουμε και διαχειριζομαστε τα προσωπικα σας δεδομενα. GDPR-compliant, διαφανης, περιοδικα ενημερωμενη.',
+        en: 'The Nouvo privacy policy: how we collect and manage your personal data. GDPR-compliant, transparent and periodically updated.',
       },
     },
     sections: {
@@ -38,7 +38,7 @@ export const legalPages: LegalPage[] = [
         {
           heading: '1. Ποιος ειναι ο Υπευθυνος Επεξεργασιας',
           body: ['Υπευθυνος επεξεργασιας των προσωπικων σας δεδομενων ειναι:'],
-          items: ['Επωνυμια: Nouvo Collective', 'Domain: nouvo.agency', 'Email επικοινωνιας: contact@nouvo.agency', 'Τοποθεσια: Αθηνα, Ελλαδα'],
+          items: ['Επωνυμια: Nouvo', 'Domain: nouvo.agency', 'Email επικοινωνιας: contact@nouvo.agency', 'Τοποθεσια: Αθηνα, Ελλαδα'],
         },
         {
           heading: '2. Ποια Δεδομενα Συλλεγουμε',
@@ -110,7 +110,7 @@ export const legalPages: LegalPage[] = [
         {
           heading: '1. Who is the Data Controller',
           body: ['The data controller for your personal data is:'],
-          items: ['Name: Nouvo Collective', 'Domain: nouvo.agency', 'Contact email: contact@nouvo.agency', 'Location: Athens, Greece'],
+          items: ['Name: Nouvo', 'Domain: nouvo.agency', 'Contact email: contact@nouvo.agency', 'Location: Athens, Greece'],
         },
         {
           heading: '2. What Data We Collect',
@@ -187,10 +187,10 @@ export const legalPages: LegalPage[] = [
     title: { el: 'Πολιτικη Cookies', en: 'Cookie Policy' },
     lastUpdated: { el: 'Τελευταια ενημερωση: Μαιος 2026', en: 'Last updated: May 2026' },
     meta: {
-      title: { el: 'Πολιτικη Cookies | Nouvo Collective', en: 'Cookie Policy | Nouvo Collective' },
+      title: { el: 'Πολιτικη Cookies | Nouvo', en: 'Cookie Policy | Nouvo' },
       description: {
-        el: 'Η πολιτικη cookies της Nouvo Collective: τι cookies χρησιμοποιουμε, για ποιον λογο και πως μπορειτε να τα διαχειριστειτε. GDPR-compliant.',
-        en: 'The Nouvo Collective cookie policy: which cookies we use, why and how you can manage them. GDPR-compliant.',
+        el: 'Η πολιτικη cookies της Nouvo: τι cookies χρησιμοποιουμε, για ποιον λογο και πως μπορειτε να τα διαχειριστειτε. GDPR-compliant.',
+        en: 'The Nouvo cookie policy: which cookies we use, why and how you can manage them. GDPR-compliant.',
       },
     },
     sections: {

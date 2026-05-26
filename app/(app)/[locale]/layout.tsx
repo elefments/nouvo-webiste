@@ -6,6 +6,7 @@ import { routing } from '@/i18n/routing'
 import { objektiv, snaga, sofia, marlet } from '@/lib/fonts'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
+import { CookieBanner } from '@/components/ui/CookieBanner'
 import { OrganizationJsonLd, WebSiteJsonLd } from '@/components/seo/JsonLd'
 
 export default async function LocaleLayout({
@@ -31,6 +32,7 @@ export default async function LocaleLayout({
           <Header />
           <main className="pt-[72px]">{children}</main>
           <Footer locale={locale as 'el' | 'en'} />
+          <CookieBanner locale={locale as 'el' | 'en'} />
         </NextIntlClientProvider>
       </body>
     </html>

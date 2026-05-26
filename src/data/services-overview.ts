@@ -21,7 +21,7 @@ export const servicesOverview = {
       { title: 'Μετασχηματισμός με νόημα', body: 'AI και αυτοματισμοί που μειώνουν κόστος και χρόνο όχι buzzwords.' },
       { title: 'Σταθερότητα πάντα', body: 'IT support και συντήρηση που κρατούν το σύστημα λειτουργικό και ασφαλές.' },
     ],
-    diffEyebrow: 'Γιατί Nouvo Collective',
+    diffEyebrow: 'Γιατί Nouvo',
     diffHeading: 'Τι δεν κάνουμε και γιατί αυτό μετράει.',
     diffBody: 'Η αξία μιας υπηρεσίας δεν μετράται μόνο από αυτό που περιλαμβάνει. Μετράται και από αυτό που αρνείται να κάνει.',
     diffItems: [
@@ -33,9 +33,9 @@ export const servicesOverview = {
     faqEyebrow: 'Συχνές Ερωτήσεις',
     faqHeading: 'Ερωτήσεις που αξίζει να απαντηθούν.',
     faq: [
-      { q: 'Ποιες ψηφιακές υπηρεσίες προσφέρει η Nouvo Collective;', a: 'Πέντε κατηγορίες υπηρεσιών ιστοσελίδες και eshop, SEO και ορατότητα, digital marketing, ψηφιακός μετασχηματισμός και AI, IT support. Κάθε μία αυτόνομη, όλες συνδεδεμένες.' },
+      { q: 'Ποιες ψηφιακές υπηρεσίες προσφέρει η Nouvo;', a: 'Πέντε κατηγορίες υπηρεσιών ιστοσελίδες και eshop, SEO και ορατότητα, digital marketing, ψηφιακός μετασχηματισμός και AI, IT support. Κάθε μία αυτόνομη, όλες συνδεδεμένες.' },
       { q: 'Μπορώ να επιλέξω μόνο μία υπηρεσία;', a: 'Ναι. Κάθε υπηρεσία μπορεί να σταθεί αυτόνομα. Ωστόσο, η μέγιστη αξία επιτυγχάνεται όταν οι υπηρεσίες συνδέονται γιατί η καθεμία τροφοδοτεί την επόμενη.' },
-      { q: 'Τι διαφέρει η Nouvo Collective από ένα κλασικό digital agency;', a: 'Δεν λειτουργούμε ως εργοστάσιο παραγωγής assets. Κάθε υπηρεσία σχεδιάζεται με αρχιτεκτονική λογική. Δεν εκτελούμε χωρίς στρατηγική, δεν κάνουμε performance πάνω σε λάθος βάση, δεν αφήνουμε συστήματα χωρίς υποστήριξη.' },
+      { q: 'Τι διαφέρει η Nouvo από ένα κλασικό digital agency;', a: 'Δεν λειτουργούμε ως εργοστάσιο παραγωγής assets. Κάθε υπηρεσία σχεδιάζεται με αρχιτεκτονική λογική. Δεν εκτελούμε χωρίς στρατηγική, δεν κάνουμε performance πάνω σε λάθος βάση, δεν αφήνουμε συστήματα χωρίς υποστήριξη.' },
       { q: 'Πώς ξεκινά η συνεργασία;', a: 'Με μια πρώτη συνάντηση για να κατανοήσουμε την κατάσταση, τους στόχους και τις προτεραιότητες. Δεν ξεκινάμε υλοποίηση χωρίς σαφή κατεύθυνση.' },
     ],
     ctaEyebrow: 'Επόμενο Βήμα',
@@ -43,7 +43,7 @@ export const servicesOverview = {
     ctaBody: 'Δεν χρειάζεται να έχετε έτοιμο brief. Αρκεί να ξέρετε τι δεν λειτουργεί. Εκεί ξεκινάμε.',
     ctaFinalPrimary: 'Επικοινωνήστε Μαζί Μας',
     ctaFinalGhost: 'Δείτε τα Case Studies',
-    metaTitle: 'Ψηφιακές Υπηρεσίες για Επιχειρήσεις | Nouvo Collective',
+    metaTitle: 'Ψηφιακές Υπηρεσίες για Επιχειρήσεις | Nouvo',
     metaDescription: 'Ψηφιακές υπηρεσίες για επιχειρήσεις: ιστοσελίδες, eshop, SEO, AI και digital marketing από boutique collective. Δείτε όλες τις υπηρεσίες μας.',
   },
   en: {
@@ -68,7 +68,7 @@ export const servicesOverview = {
       { title: 'Transformation with purpose', body: 'AI and automation that reduce cost and time not buzzwords, not experiments.' },
       { title: 'Stability always', body: 'IT support and maintenance that keep the system operational, secure, and continuous.' },
     ],
-    diffEyebrow: 'Why Nouvo Collective',
+    diffEyebrow: 'Why Nouvo',
     diffHeading: 'What we don\'t do and why that matters.',
     diffBody: 'The value of a service isn\'t measured only by what it includes. It\'s also measured by what it refuses to do.',
     diffItems: [
@@ -80,9 +80,9 @@ export const servicesOverview = {
     faqEyebrow: 'FAQ',
     faqHeading: 'Questions worth answering.',
     faq: [
-      { q: 'What digital services does Nouvo Collective offer?', a: 'Five service categories websites and eshop development, SEO and visibility, digital marketing, digital transformation and AI, IT support. Each one autonomous, all of them connected.' },
+      { q: 'What digital services does Nouvo offer?', a: 'Five service categories websites and eshop development, SEO and visibility, digital marketing, digital transformation and AI, IT support. Each one autonomous, all of them connected.' },
       { q: 'Can I choose just one service?', a: 'Yes. Each service stands on its own. However, maximum value is achieved when the services connect because each one feeds the next.' },
-      { q: 'How is Nouvo Collective different from a traditional digital agency?', a: 'We don\'t operate as an asset production factory. Every service is designed with architectural logic. We don\'t execute without strategy, we don\'t run performance on a broken foundation, and we don\'t leave systems without support.' },
+      { q: 'How is Nouvo different from a traditional digital agency?', a: 'We don\'t operate as an asset production factory. Every service is designed with architectural logic. We don\'t execute without strategy, we don\'t run performance on a broken foundation, and we don\'t leave systems without support.' },
       { q: 'How does a collaboration begin?', a: 'With a first meeting to understand the current situation, objectives and priorities. We don\'t begin implementation without clear strategic direction.' },
     ],
     ctaEyebrow: 'Next Step',
@@ -90,7 +90,7 @@ export const servicesOverview = {
     ctaBody: 'You don\'t need a finished brief. You just need to know what isn\'t working. That\'s where we start.',
     ctaFinalPrimary: 'Contact Us',
     ctaFinalGhost: 'View Case Studies',
-    metaTitle: 'Digital Services for Businesses | Nouvo Collective',
+    metaTitle: 'Digital Services for Businesses | Nouvo',
     metaDescription: 'Digital services for businesses: websites, eshop, SEO, AI and digital marketing from a boutique collective. One logic, end to end. Explore our services.',
   },
 }

@@ -4,7 +4,10 @@ import { Marquee } from '@/components/layout/Marquee'
 import { Services } from '@/components/sections/Services'
 import { About } from '@/components/sections/About'
 import { CaseStudies } from '@/components/sections/CaseStudies'
+import { StatsMarquee } from '@/components/sections/StatsMarquee'
 import { Testimonials } from '@/components/sections/Testimonials'
+import { SocialProof } from '@/components/sections/SocialProof'
+import { TechLogos } from '@/components/sections/TechLogos'
 import dynamic from 'next/dynamic'
 
 const Manifesto = dynamic(() => import('@/components/sections/Manifesto').then((m) => m.Manifesto), {
@@ -23,8 +26,8 @@ export async function generateMetadata({
 
   return {
     title: isEn
-      ? 'Digital Strategy & Systems Implementation | Nouvo Collective'
-      : 'Ψηφιακή Στρατηγική & Υλοποίηση Συστημάτων | Nouvo Collective',
+      ? 'Digital Strategy & Systems Implementation | Nouvo'
+      : 'Ψηφιακή Στρατηγική & Υλοποίηση Συστημάτων | Nouvo',
     description: isEn
       ? 'We design digital systems that work in real conditions. Website development, eshop, SEO and AI services from a boutique digital agency. Learn more.'
       : 'Σχεδιάζουμε ψηφιακά συστήματα που λειτουργούν στην πράξη. Κατασκευή ιστοσελίδων, eshop, SEO και AI από boutique digital agency. Μάθετε περισσότερα.',
@@ -36,7 +39,7 @@ export async function generateMetadata({
       },
     },
     openGraph: {
-      title: 'Nouvo Collective | Beyond Digital. Pure Strategy.',
+      title: 'Nouvo | Beyond Digital. Pure Strategy.',
       description: isEn
         ? 'From business decision to the system that executes it. Websites, eshop, SEO, AI and marketing with architectural thinking and measurable value.'
         : 'Από την επιχειρηματική απόφαση ως το σύστημα που την εκτελεί. Ιστοσελίδες, eshop, SEO, AI και marketing με αρχιτεκτονική σκέψη και μετρήσιμη αξία.',
@@ -59,7 +62,10 @@ export default async function HomePage({
       <Services locale={loc} />
       <About locale={loc} />
       <CaseStudies locale={loc} />
+      <StatsMarquee locale={loc} />
       <Testimonials locale={loc} />
+      <SocialProof locale={loc} />
+      <TechLogos locale={loc} />
       <Manifesto locale={loc} />
       <BlogPreview locale={loc} />
       <CTASection locale={loc} />

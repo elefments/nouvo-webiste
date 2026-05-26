@@ -1,5 +1,5 @@
 /**
- * Animated SVG icon library for Nouvo Collective.
+ * Animated SVG icon library for Nouvo.
  * Each icon has CSS-based entrance + hover animations.
  * Usage: <IconGlobe className="..." /> — all accept size, color, className.
  */

@@ -32,7 +32,7 @@ export async function generateMetadata({
     : `https://nouvo.agency/case-studies/${slug}`
 
   return {
-    title: `${study.title} | Case Study | Nouvo Collective`,
+    title: `${study.title} | Case Study | Nouvo`,
     description: study.excerpt ?? undefined,
     alternates: {
       canonical,
@@ -42,7 +42,7 @@ export async function generateMetadata({
       },
     },
     openGraph: {
-      title: `${study.title} | Nouvo Collective`,
+      title: `${study.title} | Nouvo`,
       description: study.excerpt ?? undefined,
       ...(study.featuredImage && typeof study.featuredImage === 'object' && study.featuredImage.url
         ? { images: [{ url: study.featuredImage.url }] }

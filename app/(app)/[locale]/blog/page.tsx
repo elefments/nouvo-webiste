@@ -43,8 +43,8 @@ export async function generateMetadata({
 
   return {
     title: isEn
-      ? 'Blog | Digital Strategy & Systems | Nouvo Collective'
-      : 'Blog | Ψηφιακή Στρατηγική & Συστήματα | Nouvo Collective',
+      ? 'Blog | Digital Strategy & Systems | Nouvo'
+      : 'Blog | Ψηφιακή Στρατηγική & Συστήματα | Nouvo',
     description: isEn
       ? 'Articles on digital strategy, SEO, AI, website development and digital marketing. No noise. Only what has practical value for your business.'
       : 'Άρθρα για ψηφιακή στρατηγική, SEO, AI, κατασκευή ιστοσελίδων και digital marketing. Χωρίς θόρυβο. Μόνο ό,τι έχει πρακτική αξία για την επιχείρησή σας.',

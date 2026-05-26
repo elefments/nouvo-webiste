@@ -1,92 +1,169 @@
 export const aboutPage = {
   el: {
-    eyebrow: 'Ποιοι Ειμαστε',
-    h1: 'Ενας μηχανισμος αναβαθμισης, οχι αλλο ενα agency.',
-    paragraphs: [
-      'Η Nouvo Collective δεν δημιουργηθηκε για να γινει αλλη μια digital agency. Δημιουργηθηκε για να λυσει ενα επαναλαμβανομενο προβλημα που βλεπαμε ξανα και ξανα στην πραξη: επιχειρησεις με στρατηγικη στα χαρτια και υλοποιηση που δεν την ακολουθει. Συμβουλοι που σχεδιαζουν και εξαφανιζονται. Ομαδες που τρεχουν εργαλεια χωρις αρχιτεκτονικη. AI που υποσχεται τα παντα και δεν αλλαζει τιποτα.',
-      'Ξεκινησαμε απο την τεχνικη πλευρα. Υποδομες, websites, συστηματα, υποστηριξη. Εκει οπου τα λαθη κοστιζουν χρονο, χρηματα και αξιοπιστια. Εκει οπου φαινεται αν κατι εχει σχεδιαστει σωστα η απλα δειχνει ωραια. Με τον καιρο εγινε σαφες. Το προβλημα δεν ηταν το design η το marketing. Ηταν η ελλειψη ενιαιας σκεψης. Η αποσταση αναμεσα στην αποφαση και την εφαρμογη της.',
-      'Ετσι διαμορφωθηκε η Nouvo Collective. Οχι ως agency υπηρεσιων, αλλα ως μηχανισμος αναβαθμισης. Σημερα λειτουργουμε ως ο συνδετικος κρικος αναμεσα στην αποφαση και την εφαρμογη της. Μετατρεπουμε τη στρατηγικη σε συστηματα. Φιλτραρουμε τον θορυβο της τεχνητης νοημοσυνης. Εγκαθιστουμε μονο ο,τι εχει πρακτικη αξια. Χτιζουμε ψηφιακη αρχιτεκτονικη που αντεχει στον χρονο και στην κλιμακα.',
+    // Hero
+    eyebrow: 'Σχετικά με εμάς',
+    h1Line1: 'Δεν πουλάμε εργαλεία.',
+    h1Line2: 'Σχεδιάζουμε συστήματα.',
+    subtext: 'Η Nouvo είναι ένα boutique ψηφιακό agency που γεφυρώνει το κενό ανάμεσα στην επιχειρηματική απόφαση και την τεχνική υλοποίηση. Με 16+ χρόνια εμπειρία και σαφή στρατηγική σκέψη.',
+
+    // Origin story
+    originHeading: 'Πώς ξεκινήσαμε',
+    originParagraphs: [
+      'Η Nouvo δεν δημιουργήθηκε για να γίνει άλλο ένα digital agency. Δημιουργήθηκε για να λύσει ένα επαναλαμβανόμενο πρόβλημα που βλέπαμε ξανά και ξανά στην πράξη.',
+      'Επιχειρήσεις με στρατηγική στα χαρτιά και υλοποίηση που δεν την ακολουθεί. Σύμβουλοι που σχεδιάζουν και εξαφανίζονται. Ομάδες που τρέχουν εργαλεία χωρίς αρχιτεκτονική. AI που υπόσχεται τα πάντα και δεν αλλάζει τίποτα.',
+      'Ξεκινήσαμε από την τεχνική πλευρά. Υποδομές, websites, συστήματα, υποστήριξη. Εκεί όπου τα λάθη κοστίζουν χρόνο, χρήμα και αξιοπιστία. Εκεί όπου φαίνεται αν κάτι έχει σχεδιαστεί σωστά ή απλώς δείχνει ωραίο.',
+      'Με τον καιρό έγινε σαφές. Το πρόβλημα δεν ήταν το design ή το marketing. Ήταν η έλλειψη ενιαίας σκέψης. Η απόσταση ανάμεσα στην απόφαση και την εφαρμογή της. Έτσι διαμορφώθηκε η Nouvo.',
     ],
-    approachHeading: 'Η προσεγγιση μας.',
-    approach: [
-      { title: 'Στρατηγικη που εφαρμοζεται, οχι που παρουσιαζεται.', body: 'Καθε αποφαση που παιρνουμε εχει καθαρο "γιατι" και συγκεκριμενο πλανο υλοποιησης. Δεν παραδινουμε reports χωρις follow-up. Δεν σχεδιαζουμε χωρις να υλοποιουμε.' },
-      { title: 'Τεχνολογια ως εργαλειο, οχι ως αφηγημα.', body: 'Το AI εχει αξια μονο οταν μειωνει κοστος η χρονο. Το eshop εχει αξια μονο οταν μετατρεπει επισκεπτες σε πελατες. Καθε τεχνολογικη αποφαση εχει πραγματικο λογο υπαρξης.' },
-      { title: 'Collective ειδικων, οχι one-size agency.', body: 'Η Nouvo λειτουργει ως collective: καθε project εμπλεκει τους καταλληλους ειδικους. Οχι generalist team που "κανει ολα". Εξειδικευση με συνοχη.' },
+
+    // How we work
+    howHeading: 'Πώς δουλεύουμε',
+    howIntro: 'Δεν ξεκινάμε από το εργαλείο. Ξεκινάμε από το πρόβλημα. Κάθε project ξεκινά με κατανόηση — τι θέλει να πετύχει η επιχείρηση, τι δεν λειτουργεί σήμερα, και τι πραγματικά χρειάζεται για να αλλάξει αυτό.',
+    howPrinciples: [
+      {
+        title: 'Στρατηγική πριν από εκτέλεση',
+        body: 'Δεν ξεκινάμε κατασκευή χωρίς κατεύθυνση. Δεν τρέχουμε campaigns χωρίς δομή. Δεν εγκαθιστούμε AI χωρίς συγκεκριμένο σκοπό.',
+      },
+      {
+        title: 'Αρχιτεκτονική πριν από εικόνα',
+        body: 'Κάθε ψηφιακό σύστημα που χτίζουμε έχει λόγο ύπαρξης. Ταχύτητα, δομή, ασφάλεια και δυνατότητα ανάπτυξης — όχι απλώς καλή εμφάνιση.',
+      },
+      {
+        title: 'AI ως εργαλείο, όχι ως αφήγημα',
+        body: 'Χρησιμοποιούμε τεχνητή νοημοσύνη μόνο όπου μειώνει πραγματικά κόστος ή χρόνο. Φιλτράρουμε τον θόρυβο και εγκαθιστούμε μόνο ό,τι έχει μετρήσιμη αξία.',
+      },
     ],
-    pillarsHeading: 'Τα πεντε επιπεδα.',
-    pillarsBody: 'Η Nouvo λειτουργει σε 5 επιπεδα που μπορουν να σταθουν αυτονομα και αποδιδουν μεγιστα οταν συνδεονται.',
-    pillars: [
-      { label: 'Advisory', subtitle: 'Στρατηγικη Καθοδηγηση' },
-      { label: 'Transformation', subtitle: 'Ψηφιακος Μετασχηματισμος' },
-      { label: 'Architecture', subtitle: 'Κατασκευη & Υποδομες' },
-      { label: 'Performance', subtitle: 'Digital Marketing' },
-      { label: 'Assurance', subtitle: 'IT Support & Συντηρηση' },
+
+    // Stats
+    statsHeading: 'Σε αριθμούς',
+    stats: [
+      { value: '16+', label: 'Χρόνια εμπειρίας' },
+      { value: '5', label: 'Βασικές υπηρεσίες' },
+      { value: '100%', label: 'Custom υλοποίηση' },
     ],
-    principlesHeading: 'Οι αρχες μας.',
-    believe: [
-      'Η στρατηγικη πρεπει να εφαρμοζεται, οχι να παρουσιαζεται.',
-      'Η τεχνολογια οφειλει να απλοποιει τη λειτουργια.',
-      'Το AI εχει αξια μονο οταν ενσωματωνεται σωστα.',
-      'Η αρχιτεκτονικη προηγειται της εικονας.',
-      'Η σταθεροτητα ειναι προϋποθεση αναπτυξης.',
+
+    // Beliefs
+    beliefsHeading: 'Τι πιστεύουμε',
+    beliefs: [
+      { title: 'Η στρατηγική πρέπει να εφαρμόζεται', body: 'Δεν αρκεί να υπάρχει ένα καλό πλάνο. Πρέπει να μετατρέπεται σε πράξη με συνέπεια.' },
+      { title: 'Η τεχνολογία πρέπει να απλοποιεί', body: 'Κάθε εργαλείο που προτείνουμε πρέπει να κάνει τη ζωή της επιχείρησης πιο εύκολη, όχι πιο περίπλοκη.' },
+      { title: 'Η αρχιτεκτονική προηγείται της εικόνας', body: 'Ένα website που δείχνει ωραίο αλλά δεν λειτουργεί σωστά δεν είναι λύση. Είναι πρόβλημα με καλό design.' },
+      { title: 'Η σταθερότητα είναι προϋπόθεση ανάπτυξης', body: 'Δεν μπορείς να χτίσεις ανάπτυξη πάνω σε ασταθή συστήματα. Η συνέχεια δεν είναι δευτερεύον — είναι βάση.' },
     ],
-    refuse: [
-      'Τον θορυβο χωρις ουσια.',
-      'Τα trends χωρις χρηση.',
-      'Τις αποσπασματικες λυσεις.',
-      'Τις "γρηγορες" υλοποιησεις χωρις βαση.',
-      'Τα πειραματα πανω σε ζωντανες επιχειρησεις.',
+
+    // Refuse
+    refuseHeading: 'Τι αρνούμαστε',
+    refuseBody: 'Δεν πουλάμε ό,τι δεν χρειάζεται ο πελάτης. Δεν ξεκινάμε εκτέλεση χωρίς στρατηγική. Δεν εγκαθιστούμε AI χωρίς χρήση. Δεν αφήνουμε συστήματα χωρίς υποστήριξη. Δεν κάνουμε πειράματα σε ζωντανές επιχειρήσεις.',
+
+    // Who we work with
+    forWhoHeading: 'Για ποιους είμαστε',
+    forWhoParagraphs: [
+      'Η Nouvo υπάρχει για επιχειρήσεις που έχουν κουραστεί από αποσπασματικές λύσεις. Που έχουν δει στρατηγικές να μένουν στα χαρτιά. Που θέλουν να λειτουργούν καλύτερα — όχι απλώς να φαίνονται.',
+      'Αν ψάχνεις εντυπώσεις, δεν είμαστε για εσένα. Αν ψάχνεις λειτουργία, είσαι στο σωστό μέρος.',
     ],
-    believeLabel: 'Πιστευουμε οτι:',
-    refuseLabel: 'Αρνουμαστε:',
-    ctaPrimary: 'Δειτε τις Υπηρεσιες',
-    ctaGhost: 'Δειτε τα Case Studies',
-    metaTitle: 'Ποιοι Ειμαστε | Nouvo Collective',
-    metaDescription: 'Η Nouvo Collective ειναι boutique στρατηγικο collective που σχεδιαζει και υλοποιει ψηφιακα συστηματα με συνοχη. 20+ χρονια εμπειριας, 5 επιπεδα υπηρεσιων.',
+
+    // FAQ
+    faqHeading: 'Συχνές Ερωτήσεις',
+    faq: [
+      { q: 'Πού εδρεύει η Nouvo;', a: 'Η Nouvo εδρεύει στην Ελλάδα και δουλεύει με επιχειρήσεις σε όλη την Ευρώπη. Τα projects υλοποιούνται εξ αποστάσεως χωρίς περιορισμούς τοποθεσίας.' },
+      { q: 'Με ποιες επιχειρήσεις συνεργάζεστε;', a: 'Δουλεύουμε με μικρομεσαίες επιχειρήσεις, ελεύθερους επαγγελματίες και εταιρείες που θέλουν να αναβαθμίσουν την ψηφιακή τους παρουσία και τις εσωτερικές τους διαδικασίες.' },
+      { q: 'Πόσο χρόνο έχει η Nouvo;', a: 'Η Nouvo είναι το αποτέλεσμα 16+ χρόνων εμπειρίας στον ψηφιακό χώρο — από web development και IT support μέχρι digital marketing και AI εργαλεία.' },
+      { q: 'Μπορώ να ζητήσω μόνο μία υπηρεσία;', a: 'Ναι. Κάθε υπηρεσία μπορεί να σταθεί αυτόνομα. Τα καλύτερα αποτελέσματα έρχονται όταν συνδέονται — αλλά ξεκινάμε από εκεί που χρειάζεσαι.' },
+    ],
+
+    // CTA
+    ctaHeading: 'Έτοιμοι να ξεκινήσετε;',
+    ctaBody: 'Πείτε μας τι χρειάζεστε. Θα σας πούμε αν και πώς μπορούμε να βοηθήσουμε.',
+    ctaPrimary: 'Επικοινωνήστε μαζί μας',
+    ctaPrimaryHref: '/epikoinonia',
+    ctaGhost: 'Δείτε τις υπηρεσίες μας',
+    ctaGhostHref: '/ypiresies',
+
+    // Meta
+    metaTitle: 'Σχετικά με τη Nouvo — Digital Agency με 16+ Χρόνια Εμπειρία',
+    metaDescription: 'Η Nouvo σχεδιάζει και υλοποιεί ψηφιακά συστήματα για επιχειρήσεις που θέλουν να λειτουργούν καλύτερα. 16+ χρόνια εμπειρία. Μάθετε περισσότερα.',
   },
+
   en: {
-    eyebrow: 'About',
-    h1: 'An upgrade mechanism, not another agency.',
-    paragraphs: [
-      'Nouvo Collective was not created to be another digital agency. It was created to solve a recurring problem: businesses with strategy on paper and execution that never follows. Consultants who design and disappear. Teams running tools with no architecture behind them. AI that promises everything and changes nothing.',
-      'We started from the technical side. Infrastructure, websites, systems, support. Where mistakes cost time, money and credibility. Where you can see whether something was designed correctly or just looks good. Over time it became clear. The problem was not design or marketing. It was the absence of unified thinking. The distance between decision and implementation.',
-      'So Nouvo Collective formed. Not as a service agency but as an upgrade mechanism. Today we operate as the connective link between decision and implementation. We translate strategy into systems. We filter the noise around artificial intelligence. We install only what has real operational value. We build digital architecture that withstands time and scale.',
+    // Hero
+    eyebrow: 'About us',
+    h1Line1: "We don't sell tools.",
+    h1Line2: 'We design systems.',
+    subtext: 'Nouvo is a boutique digital agency that closes the gap between business decisions and technical execution. With 16+ years of experience and a clear architectural approach.',
+
+    // Origin story
+    originHeading: 'How we started',
+    originParagraphs: [
+      'Nouvo was not created to be another digital agency. It was created to solve a recurring structural failure we kept seeing inside growing businesses.',
+      'Strategy existed in documents. Execution happened elsewhere. Websites looked polished but failed under pressure. Marketing ran without foundations. AI tools promised speed and delivered confusion.',
+      'We started from the technical side. Infrastructure, systems, websites that had to stay online, processes that had to scale. In that environment, theory collapses quickly. Poor design breaks. Fast.',
+      'Over time, a clear pattern emerged. Most companies were not blocked by bad ideas. They were blocked because decisions were never translated into coherent, connected systems. That is why Nouvo exists.',
     ],
-    approachHeading: 'Our approach.',
-    approach: [
-      { title: 'Strategy that operates, not that is presented.', body: 'Every decision we make has a clear why and a concrete implementation plan. We do not deliver reports without follow-up. We do not design without implementing.' },
-      { title: 'Technology as a tool, not a narrative.', body: 'AI has value only when it reduces cost or time. An eshop has value only when it converts visitors into customers. Every technology decision has a real reason to exist.' },
-      { title: 'Collective of specialists, not a one-size agency.', body: 'Nouvo operates as a collective: each project involves the right specialists. Not a generalist team that does everything. Specialisation with coherence.' },
+
+    // How we work
+    howHeading: 'How we work',
+    howIntro: "We don't start from the tool. We start from the problem. Every project begins with understanding — what the business wants to achieve, what is not working today, and what actually needs to change.",
+    howPrinciples: [
+      {
+        title: 'Strategy before execution',
+        body: "We don't build without direction. We don't run campaigns without structure. We don't implement AI without a specific purpose.",
+      },
+      {
+        title: 'Architecture before appearance',
+        body: 'Every digital system we build has a reason to exist. Speed, structure, security, and scalability — not just good looks.',
+      },
+      {
+        title: 'AI as a tool, not a narrative',
+        body: 'We use artificial intelligence only where it genuinely reduces cost or time. We filter the noise and implement only what delivers measurable value.',
+      },
     ],
-    pillarsHeading: 'The five pillars.',
-    pillarsBody: 'Nouvo operates across 5 pillars that can stand independently and deliver maximum value when connected.',
-    pillars: [
-      { label: 'Advisory', subtitle: 'Business Strategy' },
-      { label: 'Transformation', subtitle: 'Digital Transformation' },
-      { label: 'Architecture', subtitle: 'Website and Eshop Development' },
-      { label: 'Performance', subtitle: 'Digital Marketing' },
-      { label: 'Assurance', subtitle: 'IT Support and Maintenance' },
+
+    // Stats
+    statsHeading: 'By the numbers',
+    stats: [
+      { value: '16+', label: 'Years of experience' },
+      { value: '5', label: 'Core services' },
+      { value: '100%', label: 'Custom execution' },
     ],
-    principlesHeading: 'Our principles.',
-    believe: [
-      'Strategy matters only when it operates.',
-      'Technology must reduce friction.',
-      'AI has value only when embedded correctly.',
-      'Architecture comes before appearance.',
-      'Stability enables growth.',
+
+    // Beliefs
+    beliefsHeading: 'What we believe',
+    beliefs: [
+      { title: 'Strategy must operate', body: 'A good plan is not enough. It must translate into consistent action.' },
+      { title: 'Technology must simplify', body: 'Every tool we recommend should make the business easier to run, not more complex.' },
+      { title: 'Architecture comes before appearance', body: "A website that looks great but doesn't function correctly is not a solution. It is a problem with good design." },
+      { title: 'Stability enables growth', body: 'You cannot build growth on unstable systems. Continuity is not secondary — it is the foundation.' },
     ],
-    refuse: [
-      'Noise without substance.',
-      'Trends without application.',
-      'Fragmented solutions.',
-      'Fast builds without foundations.',
-      'Experiments on live businesses.',
+
+    // Refuse
+    refuseHeading: 'What we refuse',
+    refuseBody: "We don't sell what the client doesn't need. We don't execute without strategy. We don't implement AI without use. We don't leave systems without support. We don't run experiments on live businesses.",
+
+    // Who we work with
+    forWhoHeading: 'Who we work with',
+    forWhoParagraphs: [
+      "Nouvo exists for businesses that are done with fragmented solutions. That have seen strategies stay on paper. That want to operate better — not just look better.",
+      "If you are looking for impressions, we are not for you. If you are looking for operational clarity, you are in the right place.",
     ],
-    believeLabel: 'We believe that:',
-    refuseLabel: 'We refuse:',
-    ctaPrimary: 'View Services',
-    ctaGhost: 'View Case Studies',
-    metaTitle: 'About | Nouvo Collective',
-    metaDescription: 'Nouvo Collective is a boutique strategic collective that designs and implements digital systems with coherence. 20+ years of experience, 5 service pillars.',
+
+    // FAQ
+    faqHeading: 'Frequently Asked Questions',
+    faq: [
+      { q: 'Where is Nouvo based?', a: 'Nouvo is based in Greece and works with businesses across Europe. All projects are delivered remotely without location restrictions.' },
+      { q: 'What types of businesses do you work with?', a: 'We work with small and medium-sized businesses, freelancers, and companies looking to upgrade their digital presence and internal operations.' },
+      { q: 'How long has Nouvo been operating?', a: 'Nouvo is the result of 16+ years of experience in the digital space — from web development and IT support to digital marketing and AI tools.' },
+      { q: 'Can I request just one service?', a: 'Yes. Each service can stand on its own. The best results come when they connect — but we start from where you need us.' },
+    ],
+
+    // CTA
+    ctaHeading: 'Ready to get started?',
+    ctaBody: 'Tell us what you need. We will tell you if and how we can help.',
+    ctaPrimary: 'Get in touch',
+    ctaPrimaryHref: '/en/contact',
+    ctaGhost: 'View our services',
+    ctaGhostHref: '/en/services',
+
+    // Meta
+    metaTitle: 'About Nouvo — Digital Agency with 16+ Years of Experience',
+    metaDescription: 'Nouvo designs and implements digital systems for businesses that want to operate better. 16+ years of experience in web, AI, and digital strategy. Learn more.',
   },
 }

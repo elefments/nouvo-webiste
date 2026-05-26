@@ -2,7 +2,7 @@ export function OrganizationJsonLd() {
   const data = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'Nouvo Collective',
+    name: 'Nouvo',
     url: 'https://nouvo.agency',
     logo: 'https://nouvo.agency/favicon.svg',
     description:
@@ -27,7 +27,7 @@ export function WebSiteJsonLd({ locale }: { locale: 'el' | 'en' }) {
   const data = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: 'Nouvo Collective',
+    name: 'Nouvo',
     url: 'https://nouvo.agency',
     inLanguage: locale === 'el' ? 'el-GR' : 'en-US',
     potentialAction: {

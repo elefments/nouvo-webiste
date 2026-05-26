@@ -1,11 +1,27 @@
 import Link from 'next/link'
 import { Arrow } from '@/components/ui/Arrow'
 import { Accordion } from '@/components/ui/Accordion'
+import { Breadcrumbs } from '@/components/ui/Breadcrumbs'
+import { GradientHR } from '@/components/ui/GradientHR'
+import { ResultsBar } from '@/components/services/ResultsBar'
 import { StepIcon, IconCheck } from '@/components/ui/Icons'
 import { ServiceHeroVisual } from './ServiceHeroVisual'
 import { AnimateIn, AnimateInGroup, AnimateInItem } from '@/components/ui/AnimateIn'
 import { TextReveal } from '@/components/ui/TextReveal'
 import type { ServiceCategory } from '@/data/services'
+
+const defaultMetrics = {
+  el: [
+    { value: '16+', label: 'χρόνια εμπειρίας' },
+    { value: '100%', label: 'custom υλοποίηση' },
+    { value: '0', label: 'templates' },
+  ],
+  en: [
+    { value: '16+', label: 'years of experience' },
+    { value: '100%', label: 'custom execution' },
+    { value: '0', label: 'templates' },
+  ],
+}
 
 export function ServiceCategoryPage({
   category,
@@ -19,19 +35,33 @@ export function ServiceCategoryPage({
   const contactHref = locale === 'en' ? '/en/contact' : '/epikoinonia'
   const caseStudiesHref = locale === 'en' ? '/en/case-studies' : '/case-studies'
 
+  const servicesLabel = locale === 'en' ? 'Services' : 'Υπηρεσίες'
+  const servicesHref = locale === 'en' ? '/en/services' : '/ypiresies'
+
   return (
     <>
+      {/* Breadcrumbs */}
+      <div className="mx-auto max-w-[1280px] px-6 pt-28">
+        <Breadcrumbs
+          items={[
+            { label: locale === 'en' ? 'Home' : 'Αρχική', href: locale === 'en' ? '/en' : '/' },
+            { label: servicesLabel, href: servicesHref },
+            { label: category.title[locale] },
+          ]}
+        />
+      </div>
+
       {/* Hero */}
       <section
         className="relative px-6 overflow-hidden"
         style={{
-          minHeight: '80vh',
+          minHeight: '60vh',
           display: 'flex',
           alignItems: 'center',
           background: 'radial-gradient(ellipse 55% 80% at 80% 50%, rgba(227,79,57,0.03) 0%, transparent 70%)',
         }}
       >
-        <div className="mx-auto max-w-[1280px] w-full grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-8 items-center py-24 lg:py-0">
+        <div className="mx-auto max-w-[1280px] w-full grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-8 items-center py-12 lg:py-0">
 
           {/* Left: text */}
           <div>
@@ -102,6 +132,8 @@ export function ServiceCategoryPage({
           ))}
         </div>
       </section>
+
+      <GradientHR />
 
       {/* Sub-services grid */}
       <section className="px-6 py-20 bg-nc-surface">
@@ -185,17 +217,27 @@ export function ServiceCategoryPage({
           <AnimateInGroup className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8" staggerDelay={0.1}>
             {category.approach.steps.map((step, i) => (
               <AnimateInItem key={i} variant="fadeUp">
-                <div className="flex items-center gap-3 mb-3">
-                  <div
-                    className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white border border-nc-border text-[13px] font-bold text-nc-accent font-objektiv"
-                    style={{ animation: 'serviceStepRing 2.5s ease-in-out infinite', animationDelay: `${i * 0.5}s` }}
+                <div className="relative overflow-hidden rounded-[16px] bg-nc-surface p-6 h-full">
+                  {/* Large decorative background number */}
+                  <span
+                    className="absolute -right-1 -top-3 font-snaga text-[90px] font-bold leading-none text-nc-text/[0.04] select-none pointer-events-none"
+                    aria-hidden="true"
                   >
-                    0{i + 1}
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <div className="relative">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div
+                        className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white border border-nc-border text-[13px] font-bold text-nc-accent font-snaga"
+                      >
+                        0{i + 1}
+                      </div>
+                      <StepIcon index={i} size={18} className="text-nc-muted-mid" />
+                    </div>
+                    <h4 className="text-[18px] font-semibold text-nc-text">{step.title[locale]}</h4>
+                    <p className="mt-2 text-[14px] text-nc-muted-dark leading-relaxed">{step.body[locale]}</p>
                   </div>
-                  <StepIcon index={i} size={18} className="text-nc-muted-mid" />
                 </div>
-                <h4 className="text-[18px] font-semibold text-nc-text">{step.title[locale]}</h4>
-                <p className="mt-2 text-[14px] text-nc-muted-dark leading-relaxed">{step.body[locale]}</p>
               </AnimateInItem>
             ))}
           </AnimateInGroup>
@@ -229,6 +271,15 @@ export function ServiceCategoryPage({
           </AnimateInGroup>
         </div>
       </section>
+
+      {/* Results Bar */}
+      <section className="px-6 py-12">
+        <div className="mx-auto max-w-[1280px]">
+          <ResultsBar metrics={defaultMetrics[locale]} />
+        </div>
+      </section>
+
+      <GradientHR />
 
       {/* FAQ */}
       <section className="px-6 py-20">

@@ -1,3 +1,5 @@
+'use client'
+
 import Link from 'next/link'
 import { Arrow } from '@/components/ui/Arrow'
 
@@ -17,6 +19,7 @@ const footerData = {
       {
         title: 'Nouvo',
         links: [
+          { label: 'Σχετικά με εμάς', href: '/sxetika-me-emas' },
           { label: 'Case Studies', href: '/case-studies' },
           { label: 'Blog', href: '/blog' },
           { label: 'Επικοινωνία', href: '/epikoinonia' },
@@ -25,8 +28,9 @@ const footerData = {
       {
         title: 'Legal',
         links: [
-          { label: 'Πολιτική Απορρήτου', href: '/privacy-policy' },
-          { label: 'Πολιτική Cookies', href: '/cookie-policy' },
+          { label: 'Πολιτική Απορρήτου', href: '/politiki-aporritou' },
+          { label: 'Πολιτική Cookies', href: '/politiki-cookies' },
+          { label: 'Cookie Settings', href: '#', isCookieReset: true },
         ],
       },
     ],
@@ -46,6 +50,7 @@ const footerData = {
       {
         title: 'Nouvo',
         links: [
+          { label: 'About', href: '/en/about' },
           { label: 'Case Studies', href: '/en/case-studies' },
           { label: 'Blog', href: '/en/blog' },
           { label: 'Contact', href: '/en/contact' },
@@ -56,6 +61,7 @@ const footerData = {
         links: [
           { label: 'Privacy Policy', href: '/en/privacy-policy' },
           { label: 'Cookie Policy', href: '/en/cookie-policy' },
+          { label: 'Cookie Settings', href: '#', isCookieReset: true },
         ],
       },
     ],
@@ -86,12 +92,6 @@ function SocialIcon({ platform }: { platform: string }) {
           <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
         </svg>
       )
-    case 'x':
-      return (
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M4 4l6.5 8L4 20h2l5.5-6.8L16 20h4l-6.8-8.5L20 4h-2l-5.2 6.4L8 4H4z" />
-        </svg>
-      )
     default:
       return null
   }
@@ -101,6 +101,14 @@ export function Footer({ locale }: { locale: 'el' | 'en' }) {
   const data = footerData[locale]
   const year = new Date().getFullYear()
 
+  function handleCookieReset(e: React.MouseEvent) {
+    e.preventDefault()
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem('nouvo_cookie_consent')
+      window.dispatchEvent(new Event('nouvo_cookie_reset'))
+    }
+  }
+
   return (
     <footer className="border-t border-nc-border">
       <div className="mx-auto max-w-[1280px] px-6 py-16">
@@ -109,7 +117,7 @@ export function Footer({ locale }: { locale: 'el' | 'en' }) {
           {/* Brand column */}
           <div className="flex flex-col gap-4">
             <Link href={locale === 'el' ? '/' : '/en'} className="font-snaga text-xl font-bold tracking-tight text-nc-text">
-              Nouvo Collective
+              Nouvo
             </Link>
             <p className="font-marlet text-sm italic text-nc-muted-mid">
               Beyond Digital. Pure Strategy.
@@ -136,13 +144,22 @@ export function Footer({ locale }: { locale: 'el' | 'en' }) {
               </p>
               <ul className="flex flex-col gap-2.5">
                 {col.links.map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-nc-muted-dark transition-colors duration-200 hover:text-nc-text"
-                    >
-                      {link.label}
-                    </Link>
+                  <li key={link.label}>
+                    {'isCookieReset' in link && link.isCookieReset ? (
+                      <button
+                        onClick={handleCookieReset}
+                        className="text-sm text-nc-muted-dark transition-colors duration-200 hover:text-nc-text text-left"
+                      >
+                        {link.label}
+                      </button>
+                    ) : (
+                      <Link
+                        href={link.href}
+                        className="text-sm text-nc-muted-dark transition-colors duration-200 hover:text-nc-text"
+                      >
+                        {link.label}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -153,14 +170,14 @@ export function Footer({ locale }: { locale: 'el' | 'en' }) {
         {/* Bottom bar */}
         <div className="mt-16 pt-6 border-t border-nc-border flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-nc-muted-mid">
-            &copy; {year} Nouvo Collective. All rights reserved.
+            &copy; {year} Nouvo. All rights reserved.
           </p>
           <Link
             href={locale === 'el' ? '/epikoinonia' : '/en/contact'}
             className="flex items-center gap-2 text-sm font-medium text-nc-text transition-colors duration-200 hover:text-nc-accent"
           >
             <span>{locale === 'el' ? 'Ξεκινήστε τη συνεργασία' : 'Start a project'}</span>
-            <Arrow size={14} className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            <Arrow size={14} />
           </Link>
         </div>
       </div>

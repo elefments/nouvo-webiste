@@ -35,7 +35,7 @@ export async function generateMetadata({
     const { category, subService } = result
     const canonical = `https://nouvo.agency/${loc === 'en' ? 'en/' : ''}${category.parentSlug[loc]}/${category.slug[loc]}/${subService.slug[loc]}`
     return {
-      title: `${subService.title[loc]} | Nouvo Collective`,
+      title: `${subService.title[loc]} | Nouvo`,
       description: subService.description[loc],
       alternates: {
         canonical,

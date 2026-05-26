@@ -79,7 +79,7 @@ export async function Testimonials({ locale }: { locale: 'el' | 'en' }) {
   if (!docs.length) return null
 
   return (
-    <section className="px-6 py-24">
+    <section className="bg-nc-surface px-6 py-24">
       <div className="mx-auto max-w-[1280px]">
         <AnimateIn variant="fadeIn" duration={0.4}>
           <p className="text-[11px] font-medium tracking-[0.12em] uppercase text-nc-muted-mid mb-4">

@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { Arrow } from '@/components/ui/Arrow'
+import { Breadcrumbs } from '@/components/ui/Breadcrumbs'
 import { IconCheck } from '@/components/ui/Icons'
 import { AnimateIn, AnimateInGroup, AnimateInItem } from '@/components/ui/AnimateIn'
 import { TextReveal } from '@/components/ui/TextReveal'
@@ -18,20 +19,26 @@ export function ServiceSubPage({
   const categoryPath = `${parentPath}/${category.slug[locale]}`
   const contactHref = locale === 'en' ? '/en/contact' : '/epikoinonia'
 
+  const servicesLabel = locale === 'en' ? 'Services' : 'Υπηρεσίες'
+  const servicesHref = locale === 'en' ? '/en/services' : '/ypiresies'
+
   return (
     <>
+      {/* Breadcrumbs */}
+      <div className="mx-auto max-w-[1280px] px-6 pt-28">
+        <Breadcrumbs
+          items={[
+            { label: locale === 'en' ? 'Home' : 'Αρχική', href: locale === 'en' ? '/en' : '/' },
+            { label: servicesLabel, href: servicesHref },
+            { label: category.title[locale], href: categoryPath },
+            { label: subService.title[locale] },
+          ]}
+        />
+      </div>
+
       {/* Hero */}
-      <section className="px-6 py-24">
+      <section className="px-6 py-12">
         <div className="mx-auto max-w-[900px]">
-          <AnimateIn variant="fadeIn" duration={0.4}>
-            <Link
-              href={categoryPath}
-              className="inline-flex items-center gap-2 text-[13px] font-medium text-nc-muted-dark hover:text-nc-accent transition-colors mb-8"
-            >
-              <Arrow size={14} className="rotate-180" />
-              {category.eyebrow[locale]}
-            </Link>
-          </AnimateIn>
 
           <AnimateIn variant="fadeIn" duration={0.4} delay={0.05}>
             <p className="text-[11px] font-medium tracking-[0.12em] uppercase text-nc-muted-mid mb-4">

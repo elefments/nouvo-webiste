@@ -1,7 +1,7 @@
 'use client'
 
 /**
- * Nouvo Collective — Payload Admin Logo
+ * Nouvo — Payload Admin Logo
  * Shown in the top-left of the admin sidebar.
  */
 export function AdminLogo() {

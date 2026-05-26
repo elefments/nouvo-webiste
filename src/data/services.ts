@@ -47,7 +47,7 @@ export const serviceCategories: ServiceCategory[] = [
     slug: { el: 'kataskevi-istoselidon', en: 'websites-digital-presence' },
     parentSlug: { el: 'ypiresies', en: 'services' },
     meta: {
-      title: { el: 'Κατασκευή Ιστοσελίδων Επιχείρησης | Nouvo Collective', en: 'Business Website Development | Nouvo Collective' },
+      title: { el: 'Κατασκευή Ιστοσελίδων Επιχείρησης | Nouvo', en: 'Business Website Development | Nouvo' },
       description: { el: 'Κατασκευή ιστοσελίδων επιχείρησης, eshop, landing pages και portfolio sites. Custom αρχιτεκτονική, SEO-ready δομή, χωρίς templates. Δείτε τις λύσεις μας.', en: 'Business website development, eshop, landing pages and portfolio sites. Custom architecture, SEO-ready structure, no templates. Explore our solutions.' },
     },
     intro: {
@@ -129,7 +129,7 @@ export const serviceCategories: ServiceCategory[] = [
     slug: { el: 'anazitisi-oratotita', en: 'search-visibility' },
     parentSlug: { el: 'ypiresies', en: 'services' },
     meta: {
-      title: { el: 'SEO Υπηρεσίες για Επιχειρήσεις | Nouvo Collective', en: 'SEO Services for Businesses | Nouvo Collective' },
+      title: { el: 'SEO Υπηρεσίες για Επιχειρήσεις | Nouvo', en: 'SEO Services for Businesses | Nouvo' },
       description: { el: 'SEO, local SEO, technical SEO, AEO και GEO για επιχειρήσεις. Ορατότητα σε Google και AI από boutique collective με δομημένη προσέγγιση. Μάθετε περισσότερα.', en: 'SEO services for businesses: local SEO, technical SEO, AEO and GEO. Visibility across Google and AI search, built on structure. Learn more.' },
     },
     intro: {
@@ -180,7 +180,7 @@ export const serviceCategories: ServiceCategory[] = [
     slug: { el: 'marketing-psifiaki-anaptyxi', en: 'marketing-digital-growth' },
     parentSlug: { el: 'ypiresies', en: 'services' },
     meta: {
-      title: { el: 'Digital Marketing για Επιχειρήσεις | Nouvo Collective', en: 'Digital Marketing for Businesses | Nouvo Collective' },
+      title: { el: 'Digital Marketing για Επιχειρήσεις | Nouvo', en: 'Digital Marketing for Businesses | Nouvo' },
       description: { el: 'Google Ads, Meta Ads, TikTok Ads, email marketing και content strategy για επιχειρήσεις. Μετρήσιμο ROI, δομημένη στρατηγική. Μάθετε περισσότερα.', en: 'Google Ads, Meta Ads, TikTok Ads, email marketing and content strategy for businesses. Measurable ROI, structured strategy. Learn more.' },
     },
     intro: {
@@ -229,7 +229,7 @@ export const serviceCategories: ServiceCategory[] = [
     slug: { el: 'psifiakos-metasximatismos-ai', en: 'digital-transformation-ai' },
     parentSlug: { el: 'ypiresies', en: 'services' },
     meta: {
-      title: { el: 'Ψηφιακός Μετασχηματισμός & AI | Nouvo Collective', en: 'Digital Transformation & AI | Nouvo Collective' },
+      title: { el: 'Ψηφιακός Μετασχηματισμός & AI | Nouvo', en: 'Digital Transformation & AI | Nouvo' },
       description: { el: 'AI εργαλεία, αυτοματισμός διαδικασιών, ψηφιοποίηση επιχείρησης και AI chatbots. Εγκαθιστούμε μόνο ό,τι έχει πρακτική αξία. Μάθετε περισσότερα.', en: 'AI tools, process automation, business digitization and AI chatbots. We install only what has practical value. Learn more.' },
     },
     intro: {
@@ -278,7 +278,7 @@ export const serviceCategories: ServiceCategory[] = [
     slug: { el: 'it-support-sintirisi', en: 'it-support-maintenance' },
     parentSlug: { el: 'ypiresies', en: 'services' },
     meta: {
-      title: { el: 'IT Support & Συντήρηση Ιστοσελίδων | Nouvo Collective', en: 'IT Support & Website Maintenance | Nouvo Collective' },
+      title: { el: 'IT Support & Συντήρηση Ιστοσελίδων | Nouvo', en: 'IT Support & Website Maintenance | Nouvo' },
       description: { el: 'Συντήρηση ιστοσελίδων, τεχνική υποστήριξη, cloud hosting και domain management. Σταθερότητα για τα ψηφιακά σας συστήματα. Μάθετε περισσότερα.', en: 'Website maintenance, technical support, cloud hosting and domain management. Stability for your digital systems. Learn more.' },
     },
     intro: {

@@ -32,10 +32,10 @@ export async function generateMetadata({
   if (isCategory(slug)) {
     const cat = categoryMap[slug]
     return {
-      title: `${cat[loc]} | Blog | Nouvo Collective`,
+      title: `${cat[loc]} | Blog | Nouvo`,
       description: loc === 'el'
-        ? `Άρθρα στην κατηγορία ${cat.el}. Πρακτικές συμβουλές και insights από τη Nouvo Collective.`
-        : `Articles in the ${cat.en} category. Practical advice and insights from Nouvo Collective.`,
+        ? `Άρθρα στην κατηγορία ${cat.el}. Πρακτικές συμβουλές και insights από τη Nouvo.`
+        : `Articles in the ${cat.en} category. Practical advice and insights from Nouvo.`,
       alternates: {
         canonical: loc === 'en' ? `https://nouvo.agency/en/blog/${slug}` : `https://nouvo.agency/blog/${slug}`,
         languages: {
@@ -62,7 +62,7 @@ export async function generateMetadata({
     : `https://nouvo.agency/blog/${slug}`
 
   return {
-    title: `${post.title} | Nouvo Collective`,
+    title: `${post.title} | Nouvo`,
     description: post.excerpt ?? undefined,
     alternates: {
       canonical,
@@ -72,7 +72,7 @@ export async function generateMetadata({
       },
     },
     openGraph: {
-      title: `${post.title} | Nouvo Collective`,
+      title: `${post.title} | Nouvo`,
       description: post.excerpt ?? undefined,
       ...(post.featuredImage && typeof post.featuredImage === 'object' && post.featuredImage.url
         ? { images: [{ url: post.featuredImage.url }] }

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { useLocale, useTranslations } from 'next-intl'
+import { useLocale } from 'next-intl'
 import { Arrow } from '@/components/ui/Arrow'
 import { LanguageToggle } from '@/components/ui/LanguageToggle'
 
@@ -25,11 +25,13 @@ const serviceLinks = {
 
 const navLinks = {
   el: [
+    { label: 'Σχετικά', href: '/sxetika-me-emas' },
     { label: 'Case Studies', href: '/case-studies' },
     { label: 'Blog', href: '/blog' },
     { label: 'Επικοινωνία', href: '/epikoinonia' },
   ],
   en: [
+    { label: 'About', href: '/en/about' },
     { label: 'Case Studies', href: '/en/case-studies' },
     { label: 'Blog', href: '/en/blog' },
     { label: 'Contact', href: '/en/contact' },
@@ -38,7 +40,6 @@ const navLinks = {
 
 export function Header() {
   const locale = useLocale() as 'el' | 'en'
-  const t = useTranslations()
   const [scrolled, setScrolled] = useState(false)
   const [servicesOpen, setServicesOpen] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -65,7 +66,7 @@ export function Header() {
     >
       <nav className="mx-auto max-w-[1280px] flex items-center justify-between px-6 py-4">
         <Link href={locale === 'el' ? '/' : '/en'} className="font-snaga text-xl font-bold tracking-tight text-nc-text">
-          Nouvo Collective
+          Nouvo
         </Link>
 
         {/* Desktop nav */}
@@ -84,16 +85,16 @@ export function Header() {
             </button>
 
             {servicesOpen && (
-              <div className="absolute top-full left-0 pt-2">
-                <div className="w-[320px] rounded-xl bg-white/90 backdrop-blur-[20px] backdrop-saturate-[180%] border border-nc-border shadow-[0_8px_32px_rgba(0,0,0,0.08)] p-2">
+              <div className="absolute top-full left-0 pt-3">
+                <div className="w-[320px] rounded-2xl bg-white/85 backdrop-blur-[24px] backdrop-saturate-[200%] border border-white/40 shadow-[0_12px_40px_rgba(0,0,0,0.12),0_2px_8px_rgba(0,0,0,0.06)] p-2">
                   {serviceLinks[locale].map((link) => (
                     <Link
                       key={link.href}
                       href={link.href}
-                      className="flex items-center justify-between px-3 py-2.5 rounded-lg text-sm text-nc-text transition-colors duration-200 hover:bg-nc-surface hover:text-nc-accent"
+                      className="group flex items-center justify-between px-3 py-2.5 rounded-xl text-sm text-nc-text transition-colors duration-200 hover:bg-nc-surface hover:text-nc-accent"
                     >
                       <span>{link.label}</span>
-                      <Arrow size={14} className="opacity-0 transition-all duration-200 group-hover:opacity-100" />
+                      <Arrow size={14} className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-nc-accent" />
                     </Link>
                   ))}
                 </div>
@@ -118,7 +119,7 @@ export function Header() {
               className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-nc-text text-white text-sm font-medium tracking-wide transition-all duration-200 hover:bg-nc-accent"
             >
               <span>{ctaLabel}</span>
-              <Arrow size={16} className="transition-transform duration-200 hover:translate-x-0.5 hover:-translate-y-0.5" />
+              <Arrow size={16} />
             </Link>
           </div>
         </div>
