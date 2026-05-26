@@ -1,7 +1,7 @@
 'use client'
 
 import { useLocale } from 'next-intl'
-import { usePathname, useRouter } from 'next/navigation'
+import { usePathname, useRouter } from '@/i18n/navigation'
 
 export function LanguageToggle() {
   const locale = useLocale()
@@ -10,9 +10,7 @@ export function LanguageToggle() {
 
   function switchLocale() {
     const nextLocale = locale === 'el' ? 'en' : 'el'
-    const currentPath = pathname.replace(/^\/(en)/, '') || '/'
-    const newPath = nextLocale === 'el' ? currentPath : `/en${currentPath}`
-    router.push(newPath)
+    router.replace(pathname, { locale: nextLocale })
   }
 
   return (
