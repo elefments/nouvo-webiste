@@ -10,6 +10,7 @@
   --color-nc-muted-light: #AEACAE;
   --color-nc-border: #EDEDED;
 
+  --font-objektiv: var(--font-objektiv), sans-serif;
   --font-snaga: var(--font-snaga), sans-serif;
   --font-sofia: var(--font-sofia), sans-serif;
   --font-marlet: var(--font-marlet), serif;
@@ -27,6 +28,10 @@
     from { transform: translateX(0); }
     to { transform: translateX(-50%); }
   }
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -81,4 +86,79 @@ body::before {
 
 .animate-fade-up {
   animation: fadeUp 0.5s ease-out both;
+}
+
+@keyframes iconPulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+.animate-icon-pulse {
+  animation: iconPulse 2s ease-in-out infinite;
+}
+
+/* Hero floating card animations — each card bobs at a different height */
+@keyframes floatA {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+@keyframes floatB {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-7px); }
+}
+@keyframes floatC {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-13px); }
+}
+
+/* Center dot pulse — accent glow ripple */
+@keyframes centerPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(227,79,57,0.5), 0 0 12px rgba(227,79,57,0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(227,79,57,0), 0 0 24px rgba(227,79,57,0.15);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .float-card { animation: none !important; }
+}
+
+/* ── Service hero visuals ───────────────────────────────── */
+@keyframes serviceFadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes serviceBarGrow {
+  from { transform: scaleY(0.04); }
+  to   { transform: scaleY(1); }
+}
+@keyframes serviceNodePulse {
+  0%, 100% { transform: scale(1);   opacity: 0.55; }
+  50%       { transform: scale(1.5); opacity: 1; }
+}
+@keyframes serviceLineDash {
+  to { stroke-dashoffset: -48; }
+}
+@keyframes serviceBlink {
+  0%, 80%, 100% { opacity: 1; }
+  88%           { opacity: 0.15; }
+}
+@keyframes serviceShieldRing {
+  0%   { transform: scale(1);    opacity: 0.5; }
+  100% { transform: scale(2.2);  opacity: 0; }
+}
+@keyframes serviceScanLine {
+  0%   { transform: translateX(0%);    opacity: 0; }
+  8%   { opacity: 0.7; }
+  92%  { opacity: 0.7; }
+  100% { transform: translateX(100%);  opacity: 0; }
+}
+@keyframes serviceStepRing {
+  0%, 100% { box-shadow: 0 0 0 0   rgba(227,79,57,0.45); }
+  50%       { box-shadow: 0 0 0 8px rgba(227,79,57,0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .svc-anim { animation: none !important; }
 }

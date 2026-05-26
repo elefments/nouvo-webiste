@@ -97,7 +97,7 @@ export default async function CaseStudyPage({
         )}
 
         <h1
-          className="font-snaga font-bold tracking-[-0.02em] text-nc-text"
+          className="font-objektiv font-bold tracking-[-0.02em] text-nc-text"
           style={{ fontSize: 'clamp(32px, 4vw, 52px)' }}
         >
           {study.title}
@@ -148,7 +148,7 @@ export default async function CaseStudyPage({
         )}
 
         <div className="mt-16 pt-10 border-t border-nc-border text-center">
-          <h2 className="font-snaga font-bold text-[28px] tracking-[-0.02em] text-nc-text">
+          <h2 className="font-objektiv font-bold text-[28px] tracking-[-0.02em] text-nc-text">
             {loc === 'en' ? 'Want a similar outcome?' : 'Θέλεις παρόμοιο αποτέλεσμα;'}
           </h2>
           <p className="mt-3 text-[15px] text-nc-muted-dark">

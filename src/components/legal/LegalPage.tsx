@@ -18,7 +18,7 @@ interface LegalPageData {
 function Section({ section }: { section: LegalSection }) {
   return (
     <div className="space-y-4">
-      <h2 className="font-snaga text-2xl tracking-tight text-[#1E1E1E]">{section.heading}</h2>
+      <h2 className="font-objektiv text-2xl tracking-tight text-[#1E1E1E]">{section.heading}</h2>
       {section.subHeading && (
         <p className="text-sm font-medium text-[#575657]">{section.subHeading}</p>
       )}
@@ -34,7 +34,7 @@ function Section({ section }: { section: LegalSection }) {
       )}
       {section.subsections?.map((sub, i) => (
         <div key={i} className="mt-6 space-y-3 pl-0">
-          <h3 className="font-snaga text-xl tracking-tight text-[#1E1E1E]">{sub.heading}</h3>
+          <h3 className="font-objektiv text-xl tracking-tight text-[#1E1E1E]">{sub.heading}</h3>
           {sub.subHeading && (
             <p className="text-sm font-medium text-[#575657]">{sub.subHeading}</p>
           )}
@@ -64,7 +64,7 @@ export function LegalPage({ page, locale }: { page: LegalPageData; locale: 'el' 
           <span className="font-sofia text-sm font-medium uppercase tracking-widest text-[#E34F39]">
             {page.eyebrow[locale]}
           </span>
-          <h1 className="mt-4 font-snaga text-4xl tracking-tight text-[#1E1E1E] md:text-5xl">
+          <h1 className="mt-4 font-objektiv text-4xl tracking-tight text-[#1E1E1E] md:text-5xl">
             {page.title[locale]}
           </h1>
           <p className="mt-3 font-sofia text-sm text-[#AEACAE]">{page.lastUpdated[locale]}</p>
@@ -87,7 +87,7 @@ export function LegalPage({ page, locale }: { page: LegalPageData; locale: 'el' 
             href={locale === 'el' ? '/' : '/en'}
             className="inline-flex items-center gap-2 rounded-[100px] font-sofia text-sm font-medium text-[#575657] transition-colors hover:text-[#E34F39]"
           >
-            &larr; {locale === 'el' ? 'Epistrofi stin arxiki' : 'Back to home'}
+            &larr; {locale === 'el' ? 'Επιστροφη στην αρχικη' : 'Back to home'}
           </Link>
         </div>
       </section>

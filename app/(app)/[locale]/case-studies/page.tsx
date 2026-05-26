@@ -93,7 +93,7 @@ export default async function CaseStudiesPage({
           {t.eyebrow}
         </p>
         <h1
-          className="font-snaga font-bold tracking-[-0.02em] text-nc-text"
+          className="font-objektiv font-bold tracking-[-0.02em] text-nc-text"
           style={{ fontSize: 'clamp(36px, 5vw, 64px)' }}
         >
           {t.h1}
@@ -102,7 +102,7 @@ export default async function CaseStudiesPage({
           {t.subtext}
         </p>
 
-        <h2 className="mt-14 font-snaga font-bold text-[22px] tracking-[-0.02em] text-nc-text">
+        <h2 className="mt-14 font-objektiv font-bold text-[22px] tracking-[-0.02em] text-nc-text">
           {t.filterHeading}
         </h2>
         <div className="mt-4 flex flex-wrap gap-3">
@@ -120,7 +120,7 @@ export default async function CaseStudiesPage({
           ))}
         </div>
 
-        <h2 className="mt-16 font-snaga font-bold text-[28px] tracking-[-0.02em] text-nc-text">
+        <h2 className="mt-16 font-objektiv font-bold text-[28px] tracking-[-0.02em] text-nc-text">
           {t.workHeading}
         </h2>
         <p className="mt-3 text-[15px] text-nc-muted-dark max-w-[700px]">
@@ -182,7 +182,7 @@ export default async function CaseStudiesPage({
 
         <div className="mt-24 text-center">
           <h2
-            className="font-snaga font-bold tracking-[-0.02em] text-nc-text"
+            className="font-objektiv font-bold tracking-[-0.02em] text-nc-text"
             style={{ fontSize: 'clamp(28px, 4vw, 48px)' }}
           >
             {t.bottomHeading}

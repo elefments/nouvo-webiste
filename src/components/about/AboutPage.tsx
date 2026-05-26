@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { aboutPage } from '@/data/about'
+import { IconTarget, IconLightbulb, IconUsers, IconGlobe, IconSearch, IconMegaphone, IconBrain, IconShield, IconCheck, IconLock } from '@/components/ui/Icons'
 
 export function AboutPage({ locale }: { locale: 'el' | 'en' }) {
   const t = aboutPage[locale]
@@ -12,7 +13,7 @@ export function AboutPage({ locale }: { locale: 'el' | 'en' }) {
             {t.eyebrow}
           </span>
           <h1
-            className="mt-4 max-w-[800px] font-snaga font-bold tracking-[-0.02em] text-[#1E1E1E]"
+            className="mt-4 max-w-[800px] font-objektiv font-bold tracking-[-0.02em] text-[#1E1E1E]"
             style={{ fontSize: 'clamp(36px, 5vw, 56px)' }}
           >
             {t.h1}
@@ -32,42 +33,52 @@ export function AboutPage({ locale }: { locale: 'el' | 'en' }) {
         </div>
 
         <div className="animate-fade-up mt-24" style={{ animationDelay: '0.3s' }}>
-          <h2 className="font-snaga text-[32px] font-bold tracking-[-0.02em] text-[#1E1E1E]">
+          <h2 className="font-objektiv text-[32px] font-bold tracking-[-0.02em] text-[#1E1E1E]">
             {t.approachHeading}
           </h2>
           <div className="mt-10 grid grid-cols-1 gap-10 md:grid-cols-3">
-            {t.approach.map((item, i) => (
-              <div key={i}>
-                <h3 className="font-snaga text-lg font-bold text-[#1E1E1E]">{item.title}</h3>
-                <p className="mt-3 font-sofia text-[15px] leading-relaxed text-[#757474]">{item.body}</p>
-              </div>
-            ))}
+            {t.approach.map((item, i) => {
+              const ApproachIcons = [IconTarget, IconLightbulb, IconUsers]
+              const Icon = ApproachIcons[i] ?? IconTarget
+              return (
+                <div key={i}>
+                  <Icon size={28} className="text-[#E34F39] mb-3" />
+                  <h3 className="font-objektiv text-lg font-bold text-[#1E1E1E]">{item.title}</h3>
+                  <p className="mt-3 font-sofia text-[15px] leading-relaxed text-[#757474]">{item.body}</p>
+                </div>
+              )
+            })}
           </div>
         </div>
 
         <div className="animate-fade-up mt-24" style={{ animationDelay: '0.4s' }}>
-          <h2 className="font-snaga text-[32px] font-bold tracking-[-0.02em] text-[#1E1E1E]">
+          <h2 className="font-objektiv text-[32px] font-bold tracking-[-0.02em] text-[#1E1E1E]">
             {t.pillarsHeading}
           </h2>
           <p className="mt-4 max-w-[600px] font-sofia text-[15px] text-[#575657]">{t.pillarsBody}</p>
 
           <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
-            {t.pillars.map((pillar, i) => (
-              <div
-                key={i}
-                className="rounded-[16px] border border-[rgba(0,0,0,0.07)] p-6 transition-colors hover:border-[#E34F39]/30"
-              >
-                <span className="font-snaga text-[13px] font-bold uppercase tracking-wider text-[#E34F39]">
-                  {pillar.label}
-                </span>
-                <p className="mt-2 font-sofia text-[14px] text-[#575657]">{pillar.subtitle}</p>
-              </div>
-            ))}
+            {t.pillars.map((pillar, i) => {
+              const PillarIcons = [IconGlobe, IconSearch, IconMegaphone, IconBrain, IconShield]
+              const Icon = PillarIcons[i] ?? IconGlobe
+              return (
+                <div
+                  key={i}
+                  className="group rounded-[16px] border border-[rgba(0,0,0,0.07)] p-6 transition-colors hover:border-[#E34F39]/30"
+                >
+                  <Icon size={24} className="text-[#E34F39] mb-3 transition-transform duration-300 group-hover:scale-110" />
+                  <span className="font-snaga text-[13px] font-bold uppercase tracking-wider text-[#E34F39]">
+                    {pillar.label}
+                  </span>
+                  <p className="mt-2 font-sofia text-[14px] text-[#575657]">{pillar.subtitle}</p>
+                </div>
+              )
+            })}
           </div>
         </div>
 
         <div className="animate-fade-up mt-24" style={{ animationDelay: '0.5s' }}>
-          <h2 className="font-snaga text-[32px] font-bold tracking-[-0.02em] text-[#1E1E1E]">
+          <h2 className="font-objektiv text-[32px] font-bold tracking-[-0.02em] text-[#1E1E1E]">
             {t.principlesHeading}
           </h2>
 
@@ -77,7 +88,7 @@ export function AboutPage({ locale }: { locale: 'el' | 'en' }) {
               <ul className="mt-4 space-y-3">
                 {t.believe.map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <span className="mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-[#E34F39]" />
+                    <IconCheck size={16} className="mt-1 flex-shrink-0 text-[#E34F39]" />
                     <span className="font-sofia text-[15px] leading-relaxed text-[#575657]">{item}</span>
                   </li>
                 ))}
@@ -88,7 +99,7 @@ export function AboutPage({ locale }: { locale: 'el' | 'en' }) {
               <ul className="mt-4 space-y-3">
                 {t.refuse.map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <span className="mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-[#1E1E1E]" />
+                    <IconLock size={16} className="mt-1 flex-shrink-0 text-[#1E1E1E]" />
                     <span className="font-sofia text-[15px] leading-relaxed text-[#575657]">{item}</span>
                   </li>
                 ))}

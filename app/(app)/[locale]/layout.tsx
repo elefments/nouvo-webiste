@@ -1,8 +1,9 @@
+import '../../globals.css'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
 import { notFound } from 'next/navigation'
 import { routing } from '@/i18n/routing'
-import { snaga, sofia, marlet } from '@/lib/fonts'
+import { objektiv, snaga, sofia, marlet } from '@/lib/fonts'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { OrganizationJsonLd, WebSiteJsonLd } from '@/components/seo/JsonLd'
@@ -22,7 +23,7 @@ export default async function LocaleLayout({
   const messages = await getMessages()
 
   return (
-    <html lang={locale} className={`${snaga.variable} ${sofia.variable} ${marlet.variable}`}>
+    <html lang={locale} className={`${objektiv.variable} ${snaga.variable} ${sofia.variable} ${marlet.variable}`}>
       <body>
         <OrganizationJsonLd />
         <WebSiteJsonLd locale={locale as 'el' | 'en'} />

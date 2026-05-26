@@ -22,6 +22,16 @@ export default buildConfig({
     importMap: {
       baseDir: path.resolve(dirname),
     },
+    components: {
+      graphics: {
+        Logo: 'admin/Logo#AdminLogo',
+        Icon: 'admin/Icon#AdminIcon',
+      },
+    },
+    meta: {
+      titleSuffix: '— Nouvo Admin',
+    },
+    theme: 'light',
   },
   db: sqliteAdapter({
     client: {

@@ -1,0 +1,85 @@
+/**
+ * Nouvo Collective — Payload Admin Custom Theme
+ * Overrides Payload's default CSS variables to match the Nouvo brand.
+ * Loaded via payload.config.ts → admin.css
+ */
+
+/* ── Nouvo brand accent: replace Payload's success green with nc-accent red ── */
+[data-theme='light'],
+[data-theme='dark'],
+:root {
+  --theme-success-50:  #fdf2f0;
+  --theme-success-100: #fbe5e1;
+  --theme-success-150: #f8cbc3;
+  --theme-success-200: #f3a99d;
+  --theme-success-250: #ed8272;
+  --theme-success-300: #e96050;
+  --theme-success-400: #e34f39;
+  --theme-success-500: #c93e28;
+  --theme-success-600: #b0341f;
+  --theme-success-650: #9a2c1a;
+  --theme-success-750: #7a2215;
+  --theme-success-800: #621a10;
+  --theme-success-850: #4d140c;
+  --theme-success-900: #3a0f09;
+  --theme-success-950: #260a05;
+}
+
+/* ── Light theme refinements ───────────────────────────── */
+[data-theme='light'] {
+  --theme-bg:           #ffffff;
+  --theme-bg-color:     #ffffff;
+  --theme-text:         #1e1e1e;
+  --theme-border-color: rgba(0, 0, 0, 0.08);
+
+  /* Elevation scale: 0 = white → 1000 = near-black */
+  --theme-elevation-0:   #ffffff;
+  --theme-elevation-50:  #f7f7f7;
+  --theme-elevation-100: #f2f2f2;
+  --theme-elevation-150: #ebebeb;
+  --theme-elevation-200: #e5e5e5;
+  --theme-elevation-250: #d8d8d8;
+  --theme-elevation-300: #c8c8c8;
+  --theme-elevation-350: #b5b5b5;
+  --theme-elevation-400: #9e9e9e;
+  --theme-elevation-450: #878787;
+  --theme-elevation-500: #707070;
+  --theme-elevation-550: #5a5a5a;
+  --theme-elevation-600: #484848;
+  --theme-elevation-700: #363636;
+  --theme-elevation-750: #2e2e2e;
+  --theme-elevation-800: #242424;
+  --theme-elevation-850: #1e1e1e;
+  --theme-elevation-900: #161616;
+  --theme-elevation-950: #0f0f0f;
+  --theme-elevation-1000:#070707;
+}
+
+/* ── Nav sidebar ───────────────────────────────────────── */
+[data-theme='light'] .nav {
+  border-right: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* ── Buttons: rounded per Nouvo design rules ───────────── */
+.btn {
+  border-radius: 100px !important;
+}
+
+/* ── Cards / sections ──────────────────────────────────── */
+.collection-list__header,
+.dashboard__card-list .card {
+  border-radius: 16px;
+}
+
+/* ── Focused inputs ────────────────────────────────────── */
+.field-type input:focus,
+.field-type textarea:focus {
+  border-color: #e34f39 !important;
+  box-shadow: 0 0 0 3px rgba(227, 79, 57, 0.12) !important;
+}
+
+/* ── Typography ────────────────────────────────────────── */
+:root {
+  --font-body: 'Sofia Pro', system-ui, -apple-system, sans-serif;
+  --font-mono: ui-monospace, 'Cascadia Code', 'Source Code Pro', monospace;
+}

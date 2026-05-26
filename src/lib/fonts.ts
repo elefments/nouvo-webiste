@@ -1,5 +1,20 @@
 import localFont from 'next/font/local'
 
+export const objektiv = localFont({
+  src: [
+    {
+      path: '../../public/fonts/Objektiv_VF_Regular.woff2',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/Objektiv_VF_Italic.woff2',
+      style: 'italic',
+    },
+  ],
+  variable: '--font-objektiv',
+  display: 'swap',
+})
+
 export const snaga = localFont({
   src: [
     {

@@ -123,7 +123,7 @@ async function CategoryArchive({ locale, categorySlug }: { locale: 'el' | 'en'; 
       <div className="mx-auto max-w-[1280px]">
         <p className="text-[11px] font-medium uppercase tracking-[0.12em] text-[#E34F39]">Blog</p>
         <h1
-          className="mt-4 font-snaga font-bold tracking-[-0.02em] text-[#1E1E1E]"
+          className="mt-4 font-objektiv font-bold tracking-[-0.02em] text-[#1E1E1E]"
           style={{ fontSize: 'clamp(36px, 5vw, 56px)' }}
         >
           {cat[locale]}
@@ -226,7 +226,7 @@ async function SinglePost({ locale, slug }: { locale: 'el' | 'en'; slug: string 
         </p>
 
         <h1
-          className="mt-4 font-snaga font-bold tracking-[-0.02em] text-[#1E1E1E]"
+          className="mt-4 font-objektiv font-bold tracking-[-0.02em] text-[#1E1E1E]"
           style={{ fontSize: 'clamp(32px, 4vw, 48px)' }}
         >
           {post.title}

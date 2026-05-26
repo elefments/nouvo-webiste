@@ -1,3 +1,6 @@
+import '@payloadcms/next/css'
+import '@/admin/theme.css'
+
 import type { Metadata } from 'next'
 import type { ServerFunctionClient } from 'payload'
 import config from '@payload-config'

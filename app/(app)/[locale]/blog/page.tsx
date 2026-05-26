@@ -83,7 +83,7 @@ export default async function BlogPage({
           {t.eyebrow}
         </p>
         <h1
-          className="font-snaga font-bold tracking-[-0.02em] text-nc-text"
+          className="font-objektiv font-bold tracking-[-0.02em] text-nc-text"
           style={{ fontSize: 'clamp(36px, 5vw, 64px)' }}
         >
           {t.h1}
@@ -107,7 +107,7 @@ export default async function BlogPage({
           ))}
         </div>
 
-        <h2 className="mt-16 font-snaga font-bold text-[28px] tracking-[-0.02em] text-nc-text">
+        <h2 className="mt-16 font-objektiv font-bold text-[28px] tracking-[-0.02em] text-nc-text">
           {t.recentHeading}
         </h2>
 
@@ -153,7 +153,7 @@ export default async function BlogPage({
         )}
 
         <div className="mt-24 rounded-xl bg-nc-surface p-10 max-w-[600px]">
-          <h2 className="font-snaga font-bold text-[24px] tracking-[-0.02em] text-nc-text">
+          <h2 className="font-objektiv font-bold text-[24px] tracking-[-0.02em] text-nc-text">
             {t.newsletterHeading}
           </h2>
           <p className="mt-3 text-[15px] text-nc-muted-dark">
