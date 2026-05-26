@@ -4,6 +4,7 @@ import { Marquee } from '@/components/layout/Marquee'
 import { Services } from '@/components/sections/Services'
 import { About } from '@/components/sections/About'
 import { CaseStudies } from '@/components/sections/CaseStudies'
+import { Testimonials } from '@/components/sections/Testimonials'
 import dynamic from 'next/dynamic'
 
 const Manifesto = dynamic(() => import('@/components/sections/Manifesto').then((m) => m.Manifesto), {
@@ -58,6 +59,7 @@ export default async function HomePage({
       <Services locale={loc} />
       <About locale={loc} />
       <CaseStudies locale={loc} />
+      <Testimonials locale={loc} />
       <Manifesto locale={loc} />
       <BlogPreview locale={loc} />
       <CTASection locale={loc} />

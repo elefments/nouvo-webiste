@@ -7,6 +7,7 @@ import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import { Pages } from './collections/Pages'
 import { Posts } from './collections/Posts'
 import { CaseStudies } from './collections/CaseStudies'
+import { Testimonials } from './collections/Testimonials'
 import { Media } from './collections/Media'
 import { Users } from './collections/Users'
 import { Header } from './globals/Header'
@@ -39,7 +40,7 @@ export default buildConfig({
     },
   }),
   editor: lexicalEditor(),
-  collections: [Pages, Posts, CaseStudies, Media, Users],
+  collections: [Pages, Posts, CaseStudies, Testimonials, Media, Users],
   globals: [Header, Footer, SiteSettings],
   secret: process.env.PAYLOAD_SECRET || 'dev-secret-change-me',
   typescript: {
