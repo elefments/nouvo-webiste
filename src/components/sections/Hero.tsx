@@ -39,7 +39,7 @@ export function Hero({ locale }: { locale: 'el' | 'en' }) {
 
   return (
     <section
-      className="relative min-h-screen flex flex-col justify-center px-6 overflow-hidden"
+      className="relative min-h-screen flex flex-col justify-center px-6 overflow-x-hidden"
       style={{
         background: 'radial-gradient(ellipse 55% 80% at 80% 50%, rgba(227,79,57,0.035) 0%, transparent 70%)',
       }}
@@ -61,8 +61,8 @@ export function Hero({ locale }: { locale: 'el' | 'en' }) {
 
           {/* H1 — word-by-word reveal */}
           <h1
-            className="font-objektiv font-[800] tracking-[-0.03em] text-nc-text"
-            style={{ fontSize: 'clamp(52px, 6.5vw, 96px)', lineHeight: 1.05 }}
+            className="font-objektiv font-[800] tracking-[-0.03em] text-nc-text pb-2"
+            style={{ fontSize: 'clamp(40px, 8vw, 96px)', lineHeight: 1.1 }}
             aria-label="Beyond Digital. Pure Strategy."
           >
             {H1_LINES.map((line, li) => (
@@ -82,8 +82,8 @@ export function Hero({ locale }: { locale: 'el' | 'en' }) {
                     className="inline-block"
                     style={{ marginRight: '0.22em' }}
                     variants={{
-                      hidden:  { opacity: 0, y: 24, clipPath: 'inset(0 0 100% 0)' },
-                      visible: { opacity: 1, y: 0,  clipPath: 'inset(0 0 0% 0)' },
+                      hidden:  { opacity: 0, y: 28 },
+                      visible: { opacity: 1, y: 0  },
                     }}
                     transition={{ duration: 0.55, ease: EASE }}
                   >

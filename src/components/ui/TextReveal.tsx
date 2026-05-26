@@ -12,8 +12,8 @@ import React from 'react'
 import { motion } from 'framer-motion'
 
 const WORD_VARIANTS = {
-  hidden:  { opacity: 0, y: 18, clipPath: 'inset(0 0 100% 0)' },
-  visible: { opacity: 1, y: 0,  clipPath: 'inset(0 0 0% 0)' },
+  hidden:  { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0  },
 }
 
 const EASE = [0.22, 1, 0.36, 1] as const
@@ -66,7 +66,7 @@ export function TextReveal({
         <motion.span
           key={i}
           className="inline-block"
-          style={{ marginRight: '0.28em', willChange: 'transform, opacity' }}
+          style={{ marginRight: '0.28em' }}
           variants={WORD_VARIANTS}
           transition={{ duration: wordDuration, ease: EASE }}
         >
