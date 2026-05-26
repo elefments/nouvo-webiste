@@ -31,6 +31,9 @@ const config: Config = {
         'xl': '20px',
         'full': '100px',
       },
+      transitionDuration: {
+        '250': '250ms',
+      },
       animation: {
         marquee: 'marquee 20s linear infinite',
       },

@@ -110,21 +110,29 @@ export function Services({ locale }: { locale: 'el' | 'en' }) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-40px' }}
                 transition={{ duration: 0.6, delay: i * 0.08, ease: EASE }}
-                className="relative bg-white rounded-[20px] px-6 py-5 transition-all duration-300 group-hover:bg-nc-accent"
+                className="relative bg-white rounded-[20px] px-6 py-5 overflow-hidden"
                 style={{ boxShadow: SHADOWS[i] }}
               >
-                {/* Top accent bar — reveals on hover */}
-                <div className="absolute top-0 left-8 right-8 h-[2px] rounded-full bg-nc-text/10 group-hover:bg-white/30 transition-colors duration-300" />
+                {/*
+                  Hover overlay — compositor-only opacity transition on a
+                  GPU-promoted layer. No background-color change on the card
+                  itself (which would force a full repaint).
+                */}
+                <div
+                  className="absolute inset-0 rounded-[20px] bg-nc-accent opacity-0 group-hover:opacity-100 transition-opacity duration-250"
+                  aria-hidden="true"
+                  style={{ willChange: 'opacity' }}
+                />
 
-                <div className="flex items-center gap-5">
+                <div className="relative flex items-center gap-5">
                   {/* Icon + Number */}
                   <div className="flex items-center gap-2.5 shrink-0 w-16">
                     <ServiceIcon
                       index={i}
                       size={22}
-                      className="text-nc-accent group-hover:text-white/80 transition-colors duration-300"
+                      className="text-nc-accent group-hover:text-white/80 transition-colors duration-250"
                     />
-                    <span className="font-mono text-[13px] text-nc-muted-light group-hover:text-white/50 transition-colors duration-300">
+                    <span className="font-mono text-[13px] text-nc-muted-light group-hover:text-white/50 transition-colors duration-250">
                       {service.num}
                     </span>
                   </div>
@@ -132,14 +140,22 @@ export function Services({ locale }: { locale: 'el' | 'en' }) {
                   {/* Title + Description */}
                   <div className="flex-1 min-w-0">
                     <div className="flex items-baseline gap-3">
-                      <span className="text-[22px] font-semibold text-nc-text tracking-tight group-hover:text-white transition-colors duration-300">
+                      <span className="text-[22px] font-semibold text-nc-text tracking-tight group-hover:text-white transition-colors duration-250">
                         {service.title}
                       </span>
-                      <span className="hidden md:inline-block shrink-0 px-2 py-0.5 rounded-full text-[10px] font-medium tracking-widest uppercase bg-nc-surface text-nc-muted-mid group-hover:bg-white/20 group-hover:text-white/70 transition-all duration-300">
+                      <span className="hidden md:inline-block shrink-0 px-2 py-0.5 rounded-full text-[10px] font-medium tracking-widest uppercase bg-nc-surface text-nc-muted-mid group-hover:bg-white/20 group-hover:text-white/70 transition-colors duration-250">
                         {service.tag}
                       </span>
                     </div>
-                    <span className="block text-[14px] text-nc-muted-dark leading-relaxed mt-1 max-h-0 overflow-hidden group-hover:text-white/75 group-hover:max-h-[48px] transition-all duration-300 ease-out">
+                    {/*
+                      Description: opacity + translateY instead of max-height.
+                      max-height triggers layout recalculation; opacity+transform
+                      stay on the compositor thread.
+                    */}
+                    <span
+                      className="block text-[14px] text-nc-muted-dark leading-relaxed mt-1 opacity-0 -translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 group-hover:text-white/75 transition-[opacity,transform,color] duration-250 ease-out"
+                      style={{ willChange: 'opacity, transform' }}
+                    >
                       {service.desc}
                     </span>
                   </div>
@@ -147,7 +163,7 @@ export function Services({ locale }: { locale: 'el' | 'en' }) {
                   {/* Arrow */}
                   <Arrow
                     size={20}
-                    className="shrink-0 text-nc-muted-light group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300"
+                    className="shrink-0 text-nc-muted-light group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-[color,transform] duration-250"
                   />
                 </div>
               </motion.div>
