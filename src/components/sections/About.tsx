@@ -16,8 +16,8 @@ const copy = {
       { value: '5 επίπεδα', label: 'Ολοκληρωμένες υπηρεσίες' },
       { value: '100% custom', label: 'Χωρίς templates, χωρίς συμβιβασμούς' },
     ],
-    cta: 'Μάθετε Περισσότερα',
-    ctaHref: '/epikoinonia',
+    cta: 'Σχετικά με εμάς',
+    ctaHref: '/sxetika-me-emas',
   },
   en: {
     eyebrow: 'Who We Are',
@@ -29,8 +29,8 @@ const copy = {
       { value: '5 pillars', label: 'Integrated services' },
       { value: '100% custom', label: 'No templates, no compromises' },
     ],
-    cta: 'Learn More',
-    ctaHref: '/en/contact',
+    cta: 'About Nouvo',
+    ctaHref: '/en/about',
   },
 }
 

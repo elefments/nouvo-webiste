@@ -11,7 +11,8 @@ const items = [
 
 export function Marquee() {
   return (
-    <div className="overflow-hidden bg-nc-accent py-3">
+    /* aria-hidden: decorative strip. bg #C23D2D: white contrast 5.25:1, passes WCAG AA */
+    <div className="overflow-hidden py-3" style={{ background: '#C23D2D' }} aria-hidden="true">
       <div className="flex gap-8 whitespace-nowrap animate-marquee">
         {[...items, ...items].map((item, i) => (
           <span

@@ -21,7 +21,8 @@ export function Manifesto({ locale }: { locale: 'el' | 'en' }) {
     target: ref,
     offset: ['start 0.8', 'end 0.2'],
   })
-  const color = useTransform(scrollYProgress, [0, 1], ['#AEACAE', '#1E1E1E'])
+  // Start color must pass WCAG AA contrast on white (4.5:1). #757474 = 4.66:1 ✓
+  const color = useTransform(scrollYProgress, [0, 1], ['#757474', '#1E1E1E'])
 
   return (
     <section ref={ref} className="px-6 py-32">
