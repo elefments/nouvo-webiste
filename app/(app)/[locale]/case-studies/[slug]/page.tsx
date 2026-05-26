@@ -1,8 +1,11 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { getPayloadClient } from '@/lib/payload'
 import { Arrow } from '@/components/ui/Arrow'
+
+export const revalidate = 3600
 
 export async function generateMetadata({
   params,
@@ -111,11 +114,14 @@ export default async function CaseStudyPage({
         )}
 
         {study.featuredImage && typeof study.featuredImage === 'object' && study.featuredImage.url && (
-          <div className="mt-8 aspect-[16/9] rounded-xl overflow-hidden">
-            <img
+          <div className="relative mt-8 aspect-[16/9] rounded-xl overflow-hidden">
+            <Image
               src={study.featuredImage.url}
               alt={study.featuredImage.alt ?? ''}
-              className="h-full w-full object-cover"
+              fill
+              priority
+              sizes="(max-width: 720px) 100vw, 720px"
+              className="object-cover"
             />
           </div>
         )}

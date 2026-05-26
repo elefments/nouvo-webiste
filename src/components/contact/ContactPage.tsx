@@ -1,15 +1,14 @@
-'use client'
-
-import { motion } from 'framer-motion'
 import { contactPage } from '@/data/contact'
+import { FAQJsonLd } from '@/components/seo/JsonLd'
 
 export function ContactPage({ locale }: { locale: 'el' | 'en' }) {
   const t = contactPage[locale]
 
   return (
     <main className="bg-white">
+      <FAQJsonLd items={t.briefItems.map((item) => ({ question: item.q, answer: item.a }))} />
       <section className="mx-auto max-w-[1280px] px-6 pb-24 pt-40">
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
+        <div className="animate-fade-up">
           <span className="text-[11px] font-medium uppercase tracking-[0.12em] text-[#E34F39]">
             {t.eyebrow}
           </span>
@@ -20,14 +19,9 @@ export function ContactPage({ locale }: { locale: 'el' | 'en' }) {
             {t.h1}
           </h1>
           <p className="mt-4 max-w-[600px] font-sofia text-[15px] text-[#575657]">{t.subtext}</p>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="mt-16"
-        >
+        <div className="animate-fade-up mt-16" style={{ animationDelay: '0.1s' }}>
           <h2 className="font-snaga text-[28px] font-bold tracking-[-0.02em] text-[#1E1E1E]">
             {t.processHeading}
           </h2>
@@ -37,26 +31,20 @@ export function ContactPage({ locale }: { locale: 'el' | 'en' }) {
 
           <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {t.steps.map((step, i) => (
-              <motion.div
+              <div
                 key={step.number}
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: 0.2 + i * 0.08 }}
+                className="animate-fade-up"
+                style={{ animationDelay: `${0.2 + i * 0.08}s` }}
               >
                 <span className="font-snaga text-[32px] font-bold text-[#E34F39]">{step.number}</span>
                 <h3 className="mt-2 font-snaga text-lg font-bold text-[#1E1E1E]">{step.title}</h3>
                 <p className="mt-2 font-sofia text-[14px] leading-relaxed text-[#757474]">{step.body}</p>
-              </motion.div>
+              </div>
             ))}
           </div>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="mt-20"
-        >
+        <div className="animate-fade-up mt-20" style={{ animationDelay: '0.3s' }}>
           <form className="mx-auto max-w-[640px] space-y-5">
             <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
               <div>
@@ -124,13 +112,11 @@ export function ContactPage({ locale }: { locale: 'el' | 'en' }) {
               <span className="font-sofia text-[13px] text-[#AEACAE]">{t.form.note}</span>
             </div>
           </form>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="mt-24 border-t border-[rgba(0,0,0,0.07)] pt-16"
+        <div
+          className="animate-fade-up mt-24 border-t border-[rgba(0,0,0,0.07)] pt-16"
+          style={{ animationDelay: '0.4s' }}
         >
           <h2 className="font-snaga text-[28px] font-bold tracking-[-0.02em] text-[#1E1E1E]">
             {t.briefHeading}
@@ -143,7 +129,7 @@ export function ContactPage({ locale }: { locale: 'el' | 'en' }) {
               </div>
             ))}
           </div>
-        </motion.div>
+        </div>
       </section>
     </main>
   )

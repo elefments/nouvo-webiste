@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import { AboutPage } from '@/components/about/AboutPage'
 import { aboutPage } from '@/data/about'
 
+export const dynamic = 'force-static'
+
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
   const loc = locale as 'el' | 'en'

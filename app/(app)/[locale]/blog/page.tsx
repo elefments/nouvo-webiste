@@ -1,7 +1,10 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { getPayloadClient } from '@/lib/payload'
 import { Arrow } from '@/components/ui/Arrow'
+
+export const revalidate = 3600
 
 const copy = {
   el: {
@@ -115,12 +118,14 @@ export default async function BlogPage({
               const category = post.categories?.[0]
               return (
                 <Link key={post.id} href={href} className="group">
-                  <div className="aspect-[16/10] rounded-xl bg-nc-surface mb-4 overflow-hidden">
-                    {post.featuredImage && typeof post.featuredImage === 'object' && (
-                      <img
-                        src={post.featuredImage.url ?? ''}
+                  <div className="relative aspect-[16/10] rounded-xl bg-nc-surface mb-4 overflow-hidden">
+                    {post.featuredImage && typeof post.featuredImage === 'object' && post.featuredImage.url && (
+                      <Image
+                        src={post.featuredImage.url}
                         alt={post.featuredImage.alt ?? ''}
-                        className="h-full w-full object-cover"
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        className="object-cover"
                       />
                     )}
                   </div>

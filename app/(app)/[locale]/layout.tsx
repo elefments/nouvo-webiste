@@ -5,6 +5,7 @@ import { routing } from '@/i18n/routing'
 import { snaga, sofia, marlet } from '@/lib/fonts'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
+import { OrganizationJsonLd, WebSiteJsonLd } from '@/components/seo/JsonLd'
 
 export default async function LocaleLayout({
   children,
@@ -23,6 +24,8 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} className={`${snaga.variable} ${sofia.variable} ${marlet.variable}`}>
       <body>
+        <OrganizationJsonLd />
+        <WebSiteJsonLd locale={locale as 'el' | 'en'} />
         <NextIntlClientProvider messages={messages}>
           <Header />
           <main className="pt-[72px]">{children}</main>

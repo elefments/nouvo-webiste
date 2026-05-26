@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import { ServicesOverviewPage } from '@/components/services/ServicesOverviewPage'
 import { servicesOverview } from '@/data/services-overview'
 
+export const dynamic = 'force-static'
+
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
   const loc = locale as 'el' | 'en'

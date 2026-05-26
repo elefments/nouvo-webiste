@@ -1,6 +1,3 @@
-'use client'
-
-import { motion } from 'framer-motion'
 import Link from 'next/link'
 
 interface LegalSection {
@@ -63,7 +60,7 @@ export function LegalPage({ page, locale }: { page: LegalPageData; locale: 'el' 
   return (
     <main className="bg-white">
       <section className="mx-auto max-w-3xl px-6 pb-24 pt-40">
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
+        <div className="animate-fade-up">
           <span className="font-sofia text-sm font-medium uppercase tracking-widest text-[#E34F39]">
             {page.eyebrow[locale]}
           </span>
@@ -71,18 +68,17 @@ export function LegalPage({ page, locale }: { page: LegalPageData; locale: 'el' 
             {page.title[locale]}
           </h1>
           <p className="mt-3 font-sofia text-sm text-[#AEACAE]">{page.lastUpdated[locale]}</p>
-        </motion.div>
+        </div>
 
         <div className="mt-12 space-y-10">
           {sections.map((section, i) => (
-            <motion.div
+            <div
               key={i}
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.1 + i * 0.05 }}
+              className="animate-fade-up"
+              style={{ animationDelay: `${0.1 + i * 0.05}s` }}
             >
               <Section section={section} />
-            </motion.div>
+            </div>
           ))}
         </div>
 

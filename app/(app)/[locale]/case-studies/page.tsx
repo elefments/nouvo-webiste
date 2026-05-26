@@ -1,7 +1,10 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { getPayloadClient } from '@/lib/payload'
 import { Arrow } from '@/components/ui/Arrow'
+
+export const revalidate = 3600
 
 const copy = {
   el: {
@@ -132,10 +135,12 @@ export default async function CaseStudiesPage({
                 <Link key={study.id} href={href} className="group">
                   <div className="relative aspect-[4/3] rounded-xl bg-nc-surface overflow-hidden mb-4">
                     {study.featuredImage && typeof study.featuredImage === 'object' && study.featuredImage.url ? (
-                      <img
+                      <Image
                         src={study.featuredImage.url}
                         alt={study.featuredImage.alt ?? ''}
-                        className="h-full w-full object-cover"
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        className="object-cover"
                       />
                     ) : (
                       <div className="absolute inset-0 bg-nc-text/5 group-hover:bg-nc-text/10 transition-colors duration-200" />

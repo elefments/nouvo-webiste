@@ -4,7 +4,11 @@ import { Marquee } from '@/components/layout/Marquee'
 import { Services } from '@/components/sections/Services'
 import { About } from '@/components/sections/About'
 import { CaseStudies } from '@/components/sections/CaseStudies'
-import { Manifesto } from '@/components/sections/Manifesto'
+import dynamic from 'next/dynamic'
+
+const Manifesto = dynamic(() => import('@/components/sections/Manifesto').then((m) => m.Manifesto), {
+  loading: () => <div className="py-32" />,
+})
 import { BlogPreview } from '@/components/sections/BlogPreview'
 import { CTASection } from '@/components/sections/CTASection'
 

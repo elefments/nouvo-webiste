@@ -3,6 +3,8 @@ import { notFound } from 'next/navigation'
 import { LegalPage } from '@/components/legal/LegalPage'
 import { findLegalPageBySlug } from '@/data/legal'
 
+export const dynamic = 'force-static'
+
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
   const loc = locale as 'el' | 'en'

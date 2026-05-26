@@ -1,6 +1,3 @@
-'use client'
-
-import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { aboutPage } from '@/data/about'
 
@@ -10,7 +7,7 @@ export function AboutPage({ locale }: { locale: 'el' | 'en' }) {
   return (
     <main className="bg-white">
       <section className="mx-auto max-w-[1280px] px-6 pb-24 pt-40">
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
+        <div className="animate-fade-up">
           <span className="text-[11px] font-medium uppercase tracking-[0.12em] text-[#E34F39]">
             {t.eyebrow}
           </span>
@@ -20,28 +17,21 @@ export function AboutPage({ locale }: { locale: 'el' | 'en' }) {
           >
             {t.h1}
           </h1>
-        </motion.div>
+        </div>
 
         <div className="mt-10 max-w-[750px] space-y-6">
           {t.paragraphs.map((p, i) => (
-            <motion.p
+            <p
               key={i}
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.1 + i * 0.08 }}
-              className="font-sofia text-[16px] leading-[1.75] text-[#575657]"
+              className="animate-fade-up font-sofia text-[16px] leading-[1.75] text-[#575657]"
+              style={{ animationDelay: `${0.1 + i * 0.08}s` }}
             >
               {p}
-            </motion.p>
+            </p>
           ))}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="mt-24"
-        >
+        <div className="animate-fade-up mt-24" style={{ animationDelay: '0.3s' }}>
           <h2 className="font-snaga text-[32px] font-bold tracking-[-0.02em] text-[#1E1E1E]">
             {t.approachHeading}
           </h2>
@@ -53,14 +43,9 @@ export function AboutPage({ locale }: { locale: 'el' | 'en' }) {
               </div>
             ))}
           </div>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="mt-24"
-        >
+        <div className="animate-fade-up mt-24" style={{ animationDelay: '0.4s' }}>
           <h2 className="font-snaga text-[32px] font-bold tracking-[-0.02em] text-[#1E1E1E]">
             {t.pillarsHeading}
           </h2>
@@ -79,14 +64,9 @@ export function AboutPage({ locale }: { locale: 'el' | 'en' }) {
               </div>
             ))}
           </div>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-          className="mt-24"
-        >
+        <div className="animate-fade-up mt-24" style={{ animationDelay: '0.5s' }}>
           <h2 className="font-snaga text-[32px] font-bold tracking-[-0.02em] text-[#1E1E1E]">
             {t.principlesHeading}
           </h2>
@@ -115,14 +95,9 @@ export function AboutPage({ locale }: { locale: 'el' | 'en' }) {
               </ul>
             </div>
           </div>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-          className="mt-20 flex flex-wrap gap-4"
-        >
+        <div className="animate-fade-up mt-20 flex flex-wrap gap-4" style={{ animationDelay: '0.6s' }}>
           <Link
             href={locale === 'el' ? '/ypiresies' : '/en/services'}
             className="rounded-[100px] bg-[#E34F39] px-8 py-3.5 font-sofia text-[14px] font-medium tracking-wide text-white transition-colors hover:bg-[#c93e28]"
@@ -135,7 +110,7 @@ export function AboutPage({ locale }: { locale: 'el' | 'en' }) {
           >
             {t.ctaGhost}
           </Link>
-        </motion.div>
+        </div>
       </section>
     </main>
   )

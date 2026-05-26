@@ -1,8 +1,11 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { getPayloadClient } from '@/lib/payload'
 import { Arrow } from '@/components/ui/Arrow'
+
+export const revalidate = 3600
 
 const categoryMap: Record<string, { el: string; en: string }> = {
   'websites-eshop': { el: 'Ιστοσελίδες & Eshop', en: 'Websites & Eshop' },
@@ -155,12 +158,14 @@ async function CategoryArchive({ locale, categorySlug }: { locale: 'el' | 'en'; 
               const postCat = post.categories?.[0]
               return (
                 <Link key={post.id} href={href} className="group">
-                  <div className="aspect-[16/10] overflow-hidden rounded-xl bg-[#F7F7F7] mb-4">
-                    {post.featuredImage && typeof post.featuredImage === 'object' && (
-                      <img
-                        src={post.featuredImage.url ?? ''}
+                  <div className="relative aspect-[16/10] overflow-hidden rounded-xl bg-[#F7F7F7] mb-4">
+                    {post.featuredImage && typeof post.featuredImage === 'object' && post.featuredImage.url && (
+                      <Image
+                        src={post.featuredImage.url}
                         alt={post.featuredImage.alt ?? ''}
-                        className="h-full w-full object-cover"
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        className="object-cover"
                       />
                     )}
                   </div>
@@ -232,11 +237,14 @@ async function SinglePost({ locale, slug }: { locale: 'el' | 'en'; slug: string 
         )}
 
         {post.featuredImage && typeof post.featuredImage === 'object' && post.featuredImage.url && (
-          <div className="mt-8 aspect-[16/9] overflow-hidden rounded-xl">
-            <img
+          <div className="relative mt-8 aspect-[16/9] overflow-hidden rounded-xl">
+            <Image
               src={post.featuredImage.url}
               alt={post.featuredImage.alt ?? ''}
-              className="h-full w-full object-cover"
+              fill
+              priority
+              sizes="(max-width: 720px) 100vw, 720px"
+              className="object-cover"
             />
           </div>
         )}
