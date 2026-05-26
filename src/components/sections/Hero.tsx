@@ -39,12 +39,12 @@ export function Hero({ locale }: { locale: 'el' | 'en' }) {
 
   return (
     <section
-      className="relative min-h-screen flex flex-col justify-center px-6 overflow-x-hidden"
+      className="relative flex flex-col justify-center px-6 overflow-x-hidden pt-28 pb-16 lg:pt-32 lg:pb-20"
       style={{
         background: 'radial-gradient(ellipse 55% 80% at 80% 50%, rgba(227,79,57,0.035) 0%, transparent 70%)',
       }}
     >
-      <div className="mx-auto max-w-[1280px] w-full grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-8 items-center py-24 lg:py-0">
+      <div className="mx-auto max-w-[1280px] w-full grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-8 items-center">
 
         {/* ── Left: text ──────────────────────────────────────── */}
         <div>
