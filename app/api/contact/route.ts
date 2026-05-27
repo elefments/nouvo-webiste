@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getPayloadClient } from '@/lib/payload'
+import { sendSubmissionNotification } from '@/lib/resend'
 
 export async function POST(req: NextRequest) {
   try {
@@ -28,6 +29,18 @@ export async function POST(req: NextRequest) {
         status: 'new',
       },
     })
+
+    // Send email notification (non-blocking — don't fail the request if email fails)
+    sendSubmissionNotification({
+      source: source ?? 'contact_form',
+      name: name.trim(),
+      email: email.trim(),
+      phone: phone?.trim(),
+      company: company?.trim(),
+      service: service?.trim(),
+      message: message?.trim(),
+      locale: locale ?? 'el',
+    }).catch((err) => console.error('[resend]', err))
 
     return NextResponse.json({ ok: true })
   } catch (err) {
