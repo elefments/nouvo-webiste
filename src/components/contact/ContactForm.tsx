@@ -27,6 +27,8 @@ export function ContactForm({ locale, labels: t }: ContactFormProps) {
   const [message, setMessage] = useState('')
   const [errors, setErrors]   = useState<{ name?: boolean; email?: boolean }>({})
   const [submitted, setSubmitted] = useState(false)
+  const [loading, setLoading]     = useState(false)
+  const [serverError, setServerError] = useState(false)
 
   function validate() {
     const e: { name?: boolean; email?: boolean } = {}
@@ -36,19 +38,31 @@ export function ContactForm({ locale, labels: t }: ContactFormProps) {
     return Object.keys(e).length === 0
   }
 
-  function handleSubmit(ev: React.FormEvent) {
+  async function handleSubmit(ev: React.FormEvent) {
     ev.preventDefault()
     if (!validate()) return
 
-    // Push lead event to GTM dataLayer
-    dl.generateLead({
-      source: 'contact_form',
-      service: service || undefined,
-      locale,
-    })
+    setLoading(true)
+    setServerError(false)
 
-    // TODO: wire to API route or Formspree/Resend when backend is ready
-    setSubmitted(true)
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, company, service, message, locale, source: 'contact_form' }),
+      })
+
+      if (!res.ok) throw new Error('Server error')
+
+      // Push lead event to GTM dataLayer
+      dl.generateLead({ source: 'contact_form', service: service || undefined, locale })
+
+      setSubmitted(true)
+    } catch {
+      setServerError(true)
+    } finally {
+      setLoading(false)
+    }
   }
 
   const inputClass = 'w-full rounded-[100px] border border-[rgba(0,0,0,0.07)] px-5 py-3 font-sofia text-[14px] outline-none transition-colors focus:border-[#E34F39]'
@@ -144,12 +158,21 @@ export function ContactForm({ locale, labels: t }: ContactFormProps) {
         />
       </div>
 
+      {serverError && (
+        <p className="pl-2 font-sofia text-[13px] text-[#E34F39]">
+          {locale === 'el' ? 'Κάτι πήγε στραβά. Δοκιμάστε ξανά.' : 'Something went wrong. Please try again.'}
+        </p>
+      )}
+
       <div className="flex items-center gap-4">
         <button
           type="submit"
-          className="rounded-[100px] bg-[#E34F39] px-8 py-3.5 font-sofia text-[14px] font-medium tracking-wide text-white transition-colors hover:bg-[#c93e28]"
+          disabled={loading}
+          className="rounded-[100px] bg-[#E34F39] px-8 py-3.5 font-sofia text-[14px] font-medium tracking-wide text-white transition-colors hover:bg-[#c93e28] disabled:opacity-60 disabled:cursor-not-allowed"
         >
-          {t.submit}
+          {loading
+            ? (locale === 'el' ? 'Αποστολή...' : 'Sending...')
+            : t.submit}
         </button>
         <span className="font-sofia text-[13px] text-[#AEACAE]">{t.note}</span>
       </div>

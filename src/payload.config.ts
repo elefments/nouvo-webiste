@@ -11,6 +11,7 @@ import { CaseStudies } from './collections/CaseStudies'
 import { Testimonials } from './collections/Testimonials'
 import { Media } from './collections/Media'
 import { Users } from './collections/Users'
+import { FormSubmissions } from './collections/FormSubmissions'
 import { Header } from './globals/Header'
 import { Footer } from './globals/Footer'
 import { SiteSettings } from './globals/SiteSettings'
@@ -53,7 +54,7 @@ export default buildConfig({
   },
   db,
   editor: lexicalEditor(),
-  collections: [Pages, Posts, CaseStudies, Testimonials, Media, Users],
+  collections: [Pages, Posts, CaseStudies, Testimonials, Media, Users, FormSubmissions],
   globals: [Header, Footer, SiteSettings],
   secret: process.env.PAYLOAD_SECRET || 'dev-secret-change-me',
   typescript: {
