@@ -75,7 +75,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     for (const post of posts.docs) {
       if (!post.slug) continue
-      const updatedAt = post.updatedAt ? new Date(post.updatedAt) : new Date()
+      const updatedAt = post.updatedAt ? new Date(post.updatedAt as string) : new Date()
       pages.push(entry(`/blog/${post.slug}`, `/en/blog/${post.slug}`, {
         changeFrequency: 'monthly',
         priority: 0.6,
@@ -94,7 +94,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     for (const cs of caseStudies.docs) {
       if (!cs.slug) continue
-      const updatedAt = cs.updatedAt ? new Date(cs.updatedAt) : new Date()
+      const updatedAt = cs.updatedAt ? new Date(cs.updatedAt as string) : new Date()
       pages.push(entry(`/case-studies/${cs.slug}`, `/en/case-studies/${cs.slug}`, {
         changeFrequency: 'monthly',
         priority: 0.7,
