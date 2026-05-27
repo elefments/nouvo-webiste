@@ -148,7 +148,7 @@ export default async function CaseStudiesPage({
                   </div>
                   {study.services && study.services.length > 0 && (
                     <div className="flex flex-wrap gap-2 mb-2">
-                      {study.services.map((s) => (
+                      {study.services.map((s: { service?: string } | string) => (
                         <span
                           key={typeof s === 'object' ? s.service : s}
                           className="px-3 py-1 rounded-full text-[11px] font-medium tracking-wide bg-nc-surface text-nc-text"

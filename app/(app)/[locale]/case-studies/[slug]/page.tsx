@@ -128,7 +128,7 @@ export default async function CaseStudyPage({
 
         {study.results && study.results.length > 0 && (
           <div className="mt-10 grid grid-cols-2 md:grid-cols-3 gap-6">
-            {study.results.map((r, i) => (
+            {study.results.map((r: { value?: string; metric?: string } | string, i) => (
               <div key={i} className="p-5 rounded-xl bg-nc-surface">
                 <p className="text-[28px] font-bold text-nc-accent">
                   {typeof r === 'object' ? r.value : ''}
