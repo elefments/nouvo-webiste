@@ -1,3 +1,9 @@
+# robots.txt — nouvo.agency
+# Updated: May 2026
+# Policy: open to all legitimate crawlers — search, AI, and social
+
+# ─── Block only internal / infra paths ────────────────────────────────────────
+
 User-agent: *
 Allow: /
 Disallow: /admin
@@ -5,3 +11,129 @@ Disallow: /api/
 Disallow: /_next/
 
 Sitemap: https://nouvo.agency/sitemap.xml
+
+# ─── AI search & LLM crawlers (explicit Allow for clarity) ───────────────────
+
+# OpenAI — ChatGPT browsing + GPT training
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+# Anthropic — Claude.ai + API training
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# Google — Gemini, AI Overviews, Search Generative Experience
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+# Microsoft — Bing, Copilot
+User-agent: Bingbot
+Allow: /
+
+User-agent: msnbot
+Allow: /
+
+# Perplexity AI
+User-agent: PerplexityBot
+Allow: /
+
+# You.com
+User-agent: YouBot
+Allow: /
+
+# Cohere
+User-agent: cohere-ai
+Allow: /
+
+# Apple — Siri, Spotlight, Safari Reader
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Meta — Meta AI
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: Meta-ExternalFetcher
+Allow: /
+
+# Brave Search
+User-agent: Brave
+Allow: /
+
+# DuckDuckGo
+User-agent: DuckDuckBot
+Allow: /
+
+# Diffbot — knowledge graph
+User-agent: Diffbot
+Allow: /
+
+# Common Crawl — open web index used by many AI models
+User-agent: CCBot
+Allow: /
+
+# ─── Social media crawlers ────────────────────────────────────────────────────
+
+# X / Twitter — link previews
+User-agent: Twitterbot
+Allow: /
+
+# Facebook / Instagram / Threads — Open Graph previews
+User-agent: facebookexternalhit
+Allow: /
+
+# LinkedIn — link previews
+User-agent: LinkedInBot
+Allow: /
+
+# Pinterest
+User-agent: Pinterest
+Allow: /
+
+User-agent: Pinterestbot
+Allow: /
+
+# Slack — link unfurling
+User-agent: Slackbot
+Allow: /
+
+User-agent: Slack-ImgProxy
+Allow: /
+
+# Discord — link embeds
+User-agent: Discordbot
+Allow: /
+
+# Telegram
+User-agent: TelegramBot
+Allow: /
+
+# WhatsApp
+User-agent: WhatsApp
+Allow: /
+
+# TikTok
+User-agent: Bytespider
+Allow: /
+
+# ─── AI-specific resources ────────────────────────────────────────────────────
+# llms.txt: https://nouvo.agency/llms.txt
+# llms-full.txt: https://nouvo.agency/llms-full.txt

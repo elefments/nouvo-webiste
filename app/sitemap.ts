@@ -1,15 +1,16 @@
 import type { MetadataRoute } from 'next'
 import { serviceCategories } from '@/data/services'
 import { longtailPages } from '@/data/longtail-pages'
+import { getPayloadClient } from '@/lib/payload'
 
 const BASE = 'https://nouvo.agency'
 
 type SitemapEntry = MetadataRoute.Sitemap[number]
 
-function entry(elPath: string, enPath: string, opts?: { changeFrequency?: SitemapEntry['changeFrequency']; priority?: number }): SitemapEntry {
+function entry(elPath: string, enPath: string, opts?: { changeFrequency?: SitemapEntry['changeFrequency']; priority?: number; lastModified?: Date }): SitemapEntry {
   return {
     url: `${BASE}${elPath}`,
-    lastModified: new Date(),
+    lastModified: opts?.lastModified ?? new Date(),
     changeFrequency: opts?.changeFrequency ?? 'monthly',
     priority: opts?.priority ?? 0.7,
     alternates: {
@@ -21,8 +22,10 @@ function entry(elPath: string, enPath: string, opts?: { changeFrequency?: Sitema
   }
 }
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const pages: MetadataRoute.Sitemap = []
+
+  // ── Static pages ─────────────────────────────────────────────────────────
 
   // Homepage
   pages.push(entry('/', '/en/', { changeFrequency: 'weekly', priority: 1.0 }))
@@ -34,7 +37,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   pages.push(entry('/epikoinonia', '/en/contact', { priority: 0.8 }))
   pages.push(entry('/sxetika-me-emas', '/en/about', { priority: 0.7 }))
 
-  // Service categories + sub-services
+  // ── Service categories + sub-services ────────────────────────────────────
+
   for (const cat of serviceCategories) {
     const elCatPath = `/ypiresies/${cat.slug.el}`
     const enCatPath = `/en/services/${cat.slug.en}`
@@ -45,7 +49,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   }
 
-  // Long-tail SEO pages
+  // ── Long-tail SEO pages ───────────────────────────────────────────────────
+
   for (const lt of longtailPages) {
     const parentCat = serviceCategories.find((c) => c.id === lt.parentCategoryId)
     if (!parentCat) continue
@@ -56,7 +61,52 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ))
   }
 
-  // Legal pages
+  // ── Blog posts (from Payload CMS) ─────────────────────────────────────────
+
+  try {
+    const payload = await getPayloadClient()
+
+    const posts = await payload.find({
+      collection: 'posts',
+      where: { status: { equals: 'published' } },
+      limit: 500,
+      select: { slug: true, updatedAt: true },
+    })
+
+    for (const post of posts.docs) {
+      if (!post.slug) continue
+      const updatedAt = post.updatedAt ? new Date(post.updatedAt) : new Date()
+      pages.push(entry(`/blog/${post.slug}`, `/en/blog/${post.slug}`, {
+        changeFrequency: 'monthly',
+        priority: 0.6,
+        lastModified: updatedAt,
+      }))
+    }
+
+    // ── Case studies (from Payload CMS) ───────────────────────────────────
+
+    const caseStudies = await payload.find({
+      collection: 'case-studies',
+      where: { status: { equals: 'published' } },
+      limit: 200,
+      select: { slug: true, updatedAt: true },
+    })
+
+    for (const cs of caseStudies.docs) {
+      if (!cs.slug) continue
+      const updatedAt = cs.updatedAt ? new Date(cs.updatedAt) : new Date()
+      pages.push(entry(`/case-studies/${cs.slug}`, `/en/case-studies/${cs.slug}`, {
+        changeFrequency: 'monthly',
+        priority: 0.7,
+        lastModified: updatedAt,
+      }))
+    }
+  } catch {
+    // Payload not available during static build — skip dynamic entries
+  }
+
+  // ── Legal pages ───────────────────────────────────────────────────────────
+
   pages.push(entry('/politiki-aporritou', '/en/privacy-policy', { changeFrequency: 'yearly', priority: 0.3 }))
   pages.push(entry('/politiki-cookies', '/en/cookie-policy', { changeFrequency: 'yearly', priority: 0.3 }))
 
