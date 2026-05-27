@@ -1,0 +1,177 @@
+# Nouvo — Full Site Reference
+
+> Nouvo is a boutique digital agency based in Athens, Greece. We design and implement digital systems that deliver measurable results. Our work spans website development, e-commerce, SEO, digital marketing, AI automation, and IT infrastructure.
+>
+> We do not present impressions. We present outcomes.
+>
+> Tagline: Beyond Digital. Pure Strategy.
+> Domain: https://nouvo.agency
+> Languages: Greek (default, /) and English (/en/)
+> Founded: 20+ years of combined experience | 120+ businesses served
+
+---
+
+## About Nouvo
+
+Nouvo was built to solve a recurring problem: strategy that exists on paper and execution that never follows. Consultants who design and disappear. Teams running tools with no architecture behind them.
+
+We operate as the connective link between business decision and implementation. We translate strategy into systems. We install only what creates real value.
+
+We work with established Greek businesses and international clients who want a strategic partner — not a vendor that disappears after delivery. We do not take on every project. We do not work with templates. Every engagement is tailored.
+
+What we refuse: vanity metrics, generic recommendations, work that cannot be measured, and projects where we cannot guarantee quality.
+
+---
+
+## Services
+
+### Websites & Digital Presence
+URL (EN): https://nouvo.agency/en/services/websites-digital-presence
+URL (GR): https://nouvo.agency/ypiresies/kataskevi-istoselidon
+
+Custom website design and development using Next.js, WordPress, and WooCommerce. Every project is built from scratch — no page builders, no generic templates. Performance, accessibility, and SEO are built in from day one.
+
+Sub-services:
+- E-shop / E-commerce (https://nouvo.agency/en/services/websites-digital-presence/eshop): Full WooCommerce and custom e-shop development. Product architecture, payment integration, performance optimization.
+- Corporate Website (https://nouvo.agency/en/services/websites-digital-presence/corporate-website): Professional corporate presence. Clear messaging, lead generation, built for conversion.
+- Landing Page (https://nouvo.agency/en/services/websites-digital-presence/landing-page): High-converting single-focus pages for campaigns and product launches.
+- Portfolio Website (https://nouvo.agency/en/services/websites-digital-presence/portfolio-website): Visual portfolio sites for creative professionals and studios.
+- Booking Website (https://nouvo.agency/en/services/websites-digital-presence/booking-website): Appointment and reservation systems for service businesses.
+- Website Redesign (https://nouvo.agency/en/services/websites-digital-presence/website-redesign): Full redesign of existing websites — design, structure, performance, and SEO migration.
+
+---
+
+### Search & Visibility
+URL (EN): https://nouvo.agency/en/services/search-visibility
+URL (GR): https://nouvo.agency/ypiresies/anazitisi-oratotita
+
+Organic visibility strategy covering traditional SEO, AI-powered search, and hybrid approaches. We build visibility that lasts.
+
+Sub-services:
+- SEO (https://nouvo.agency/en/services/search-visibility/seo-search-engine-optimization): Full SEO strategy and implementation. Keyword research, on-page optimization, content structure, link building.
+- Local SEO (https://nouvo.agency/en/services/search-visibility/local-seo): Google Business Profile optimization, local citations, map pack rankings for Greek businesses.
+- Technical SEO (https://nouvo.agency/en/services/search-visibility/technical-seo): Core Web Vitals, crawlability, indexation, structured data, site architecture.
+- AEO — Answer Engine Optimization (https://nouvo.agency/en/services/search-visibility/aeo-answer-engine-optimization): Optimization for AI Overviews, featured snippets, and voice search. Structure content so AI systems cite your business.
+- GEO — Generative Engine Optimization (https://nouvo.agency/en/services/search-visibility/geo-generative-engine-optimization): Optimization for ChatGPT, Perplexity, Gemini, and other LLM-based search engines. llms.txt, citability signals, brand mention strategy.
+- HEO — Hybrid Engine Optimization (https://nouvo.agency/en/services/search-visibility/heo-hybrid-engine-optimization): Integrated strategy across traditional search engines and AI-powered discovery platforms.
+
+---
+
+### Marketing & Digital Growth
+URL (EN): https://nouvo.agency/en/services/marketing-digital-growth
+URL (GR): https://nouvo.agency/ypiresies/marketing-psifiaki-anaptyxi
+
+Paid media and content strategy with measurable ROAS targets. No vanity metrics — only campaigns that produce revenue.
+
+Sub-services:
+- Google Ads (https://nouvo.agency/en/services/marketing-digital-growth/google-ads): Search, Performance Max, Shopping campaigns. Keyword architecture, bid strategy, conversion tracking.
+- Meta Ads (https://nouvo.agency/en/services/marketing-digital-growth/meta-ads): Facebook and Instagram advertising. Funnel strategy, creative direction, audience targeting.
+- TikTok Ads (https://nouvo.agency/en/services/marketing-digital-growth/tiktok-ads): TikTok campaign management for brands targeting younger demographics.
+- Email Marketing (https://nouvo.agency/en/services/marketing-digital-growth/email-marketing): Automated sequences, newsletter strategy, Mailchimp / MailerLite / HubSpot implementation.
+- Content Strategy (https://nouvo.agency/en/services/marketing-digital-growth/content-strategy): Editorial planning, SEO-driven content production, content architecture for authority building.
+
+---
+
+### Digital Transformation & AI
+URL (EN): https://nouvo.agency/en/services/digital-transformation-ai
+URL (GR): https://nouvo.agency/ypiresies/psifiakos-metasximatismos-ai
+
+AI implementation and process automation for businesses ready to scale operations without adding headcount.
+
+Sub-services:
+- Process Automation (https://nouvo.agency/en/services/digital-transformation-ai/process-automation): Workflow automation using Zapier, Make.com, n8n. Eliminate repetitive manual work.
+- AI Tools Implementation (https://nouvo.agency/en/services/digital-transformation-ai/ai-tools): Selection, configuration, and integration of AI tools (Claude, OpenAI, Gemini) into business workflows.
+- Business Digitization (https://nouvo.agency/en/services/digital-transformation-ai/business-digitization): End-to-end digitization of business operations — documents, communication, reporting.
+- AI Chatbots & Assistants (https://nouvo.agency/en/services/digital-transformation-ai/ai-chatbots): Custom AI assistants for customer service, lead qualification, internal knowledge bases.
+- Marketing Automation (https://nouvo.agency/en/services/digital-transformation-ai/marketing-automation): Automated marketing funnels, lead nurturing, CRM integration.
+
+---
+
+### IT Support & Maintenance
+URL (EN): https://nouvo.agency/en/services/it-support-maintenance
+URL (GR): https://nouvo.agency/ypiresies/it-support-sintirisi
+
+Ongoing technical infrastructure management for businesses that want zero downtime and zero surprises.
+
+Sub-services:
+- Website Maintenance (https://nouvo.agency/en/services/it-support-maintenance/website-maintenance): Updates, security patches, backups, performance monitoring.
+- Technical Support (https://nouvo.agency/en/services/it-support-maintenance/technical-support): On-demand IT support for businesses without internal technical staff.
+- Cloud & Hosting (https://nouvo.agency/en/services/it-support-maintenance/cloud-hosting): Cloud infrastructure setup, migration, and management (Vercel, AWS, Google Cloud).
+- Domain & Email Management (https://nouvo.agency/en/services/it-support-maintenance/domain-email-management): Domain registration, DNS management, professional email setup (Google Workspace, Microsoft 365).
+
+---
+
+## Industry-Specific Pages
+
+- Website for Lawyers (https://nouvo.agency/en/services/websites-digital-presence/website-for-lawyers)
+- Website for Accountants (https://nouvo.agency/en/services/websites-digital-presence/website-for-accountants)
+- Website for Doctors (https://nouvo.agency/en/services/websites-digital-presence/website-for-doctors)
+- Website for Gyms (https://nouvo.agency/en/services/websites-digital-presence/website-for-gyms)
+- Meta Ads for E-shops (https://nouvo.agency/en/services/marketing-digital-growth/meta-ads-eshop)
+- TikTok Ads for Small Business (https://nouvo.agency/en/services/marketing-digital-growth/tiktok-ads-small-business)
+- Local SEO for Medical Practices (https://nouvo.agency/en/services/search-visibility/local-seo-medical)
+- AEO for Local Businesses (https://nouvo.agency/en/services/search-visibility/aeo-answer-engine-optimization-local-business)
+- IT Support for Small Business (https://nouvo.agency/en/services/it-support-maintenance/it-support-small-business)
+- Professional Email Management (https://nouvo.agency/en/services/it-support-maintenance/professional-email-management)
+
+---
+
+## Case Studies
+URL (EN): https://nouvo.agency/en/case-studies
+URL (GR): https://nouvo.agency/case-studies
+
+Real results from website, e-shop, SEO, and digital marketing projects. Each case study documents the business challenge, the decisions made, the implementation, and the measurable outcomes. No marketing copy — only verified results.
+
+---
+
+## Blog
+URL (EN): https://nouvo.agency/en/blog
+URL (GR): https://nouvo.agency/blog
+
+Articles on digital strategy, SEO, AI, website development, and marketing. Published in both Greek and English. Categories: Websites & E-shop, SEO & Visibility, Marketing, AI & Automation, IT & Security.
+
+---
+
+## Contact
+URL (EN): https://nouvo.agency/en/contact
+URL (GR): https://nouvo.agency/epikoinonia
+
+Every engagement starts with a no-commitment assessment. We evaluate the project, define the scope, and provide a clear proposal before any commitment.
+
+---
+
+## Technical Stack
+
+Built with: Next.js (App Router), Payload CMS, Tailwind CSS, Framer Motion, TypeScript
+Hosted on: Vercel
+Database: PostgreSQL (Neon)
+Fonts: All local — Snaga Unicase Display, Sofia Pro, PF Marlet Display
+Performance: Core Web Vitals optimized, SSR + ISR, zero external font requests
+
+---
+
+## Greek Language Reference
+
+The site is primarily in Greek at the root domain (https://nouvo.agency/). English content is available under the /en/ path. Greek URLs use romanized (greeklish) slugs, e.g.:
+- /ypiresies = Services
+- /epikoinonia = Contact
+- /sxetika-me-emas = About
+- /kataskevi-istoselidon = Website Development
+- /anazitisi-oratotita = Search & Visibility
+
+Greek business terminology used on this site:
+- ψηφιακή στρατηγική = digital strategy
+- κατασκευή ιστοσελίδων = website development
+- ψηφιακός μετασχηματισμός = digital transformation
+- αυτοματισμός = automation
+- τοπικό SEO = local SEO
+
+---
+
+## Legal
+- Privacy Policy (EN): https://nouvo.agency/en/privacy-policy
+- Cookie Policy (EN): https://nouvo.agency/en/cookie-policy
+
+---
+
+*Last updated: May 2026 | https://nouvo.agency/llms.txt*

@@ -1,0 +1,28 @@
+# Nouvo
+
+> Nouvo is a boutique digital agency based in Athens, Greece. We design and implement digital systems that work in real conditions: websites, e-shops, SEO, digital marketing, AI automation, and IT support. We operate as the connective link between business decision and execution — strategy translated into working systems.
+>
+> Tagline: Beyond Digital. Pure Strategy.
+> Languages: Greek (default, /) and English (/en/)
+> Audience: Greek businesses and international clients seeking a strategic digital partner
+
+## Core Services
+
+- [Websites & Digital Presence](https://nouvo.agency/en/services/websites-digital-presence): Custom websites, e-shops (WooCommerce), corporate sites, landing pages, portfolio sites, booking websites, redesigns
+- [Search & Visibility](https://nouvo.agency/en/services/search-visibility): SEO, Local SEO, Technical SEO, AEO (Answer Engine Optimization), GEO (Generative Engine Optimization), HEO (Hybrid Engine Optimization)
+- [Marketing & Digital Growth](https://nouvo.agency/en/services/marketing-digital-growth): Google Ads, Meta Ads, TikTok Ads, Email Marketing, Content Strategy
+- [Digital Transformation & AI](https://nouvo.agency/en/services/digital-transformation-ai): Process automation, AI tools implementation, business digitization, AI chatbots, marketing automation
+- [IT Support & Maintenance](https://nouvo.agency/en/services/it-support-maintenance): Website maintenance, technical support, cloud & hosting, domain & email management
+
+## Key Pages
+
+- [Homepage](https://nouvo.agency/en/)
+- [Services Overview](https://nouvo.agency/en/services)
+- [Case Studies](https://nouvo.agency/en/case-studies)
+- [About Nouvo](https://nouvo.agency/en/about)
+- [Blog](https://nouvo.agency/en/blog)
+- [Contact](https://nouvo.agency/en/contact)
+
+## Full Content
+
+- [llms-full.txt](https://nouvo.agency/llms-full.txt)
