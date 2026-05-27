@@ -139,12 +139,14 @@ export function CookieBanner({ locale: localeProp }: { locale: 'el' | 'en' }) {
     localStorage.setItem(STORAGE_KEY, 'all')
     setVisible(false)
     dispatchAccepted()
+    import('@/lib/dataLayer').then(({ dl }) => dl.cookieConsent('all'))
   }
 
   function acceptEssential() {
     localStorage.setItem(STORAGE_KEY, 'essential')
     setVisible(false)
     dispatchAccepted()
+    import('@/lib/dataLayer').then(({ dl }) => dl.cookieConsent('essential'))
   }
 
   function savePreferences() {
@@ -154,6 +156,7 @@ export function CookieBanner({ locale: localeProp }: { locale: 'el' | 'en' }) {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(value))
     setVisible(false)
     dispatchAccepted()
+    import('@/lib/dataLayer').then(({ dl }) => dl.cookieConsent(analytics ? 'all' : 'essential'))
   }
 
   if (!visible) return null

@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { useBookCall } from '@/components/providers/BookCallProvider'
+import { dl } from '@/lib/dataLayer'
 
 // Replace with your actual Calendly / TidyCal link
 const BOOKING_URL = 'https://calendly.com/YOUR_LINK'
@@ -65,6 +66,7 @@ export function BookCallModal({ locale }: BookCallModalProps) {
   const { isOpen, close } = useBookCall()
   const t = copy[locale]
   const overlayRef = useRef<HTMLDivElement>(null)
+  const openTracked = useRef(false)
 
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
@@ -72,6 +74,15 @@ export function BookCallModal({ locale }: BookCallModalProps) {
   const [service, setService] = useState('')
   const [message, setMessage] = useState('')
   const [errors, setErrors] = useState<{ name?: boolean; email?: boolean }>({})
+
+  // Track modal open (once per open session)
+  useEffect(() => {
+    if (isOpen && !openTracked.current) {
+      openTracked.current = true
+      dl.bookCallOpen({ locale })
+    }
+    if (!isOpen) openTracked.current = false
+  }, [isOpen, locale])
 
   // Close on ESC
   useEffect(() => {
@@ -107,6 +118,13 @@ export function BookCallModal({ locale }: BookCallModalProps) {
     if (phone.trim()) params.set('phone', phone.trim())
     if (service && service !== t.services[0]) params.set('notes', `${service}${message.trim() ? ' — ' + message.trim() : ''}`)
     else if (message.trim()) params.set('notes', message.trim())
+
+    // Track lead before opening Calendly
+    dl.generateLead({
+      source: 'book_call_modal',
+      service: service && service !== t.services[0] ? service : undefined,
+      locale,
+    })
 
     window.open(`${BOOKING_URL}?${params.toString()}`, '_blank', 'noopener,noreferrer')
     close()

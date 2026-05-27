@@ -13,6 +13,7 @@ import { Marquee } from '@/components/layout/Marquee'
 import { Services } from '@/components/sections/Services'
 import { TechLogosMarquee } from '@/components/sections/TechLogosMarquee'
 import { About } from '@/components/sections/About'
+import { PageView } from '@/components/analytics/PageView'
 
 // ── Below-the-fold: dynamic imports (code-split, non-blocking) ──
 const CaseStudies = dynamic(
@@ -85,6 +86,8 @@ export default async function HomePage({
 
   return (
     <>
+      <PageView pageType="homepage" locale={loc} />
+
       {/* ── Critical path — renders first ── */}
       <Hero locale={loc} />
       <Marquee />

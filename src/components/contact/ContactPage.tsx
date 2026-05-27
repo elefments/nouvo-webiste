@@ -2,6 +2,7 @@ import { contactPage } from '@/data/contact'
 import { FAQJsonLd } from '@/components/seo/JsonLd'
 import { Accordion } from '@/components/ui/Accordion'
 import { IconClipboard, IconCompass, IconCode, IconRocket } from '@/components/ui/Icons'
+import { ContactForm } from './ContactForm'
 
 export function ContactPage({ locale }: { locale: 'el' | 'en' }) {
   const t = contactPage[locale]
@@ -54,73 +55,7 @@ export function ContactPage({ locale }: { locale: 'el' | 'en' }) {
         </div>
 
         <div className="animate-fade-up mt-20" style={{ animationDelay: '0.3s' }}>
-          <form className="mx-auto max-w-[640px] space-y-5">
-            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-              <div>
-                <label className="mb-1.5 block font-sofia text-[13px] font-medium text-[#575657]">
-                  {t.form.nameLabel} *
-                </label>
-                <input
-                  type="text"
-                  required
-                  className="w-full rounded-[100px] border border-[rgba(0,0,0,0.07)] px-5 py-3 font-sofia text-[14px] outline-none transition-colors focus:border-[#E34F39]"
-                />
-              </div>
-              <div>
-                <label className="mb-1.5 block font-sofia text-[13px] font-medium text-[#575657]">
-                  {t.form.emailLabel} *
-                </label>
-                <input
-                  type="email"
-                  required
-                  className="w-full rounded-[100px] border border-[rgba(0,0,0,0.07)] px-5 py-3 font-sofia text-[14px] outline-none transition-colors focus:border-[#E34F39]"
-                />
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-              <div>
-                <label className="mb-1.5 block font-sofia text-[13px] font-medium text-[#575657]">
-                  {t.form.companyLabel}
-                </label>
-                <input
-                  type="text"
-                  className="w-full rounded-[100px] border border-[rgba(0,0,0,0.07)] px-5 py-3 font-sofia text-[14px] outline-none transition-colors focus:border-[#E34F39]"
-                />
-              </div>
-              <div>
-                <label className="mb-1.5 block font-sofia text-[13px] font-medium text-[#575657]">
-                  {t.form.serviceLabel}
-                </label>
-                <select className="w-full appearance-none rounded-[100px] border border-[rgba(0,0,0,0.07)] bg-white px-5 py-3 font-sofia text-[14px] outline-none transition-colors focus:border-[#E34F39]">
-                  <option value="">---</option>
-                  {t.form.serviceOptions.map((opt) => (
-                    <option key={opt} value={opt}>{opt}</option>
-                  ))}
-                </select>
-              </div>
-            </div>
-
-            <div>
-              <label className="mb-1.5 block font-sofia text-[13px] font-medium text-[#575657]">
-                {t.form.messageLabel}
-              </label>
-              <textarea
-                rows={5}
-                className="w-full rounded-[20px] border border-[rgba(0,0,0,0.07)] px-5 py-4 font-sofia text-[14px] outline-none transition-colors focus:border-[#E34F39]"
-              />
-            </div>
-
-            <div className="flex items-center gap-4">
-              <button
-                type="submit"
-                className="rounded-[100px] bg-[#E34F39] px-8 py-3.5 font-sofia text-[14px] font-medium tracking-wide text-white transition-colors hover:bg-[#c93e28]"
-              >
-                {t.form.submit}
-              </button>
-              <span className="font-sofia text-[13px] text-[#AEACAE]">{t.form.note}</span>
-            </div>
-          </form>
+          <ContactForm locale={locale} labels={t.form} />
         </div>
 
         <div

@@ -20,6 +20,8 @@ export const contactPage = {
       messageLabel: 'Περιγραψτε συνοπτικα',
       submit: 'Στειλτε το Μηνυμα',
       note: 'Απανταμε σε καθε μηνυμα εντος 1 εργασιμης ημερας.',
+      successTitle: 'Ελαβαμε το μηνυμα σας.',
+      successBody: 'Θα επικοινωνησουμε μαζι σας εντος 1 εργασιμης ημερας.',
     },
     briefHeading: 'Η Nouvo με λιγα λογια.',
     briefItems: [
@@ -50,6 +52,8 @@ export const contactPage = {
       messageLabel: 'Brief description',
       submit: 'Send Message',
       note: 'We respond to every message within 1 business day.',
+      successTitle: 'Message received.',
+      successBody: 'We will get back to you within 1 business day.',
     },
     briefHeading: 'Nouvo in brief.',
     briefItems: [
