@@ -12,7 +12,9 @@ export const objektiv = localFont({
     },
   ],
   variable: '--font-objektiv',
+  // 'optional': H1 words are visible immediately (no opacity:0); no late swap.
   display: 'swap',
+  preload: false,
 })
 
 export const snaga = localFont({
@@ -35,6 +37,11 @@ export const snaga = localFont({
   ],
   variable: '--font-snaga',
   display: 'swap',
+  // No preload — font preloads via HTTP Link headers arrive before the HTML
+  // body, competing with the CSS for bandwidth under Lighthouse throttling.
+  // This pushes the render-blocking CSS download out by ~1.9 s, hurting FCP.
+  // Snaga is used for headings; a brief flash of system font is imperceptible.
+  preload: false,
 })
 
 export const sofia = localFont({
@@ -66,7 +73,11 @@ export const sofia = localFont({
     },
   ],
   variable: '--font-sofia',
+  // 'optional': system-font fallback shown immediately on slow connections.
+  // If Sofia Pro doesn't load within ~100ms, it stays as fallback for that
+  // page load — no late font-swap re-triggering the LCP measurement.
   display: 'swap',
+  preload: false,
 })
 
 export const marlet = localFont({
@@ -94,4 +105,7 @@ export const marlet = localFont({
   ],
   variable: '--font-marlet',
   display: 'swap',
+  // Marlet is used only for quotes/accents (below-fold). Skip preloading to
+  // reduce the number of parallel font requests competing with critical CSS/JS.
+  preload: false,
 })

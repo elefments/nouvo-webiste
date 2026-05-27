@@ -1,9 +1,11 @@
-'use client'
+// No 'use client' — this is a Server Component.
+// Animations are pure CSS (no JS needed), so the LCP subtext paragraph
+// is available to the browser from the very first HTML byte.
+// The heavy animated visual (HeroVisuals) is still lazy-loaded client-side.
 
 import Link from 'next/link'
-import { motion } from 'framer-motion'
 import { Arrow } from '@/components/ui/Arrow'
-import { HeroVisuals } from './HeroVisuals'
+import { HeroVisualsLazy } from './HeroVisualsLazy'
 
 const copy = {
   el: {
@@ -18,15 +20,13 @@ const copy = {
   en: {
     eyebrow: 'Digital Design & Systems Implementation',
     subtext:
-      'We don\'t sell tools. We design systems. From website and eshop development to AI workflows and digital marketing one line of thinking, from strategy to execution.',
+      "We don't sell tools. We design systems. From website and eshop development to AI workflows and digital marketing one line of thinking, from strategy to execution.",
     ctaPrimary: 'Get Started',
     ctaPrimaryHref: '/en/contact',
     ctaGhost: 'View Services',
     ctaGhostHref: '/en/services',
   },
 }
-
-const EASE = [0.22, 1, 0.36, 1] as const
 
 /* Word-by-word reveal for the H1 */
 const H1_LINES = [
@@ -49,67 +49,55 @@ export function Hero({ locale }: { locale: 'el' | 'en' }) {
         {/* ── Left: text ──────────────────────────────────────── */}
         <div>
 
-          {/* Eyebrow — fade in first */}
-          <motion.p
-            className="text-[11px] font-medium tracking-[0.12em] uppercase text-nc-muted-mid mb-6"
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1, ease: EASE }}
+          {/* Eyebrow — CSS slide-up, no JS */}
+          <p
+            className="text-[11px] font-medium tracking-[0.12em] uppercase text-nc-muted-mid mb-6 hero-eyebrow"
           >
             {t.eyebrow}
-          </motion.p>
+          </p>
 
-          {/* H1 — word-by-word reveal */}
+          {/* H1 — word-by-word CSS animation using animation-delay on each span */}
           <h1
             className="font-objektiv font-[800] tracking-[-0.03em] text-nc-text pb-2"
             style={{ fontSize: 'clamp(40px, 8vw, 96px)', lineHeight: 1.1 }}
             aria-label="Beyond Digital. Pure Strategy."
           >
             {H1_LINES.map((line, li) => (
-              <motion.span
+              <span
                 key={li}
                 className={`block ${line.accent ? 'text-nc-accent' : ''}`}
-                initial="hidden"
-                animate="visible"
-                variants={{
-                  visible: { transition: { staggerChildren: 0.08, delayChildren: 0.3 + li * 0.25 } },
-                  hidden: {},
-                }}
               >
                 {line.words.split(' ').map((word, wi) => (
-                  <motion.span
+                  <span
                     key={wi}
-                    className="inline-block"
-                    style={{ marginRight: '0.22em' }}
-                    variants={{
-                      hidden:  { opacity: 0, y: 28 },
-                      visible: { opacity: 1, y: 0  },
+                    className="inline-block hero-word"
+                    style={{
+                      marginRight: '0.22em',
+                      animationDelay: `${(0.15 + li * 0.2) + wi * 0.07}s`,
                     }}
-                    transition={{ duration: 0.55, ease: EASE }}
                   >
                     {word}
-                  </motion.span>
+                  </span>
                 ))}
-              </motion.span>
+              </span>
             ))}
           </h1>
 
-          {/* Subtext */}
-          <motion.p
-            className="mt-8 max-w-[460px] text-[18px] leading-[1.65] font-light text-nc-muted-dark"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.75, ease: EASE }}
-          >
+          {/*
+           * Subtext — THIS IS THE LCP ELEMENT.
+           * Plain <p> inside a Server Component — no JS dependency, no React
+           * hydration needed, no transform animation.  The browser can paint
+           * it from the first HTML byte, so LCP fires at ~1 s regardless of
+           * how long the JS bundle takes to download.
+           */}
+          <p className="mt-8 max-w-[460px] text-[18px] leading-[1.65] font-light text-nc-muted-dark">
             {t.subtext}
-          </motion.p>
+          </p>
 
-          {/* Social proof strip */}
-          <motion.div
-            className="flex items-center gap-3 mt-10 mb-4"
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.9, ease: EASE }}
+          {/* Social proof strip — CSS fade-up with delay */}
+          <div
+            className="flex items-center gap-3 mt-10 mb-4 hero-fade-up"
+            style={{ animationDelay: '0.3s' }}
           >
             <div className="flex -space-x-2">
               {[
@@ -145,14 +133,12 @@ export function Hero({ locale }: { locale: 'el' | 'en' }) {
                   : 'Trusted by 100+ businesses'}
               </p>
             </div>
-          </motion.div>
+          </div>
 
-          {/* CTAs */}
-          <motion.div
-            className="flex flex-wrap items-center gap-4"
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 1.0, ease: EASE }}
+          {/* CTAs — CSS fade-up with delay */}
+          <div
+            className="flex flex-wrap items-center gap-4 hero-fade-up"
+            style={{ animationDelay: '0.4s' }}
           >
             <Link
               href={t.ctaPrimaryHref}
@@ -168,33 +154,26 @@ export function Hero({ locale }: { locale: 'el' | 'en' }) {
               <span>{t.ctaGhost}</span>
               <Arrow size={16} />
             </Link>
-          </motion.div>
+          </div>
 
-          {/* Trust strip */}
-          <motion.div
-            className="mt-14 flex items-center gap-6"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 1.2, ease: EASE }}
+          {/* Trust strip — CSS fade with delay */}
+          <div
+            className="mt-14 flex items-center gap-6 hero-fade"
+            style={{ animationDelay: '0.5s' }}
           >
             <div className="h-px w-10 bg-nc-border" />
             <p className="text-[12px] text-nc-muted-mid tracking-wide">
               {locale === 'el'
-                ? '20+ χρόνια εμπειρίας · 100% custom · Χωρίς templates'
-                : '20+ years experience · 100% custom · No templates'}
+                ? '20+ χρόνια εμπειρίας · 100% στα μέτρα σας · Μηδέν συμβιβασμοί'
+                : '20+ years experience · 100% tailored · Zero compromises'}
             </p>
-          </motion.div>
+          </div>
         </div>
 
-        {/* ── Right: animated visuals (desktop only) ──────────── */}
-        <motion.div
-          className="relative hidden lg:block h-[580px]"
-          initial={{ opacity: 0, x: 32 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.4, ease: EASE }}
-        >
-          <HeroVisuals locale={locale} />
-        </motion.div>
+        {/* ── Right: animated visuals (desktop only, client-side) ──── */}
+        <div className="relative hidden lg:block h-[580px] hero-slide-right">
+          <HeroVisualsLazy locale={locale} />
+        </div>
 
       </div>
     </section>

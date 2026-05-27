@@ -4,6 +4,7 @@ import { Arrow } from '@/components/ui/Arrow'
 import { IconClock, IconLayers, IconSparkles } from '@/components/ui/Icons'
 import { AnimateIn, AnimateInGroup, AnimateInItem } from '@/components/ui/AnimateIn'
 import { TextReveal } from '@/components/ui/TextReveal'
+import { CountUp } from '@/components/ui/CountUp'
 
 const copy = {
   el: {
@@ -12,9 +13,9 @@ const copy = {
     p1: 'Η Nouvo γεννήθηκε για να λύσει ένα πρόβλημα που βλέπαμε επανειλημμένα: στρατηγική που υπάρχει στα χαρτιά και υλοποίηση που δεν την ακολουθεί. Σύμβουλοι που σχεδιάζουν και εξαφανίζονται. Ομάδες που τρέχουν εργαλεία χωρίς αρχιτεκτονική.',
     p2: 'Λειτουργούμε ως ο συνδετικός κρίκος ανάμεσα στην απόφαση και την εφαρμογή της. Μεταφράζουμε τη στρατηγική σε συστήματα. Εγκαθιστούμε μόνο ό,τι έχει πρακτική αξία.',
     stats: [
-      { value: '20+', label: 'Χρόνια εμπειρίας' },
-      { value: '5 επίπεδα', label: 'Ολοκληρωμένες υπηρεσίες' },
-      { value: '100% custom', label: 'Χωρίς templates, χωρίς συμβιβασμούς' },
+      { to: 20, suffix: '+', label: 'Χρόνια εμπειρίας' },
+      { to: 120, suffix: '+', label: 'Επιχειρήσεις μας εμπιστεύτηκαν' },
+      { to: 100, suffix: '%', label: 'Υλοποίηση στα μέτρα σας' },
     ],
     cta: 'Σχετικά με εμάς',
     ctaHref: '/sxetika-me-emas',
@@ -25,9 +26,9 @@ const copy = {
     p1: 'Nouvo was built to solve a problem we kept seeing: strategy that exists on paper and execution that never follows. Consultants who design and disappear. Teams running tools with no architecture behind them.',
     p2: 'We operate as the connective link between decision and implementation. We translate strategy into systems. We install only what creates real value.',
     stats: [
-      { value: '20+', label: 'Years of experience' },
-      { value: '5 pillars', label: 'Integrated services' },
-      { value: '100% custom', label: 'No templates, no compromises' },
+      { to: 20, suffix: '+', label: 'Years of experience' },
+      { to: 120, suffix: '+', label: 'Businesses trusted us' },
+      { to: 100, suffix: '%', label: 'Tailored execution' },
     ],
     cta: 'About Nouvo',
     ctaHref: '/en/about',
@@ -38,7 +39,12 @@ export function About({ locale }: { locale: 'el' | 'en' }) {
   const t = copy[locale]
 
   return (
-    <section className="px-6 py-24 bg-nc-surface">
+    <section
+      className="px-6 py-24 bg-nc-surface"
+      style={{
+        background: 'radial-gradient(ellipse 70% 60% at 95% 50%, rgba(227,79,57,0.035) 0%, transparent 65%), var(--color-nc-surface)',
+      }}
+    >
       <div className="mx-auto max-w-[1280px]">
         <AnimateIn variant="fadeIn" duration={0.4}>
           <p className="text-[11px] font-medium tracking-[0.12em] uppercase text-nc-muted-mid mb-4">
@@ -68,10 +74,10 @@ export function About({ locale }: { locale: 'el' | 'en' }) {
             const StatIcons = [IconClock, IconLayers, IconSparkles]
             const Icon = StatIcons[i] ?? IconSparkles
             return (
-              <AnimateInItem key={stat.value} variant="scaleUp">
+              <AnimateInItem key={stat.label} variant="scaleUp">
                 <Icon size={28} className="text-nc-accent mb-3" />
                 <p className="font-objektiv font-semibold text-nc-text" style={{ fontSize: 'clamp(24px, 3vw, 36px)' }}>
-                  {stat.value}
+                  <CountUp to={stat.to} suffix={stat.suffix} duration={1600} />
                 </p>
                 <p className="mt-1 text-xs font-medium tracking-[0.12em] uppercase text-nc-muted-mid">
                   {stat.label}

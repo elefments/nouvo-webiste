@@ -6,16 +6,16 @@ const copy = {
     platform: 'Google Reviews',
     businesses: '100+ επιχειρήσεις μας εμπιστεύονται',
     trust1: 'Εξ αποστάσεως σε όλη την Ευρώπη',
-    trust2: '16+ χρόνια στον ψηφιακό χώρο',
-    trust3: 'Custom λύσεις, μηδέν templates',
+    trust2: '20+ χρόνια στον ψηφιακό χώρο',
+    trust3: 'Μηδέν συμβιβασμοί',
   },
   en: {
     rating: '4.9',
     platform: 'Google Reviews',
     businesses: '100+ businesses trust us',
     trust1: 'Remote across Europe',
-    trust2: '16+ years in digital',
-    trust3: 'Custom solutions, zero templates',
+    trust2: '20+ years in digital',
+    trust3: 'Zero compromises',
   },
 }
 

@@ -8,6 +8,16 @@ import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { CookieBanner } from '@/components/ui/CookieBanner'
 import { OrganizationJsonLd, WebSiteJsonLd } from '@/components/seo/JsonLd'
+import { MotionProvider } from '@/components/providers/MotionProvider'
+import { BookCallProvider } from '@/components/providers/BookCallProvider'
+import { BookCallModal } from '@/components/ui/BookCallModal'
+
+// Preload hint for Sofia Pro Light — the body font used by the LCP element.
+// With font-display:optional the browser only uses it within a ~100ms window;
+// preloading gets it into the HTTP cache so subsequent page-loads show the real
+// font immediately.  The filename includes a content hash so it's safe to cache
+// forever (next build generates a new hash when the font changes).
+const SOFIA_PRO_LIGHT_HREF = '/_next/static/media/Sofia_Pro_Light-s.p.04uhdcoi8tk-e.woff2'
 
 export default async function LocaleLayout({
   children,
@@ -25,14 +35,25 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} className={`${objektiv.variable} ${snaga.variable} ${sofia.variable} ${marlet.variable}`}>
+      <head>
+        {/* Static theme-color — keeps Chrome toolbar white without triggering
+            Critical-CH: Sec-CH-Prefers-Color-Scheme (which forces a second
+            page request and adds ~610 ms to LCP in Lighthouse simulations). */}
+        <meta name="theme-color" content="#FFFFFF" />
+      </head>
       <body>
         <OrganizationJsonLd />
         <WebSiteJsonLd locale={locale as 'el' | 'en'} />
         <NextIntlClientProvider messages={messages}>
-          <Header />
-          <main className="pt-[72px]">{children}</main>
-          <Footer locale={locale as 'el' | 'en'} />
-          <CookieBanner locale={locale as 'el' | 'en'} />
+          <BookCallProvider>
+            <MotionProvider>
+              <Header />
+              <main className="pt-[72px]">{children}</main>
+              <Footer locale={locale as 'el' | 'en'} />
+              <CookieBanner locale={locale as 'el' | 'en'} />
+              <BookCallModal locale={locale as 'el' | 'en'} />
+            </MotionProvider>
+          </BookCallProvider>
         </NextIntlClientProvider>
       </body>
     </html>

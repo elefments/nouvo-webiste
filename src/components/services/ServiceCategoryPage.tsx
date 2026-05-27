@@ -12,12 +12,12 @@ import type { ServiceCategory } from '@/data/services'
 
 const defaultMetrics = {
   el: [
-    { value: '16+', label: 'χρόνια εμπειρίας' },
+    { value: '20+', label: 'χρόνια εμπειρίας' },
     { value: '100%', label: 'custom υλοποίηση' },
     { value: '0', label: 'templates' },
   ],
   en: [
-    { value: '16+', label: 'years of experience' },
+    { value: '20+', label: 'years of experience' },
     { value: '100%', label: 'custom execution' },
     { value: '0', label: 'templates' },
   ],

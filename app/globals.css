@@ -73,6 +73,69 @@ body::before {
   }
 }
 
+/* ── Hero CSS animations (no JS required, runs before hydration) ───────── */
+/* These replace the Framer Motion hero animations so the Hero component
+   can be a pure Server Component.  Running before hydration means the
+   browser can paint and measure LCP from the first HTML byte. */
+
+@keyframes heroSlideUp {
+  from { transform: translateY(22px); }
+  to   { transform: translateY(0); }
+}
+@keyframes heroSlideUpSmall {
+  from { transform: translateY(8px); }
+  to   { transform: translateY(0); }
+}
+@keyframes heroFadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes heroFade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes heroSlideRight {
+  from { opacity: 0; transform: translateX(24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* Word-by-word H1 reveal (animation-delay set inline per word) */
+.hero-word {
+  animation: heroSlideUp 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Eyebrow paragraph */
+.hero-eyebrow {
+  animation: heroSlideUpSmall 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Social proof, CTAs — fade + translateY (animation-delay set inline) */
+.hero-fade-up {
+  animation: heroFadeUp 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Trust strip and other pure-fade elements */
+.hero-fade {
+  animation: heroFade 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Desktop right column slide in */
+.hero-slide-right {
+  animation: heroSlideRight 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-word,
+  .hero-eyebrow,
+  .hero-fade-up,
+  .hero-fade,
+  .hero-slide-right {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
 @keyframes fadeUp {
   from {
     opacity: 0;
@@ -161,4 +224,13 @@ body::before {
 }
 @media (prefers-reduced-motion: reduce) {
   .svc-anim { animation: none !important; }
+}
+
+/* ── Book-a-Call modal ──────────────────────────────────── */
+@keyframes modalSlideUp {
+  from { opacity: 0; transform: translateY(24px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  [style*="modalSlideUp"] { animation: none !important; opacity: 1 !important; transform: none !important; }
 }

@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { useLocale } from 'next-intl'
 import { Arrow } from '@/components/ui/Arrow'
 import { LanguageToggle } from '@/components/ui/LanguageToggle'
+import { BookCallButton } from '@/components/ui/BookCallButton'
 
 const serviceLinks = {
   el: [
@@ -55,6 +56,7 @@ export function Header() {
   const ctaLabel = locale === 'el' ? 'Επικοινωνία' : 'Contact'
   const ctaHref = locale === 'el' ? '/epikoinonia' : '/en/contact'
   const servicesLabel = locale === 'el' ? 'Υπηρεσίες' : 'Services'
+  const bookCallLabel = locale === 'el' ? 'Κλείστε κλήση' : 'Book a call'
 
   return (
     <header
@@ -114,6 +116,10 @@ export function Header() {
 
           <div className="flex items-center gap-3 ml-2">
             <LanguageToggle />
+            <BookCallButton
+              label={bookCallLabel}
+              variant="ghost"
+            />
             <Link
               href={ctaHref}
               className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-nc-text text-white text-sm font-medium tracking-wide transition-all duration-200 hover:bg-nc-accent"

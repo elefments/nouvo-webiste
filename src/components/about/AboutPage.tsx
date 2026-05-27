@@ -7,6 +7,7 @@ import { TextReveal } from '@/components/ui/TextReveal'
 import { Accordion } from '@/components/ui/Accordion'
 import { GradientHR } from '@/components/ui/GradientHR'
 import { Arrow } from '@/components/ui/Arrow'
+import { CountUp } from '@/components/ui/CountUp'
 
 export function AboutPage({ locale }: { locale: 'el' | 'en' }) {
   const t = aboutPage[locale]
@@ -139,7 +140,7 @@ export function AboutPage({ locale }: { locale: 'el' | 'en' }) {
                     className="font-snaga leading-none text-nc-accent"
                     style={{ fontSize: 'clamp(52px, 7vw, 88px)' }}
                   >
-                    {stat.value}
+                    <CountUp to={stat.to} suffix={stat.suffix} duration={1800} />
                   </span>
                   <span className="mt-3 font-sofia text-[13px] uppercase tracking-[0.12em] text-white/50">
                     {stat.label}

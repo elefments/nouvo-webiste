@@ -1,7 +1,10 @@
+'use client'
+
 import Link from 'next/link'
 import { Arrow } from '@/components/ui/Arrow'
 import { AnimateIn, AnimateInGroup, AnimateInItem } from '@/components/ui/AnimateIn'
 import { TextReveal } from '@/components/ui/TextReveal'
+import { BookCallButton } from '@/components/ui/BookCallButton'
 
 const copy = {
   el: {
@@ -12,15 +15,17 @@ const copy = {
     ctaPrimaryHref: '/epikoinonia',
     ctaGhost: 'Δείτε τις Υπηρεσίες',
     ctaGhostHref: '/ypiresies',
+    ctaBook: 'ή κλείστε μια κλήση',
   },
   en: {
     eyebrow: 'Start Here',
     heading: 'Start the collaboration.',
-    body: 'If your business needs structure, clarity and systems that work let\'s talk.',
+    body: "If your business needs structure, clarity and systems that work let's talk.",
     ctaPrimary: 'Contact Us',
     ctaPrimaryHref: '/en/contact',
     ctaGhost: 'View Services',
     ctaGhostHref: '/en/services',
+    ctaBook: 'or book a call',
   },
 }
 
@@ -70,6 +75,14 @@ export function CTASection({ locale }: { locale: 'el' | 'en' }) {
             </Link>
           </AnimateInItem>
         </AnimateInGroup>
+
+        <AnimateIn variant="fadeUp" delay={0.4} className="mt-6">
+          <BookCallButton
+            label={t.ctaBook}
+            variant="ghost"
+            className="text-[13px] !px-5 !py-2.5 text-nc-muted-mid border-nc-border hover:border-nc-muted-light"
+          />
+        </AnimateIn>
       </div>
     </section>
   )

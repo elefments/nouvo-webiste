@@ -1,72 +1,6 @@
 'use client'
 
 import Link from 'next/link'
-import { Arrow } from '@/components/ui/Arrow'
-
-const footerData = {
-  el: {
-    columns: [
-      {
-        title: 'Υπηρεσίες',
-        links: [
-          { label: 'Ιστοσελίδες & Ψηφιακή Παρουσία', href: '/ypiresies/kataskevi-istoselidon' },
-          { label: 'Αναζήτηση & Ορατότητα', href: '/ypiresies/anazitisi-oratotita' },
-          { label: 'Marketing & Ψηφιακή Ανάπτυξη', href: '/ypiresies/marketing-psifiaki-anaptyxi' },
-          { label: 'Ψηφιακός Μετασχηματισμός & AI', href: '/ypiresies/psifiakos-metasximatismos-ai' },
-          { label: 'IT Support & Συντήρηση', href: '/ypiresies/it-support-sintirisi' },
-        ],
-      },
-      {
-        title: 'Nouvo',
-        links: [
-          { label: 'Σχετικά με εμάς', href: '/sxetika-me-emas' },
-          { label: 'Case Studies', href: '/case-studies' },
-          { label: 'Blog', href: '/blog' },
-          { label: 'Επικοινωνία', href: '/epikoinonia' },
-        ],
-      },
-      {
-        title: 'Legal',
-        links: [
-          { label: 'Πολιτική Απορρήτου', href: '/politiki-aporritou' },
-          { label: 'Πολιτική Cookies', href: '/politiki-cookies' },
-          { label: 'Cookie Settings', href: '#', isCookieReset: true },
-        ],
-      },
-    ],
-  },
-  en: {
-    columns: [
-      {
-        title: 'Services',
-        links: [
-          { label: 'Websites & Digital Presence', href: '/en/services/websites-digital-presence' },
-          { label: 'Search & Visibility', href: '/en/services/search-visibility' },
-          { label: 'Marketing & Digital Growth', href: '/en/services/marketing-digital-growth' },
-          { label: 'Digital Transformation & AI', href: '/en/services/digital-transformation-ai' },
-          { label: 'IT Support & Maintenance', href: '/en/services/it-support-maintenance' },
-        ],
-      },
-      {
-        title: 'Nouvo',
-        links: [
-          { label: 'About', href: '/en/about' },
-          { label: 'Case Studies', href: '/en/case-studies' },
-          { label: 'Blog', href: '/en/blog' },
-          { label: 'Contact', href: '/en/contact' },
-        ],
-      },
-      {
-        title: 'Legal',
-        links: [
-          { label: 'Privacy Policy', href: '/en/privacy-policy' },
-          { label: 'Cookie Policy', href: '/en/cookie-policy' },
-          { label: 'Cookie Settings', href: '#', isCookieReset: true },
-        ],
-      },
-    ],
-  },
-}
 
 function SocialIcon({ platform }: { platform: string }) {
   switch (platform) {
@@ -97,9 +31,139 @@ function SocialIcon({ platform }: { platform: string }) {
   }
 }
 
+const footerLinks = {
+  el: {
+    websites: {
+      title: 'Ιστοσελίδες',
+      links: [
+        { label: 'Κατασκευή Ιστοσελίδων', href: '/ypiresies/kataskevi-istoselidon' },
+        { label: 'E-shop', href: '/ypiresies/kataskevi-istoselidon/eshop' },
+        { label: 'Εταιρική Ιστοσελίδα', href: '/ypiresies/kataskevi-istoselidon/etairiki-istoselida' },
+        { label: 'Landing Page', href: '/ypiresies/kataskevi-istoselidon/landing-page' },
+        { label: 'Portfolio Website', href: '/ypiresies/kataskevi-istoselidon/portfolio-website' },
+        { label: 'Ιστοσελίδα Κράτησης', href: '/ypiresies/kataskevi-istoselidon/istoselida-kratiseon' },
+        { label: 'Website Redesign', href: '/ypiresies/kataskevi-istoselidon/website-redesign' },
+      ],
+    },
+    search: {
+      title: 'Αναζήτηση',
+      links: [
+        { label: 'SEO & Ορατότητα', href: '/ypiresies/anazitisi-oratotita' },
+        { label: 'SEO', href: '/ypiresies/anazitisi-oratotita/seo-search-engine-optimization' },
+        { label: 'Local SEO', href: '/ypiresies/anazitisi-oratotita/local-seo' },
+        { label: 'Technical SEO', href: '/ypiresies/anazitisi-oratotita/technical-seo' },
+        { label: 'AEO', href: '/ypiresies/anazitisi-oratotita/aeo-answer-engine-optimization' },
+        { label: 'GEO', href: '/ypiresies/anazitisi-oratotita/geo-generative-engine-optimization' },
+        { label: 'HEO', href: '/ypiresies/anazitisi-oratotita/heo-hybrid-engine-optimization' },
+      ],
+    },
+    growth: {
+      title: 'Marketing & AI & IT',
+      links: [
+        { label: 'Google Ads', href: '/ypiresies/marketing-psifiaki-anaptyxi/google-ads' },
+        { label: 'Meta Ads', href: '/ypiresies/marketing-psifiaki-anaptyxi/meta-ads' },
+        { label: 'TikTok Ads', href: '/ypiresies/marketing-psifiaki-anaptyxi/tiktok-ads' },
+        { label: 'Email Marketing', href: '/ypiresies/marketing-psifiaki-anaptyxi/email-marketing' },
+        { label: 'Στρατηγική Περιεχομένου', href: '/ypiresies/marketing-psifiaki-anaptyxi/stratigiki-periehomenou' },
+        { label: 'AI & Αυτοματισμός', href: '/ypiresies/psifiakos-metasximatismos-ai' },
+        { label: 'AI Chatbots', href: '/ypiresies/psifiakos-metasximatismos-ai/ai-chatbots' },
+        { label: 'IT Support', href: '/ypiresies/it-support-sintirisi' },
+        { label: 'Συντήρηση Ιστοσελίδας', href: '/ypiresies/it-support-sintirisi/sintirisi-istoselidon' },
+        { label: 'Cloud & Hosting', href: '/ypiresies/it-support-sintirisi/cloud-hosting' },
+      ],
+    },
+    company: {
+      title: 'Εταιρία',
+      links: [
+        { label: 'Σχετικά με εμάς', href: '/sxetika-me-emas' },
+        { label: 'Case Studies', href: '/case-studies' },
+        { label: 'Blog', href: '/blog' },
+        { label: 'Επικοινωνία', href: '/epikoinonia' },
+        { label: 'Ιστοσελίδα για Δικηγόρους', href: '/ypiresies/kataskevi-istoselidon/istoselida-gia-dikigorous' },
+        { label: 'Ιστοσελίδα για Λογιστές', href: '/ypiresies/kataskevi-istoselidon/istoselida-gia-logistes' },
+        { label: 'Ιστοσελίδα για Γιατρούς', href: '/ypiresies/kataskevi-istoselidon/istoselida-gia-giatrous' },
+        { label: 'Ιστοσελίδα για Γυμναστήρια', href: '/ypiresies/kataskevi-istoselidon/istoselida-gia-gimnastiria' },
+        { label: 'Meta Ads για E-shop', href: '/ypiresies/marketing-psifiaki-anaptyxi/meta-ads-eshop' },
+        { label: 'TikTok Ads για Μικρές Επιχ.', href: '/ypiresies/marketing-psifiaki-anaptyxi/tiktok-ads-mikres-epixeiriseis' },
+        { label: 'Local SEO για Ιατρεία', href: '/ypiresies/anazitisi-oratotita/local-seo-iatreia' },
+        { label: 'IT Support Μικρές Επιχ.', href: '/ypiresies/it-support-sintirisi/it-support-mikres-epixeiriseis' },
+      ],
+    },
+  },
+  en: {
+    websites: {
+      title: 'Websites',
+      links: [
+        { label: 'Website Development', href: '/en/services/websites-digital-presence' },
+        { label: 'E-shop', href: '/en/services/websites-digital-presence/eshop' },
+        { label: 'Corporate Website', href: '/en/services/websites-digital-presence/corporate-website' },
+        { label: 'Landing Page', href: '/en/services/websites-digital-presence/landing-page' },
+        { label: 'Portfolio Website', href: '/en/services/websites-digital-presence/portfolio-website' },
+        { label: 'Booking Website', href: '/en/services/websites-digital-presence/booking-website' },
+        { label: 'Website Redesign', href: '/en/services/websites-digital-presence/website-redesign' },
+      ],
+    },
+    search: {
+      title: 'Search',
+      links: [
+        { label: 'Search & Visibility', href: '/en/services/search-visibility' },
+        { label: 'SEO', href: '/en/services/search-visibility/seo-search-engine-optimization' },
+        { label: 'Local SEO', href: '/en/services/search-visibility/local-seo' },
+        { label: 'Technical SEO', href: '/en/services/search-visibility/technical-seo' },
+        { label: 'AEO', href: '/en/services/search-visibility/aeo-answer-engine-optimization' },
+        { label: 'GEO', href: '/en/services/search-visibility/geo-generative-engine-optimization' },
+        { label: 'HEO', href: '/en/services/search-visibility/heo-hybrid-engine-optimization' },
+      ],
+    },
+    growth: {
+      title: 'Marketing & AI & IT',
+      links: [
+        { label: 'Google Ads', href: '/en/services/marketing-digital-growth/google-ads' },
+        { label: 'Meta Ads', href: '/en/services/marketing-digital-growth/meta-ads' },
+        { label: 'TikTok Ads', href: '/en/services/marketing-digital-growth/tiktok-ads' },
+        { label: 'Email Marketing', href: '/en/services/marketing-digital-growth/email-marketing' },
+        { label: 'Content Strategy', href: '/en/services/marketing-digital-growth/content-strategy' },
+        { label: 'AI & Automation', href: '/en/services/digital-transformation-ai' },
+        { label: 'AI Chatbots', href: '/en/services/digital-transformation-ai/ai-chatbots' },
+        { label: 'IT Support', href: '/en/services/it-support-maintenance' },
+        { label: 'Website Maintenance', href: '/en/services/it-support-maintenance/website-maintenance' },
+        { label: 'Cloud & Hosting', href: '/en/services/it-support-maintenance/cloud-hosting' },
+      ],
+    },
+    company: {
+      title: 'Company',
+      links: [
+        { label: 'About', href: '/en/about' },
+        { label: 'Case Studies', href: '/en/case-studies' },
+        { label: 'Blog', href: '/en/blog' },
+        { label: 'Contact', href: '/en/contact' },
+        { label: 'Website for Lawyers', href: '/en/services/websites-digital-presence/website-for-lawyers' },
+        { label: 'Website for Accountants', href: '/en/services/websites-digital-presence/website-for-accountants' },
+        { label: 'Website for Doctors', href: '/en/services/websites-digital-presence/website-for-doctors' },
+        { label: 'Website for Gyms', href: '/en/services/websites-digital-presence/website-for-gyms' },
+        { label: 'Meta Ads for E-shops', href: '/en/services/marketing-digital-growth/meta-ads-eshop' },
+        { label: 'TikTok Ads Small Business', href: '/en/services/marketing-digital-growth/tiktok-ads-small-business' },
+        { label: 'Local SEO for Medical', href: '/en/services/search-visibility/local-seo-medical' },
+        { label: 'IT Support Small Business', href: '/en/services/it-support-maintenance/it-support-small-business' },
+      ],
+    },
+  },
+}
+
 export function Footer({ locale }: { locale: 'el' | 'en' }) {
-  const data = footerData[locale]
+  const data = footerLinks[locale]
   const year = new Date().getFullYear()
+  const isEl = locale === 'el'
+
+  const legalLinks = isEl
+    ? [
+        { label: 'Πολιτική Απορρήτου', href: '/politiki-aporritou' },
+        { label: 'Πολιτική Cookies', href: '/politiki-cookies' },
+      ]
+    : [
+        { label: 'Privacy Policy', href: '/en/privacy-policy' },
+        { label: 'Cookie Policy', href: '/en/cookie-policy' },
+      ]
 
   function handleCookieReset(e: React.MouseEvent) {
     e.preventDefault()
@@ -110,77 +174,98 @@ export function Footer({ locale }: { locale: 'el' | 'en' }) {
   }
 
   return (
-    <footer className="border-t border-nc-border">
-      <div className="mx-auto max-w-[1280px] px-6 py-16">
-        {/* Top: logo + columns */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
-          {/* Brand column */}
-          <div className="flex flex-col gap-4">
-            <Link href={locale === 'el' ? '/' : '/en'} className="font-snaga text-xl font-bold tracking-tight text-nc-text">
+    <footer className="border-t border-nc-border bg-white">
+      <div className="mx-auto max-w-[1280px] px-6 pt-16 pb-8">
+
+        {/* Brand row */}
+        <div className="mb-12 flex flex-col sm:flex-row sm:items-end justify-between gap-6">
+          <div>
+            <Link href={isEl ? '/' : '/en'} className="font-snaga text-2xl font-bold tracking-tight text-nc-text">
               Nouvo
             </Link>
-            <p className="font-marlet text-sm italic text-nc-muted-mid">
+            <p className="mt-1 font-marlet text-sm italic text-nc-muted-mid">
               Beyond Digital. Pure Strategy.
             </p>
-            <div className="flex items-center gap-3 mt-2">
-              {['instagram', 'linkedin', 'facebook'].map((platform) => (
-                <a
-                  key={platform}
-                  href="#"
-                  className="text-nc-muted-mid transition-colors duration-200 hover:text-nc-text"
-                  aria-label={platform}
-                >
-                  <SocialIcon platform={platform} />
-                </a>
-              ))}
-            </div>
           </div>
-
-          {/* Link columns */}
-          {data.columns.map((col) => (
-            <div key={col.title} className="flex flex-col gap-4">
-              <p className="text-xs font-medium tracking-[0.12em] uppercase text-nc-muted-mid">
-                {col.title}
-              </p>
-              <ul className="flex flex-col gap-2.5">
-                {col.links.map((link) => (
-                  <li key={link.label}>
-                    {'isCookieReset' in link && link.isCookieReset ? (
-                      <button
-                        onClick={handleCookieReset}
-                        className="text-sm text-nc-muted-dark transition-colors duration-200 hover:text-nc-text text-left"
-                      >
-                        {link.label}
-                      </button>
-                    ) : (
-                      <Link
-                        href={link.href}
-                        className="text-sm text-nc-muted-dark transition-colors duration-200 hover:text-nc-text"
-                      >
-                        {link.label}
-                      </Link>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          <div className="flex items-center gap-4">
+            {['instagram', 'linkedin', 'facebook'].map((platform) => (
+              <a
+                key={platform}
+                href="#"
+                className="text-nc-muted-light transition-colors duration-200 hover:text-nc-text"
+                aria-label={platform}
+              >
+                <SocialIcon platform={platform} />
+              </a>
+            ))}
+          </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="mt-16 pt-6 border-t border-nc-border flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-nc-muted-mid">
+        {/* Columns grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
+          {/* Websites */}
+          <FooterColumn title={data.websites.title} links={data.websites.links} />
+
+          {/* Search */}
+          <FooterColumn title={data.search.title} links={data.search.links} />
+
+          {/* Marketing + AI + IT */}
+          <FooterColumn title={data.growth.title} links={data.growth.links} />
+
+          {/* Company + Longtail */}
+          <FooterColumn title={data.company.title} links={data.company.links} />
+        </div>
+
+        {/* Bottom bar — legal + copyright */}
+        <div className="mt-12 pt-6 border-t border-nc-border flex flex-col sm:flex-row items-center justify-between gap-3 flex-wrap">
+          <p className="text-xs text-nc-muted-light">
             &copy; {year} Nouvo. All rights reserved.
           </p>
-          <Link
-            href={locale === 'el' ? '/epikoinonia' : '/en/contact'}
-            className="flex items-center gap-2 text-sm font-medium text-nc-text transition-colors duration-200 hover:text-nc-accent"
-          >
-            <span>{locale === 'el' ? 'Ξεκινήστε τη συνεργασία' : 'Start a project'}</span>
-            <Arrow size={14} />
-          </Link>
+          <div className="flex items-center gap-4 flex-wrap justify-center">
+            {legalLinks.map((l) => (
+              <Link
+                key={l.href}
+                href={l.href}
+                className="text-xs text-nc-muted-light hover:text-nc-muted-mid transition-colors duration-200"
+              >
+                {l.label}
+              </Link>
+            ))}
+            <button
+              onClick={handleCookieReset}
+              className="text-xs text-nc-muted-light hover:text-nc-muted-mid transition-colors duration-200 cursor-pointer"
+            >
+              Cookie Settings
+            </button>
+          </div>
         </div>
+
       </div>
     </footer>
+  )
+}
+
+function FooterColumn({
+  title,
+  links,
+}: {
+  title: string
+  links: { label: string; href: string }[]
+}) {
+  return (
+    <div className="flex flex-col gap-3">
+      <p className="text-[10px] font-semibold tracking-[0.14em] uppercase text-nc-muted-light mb-1">
+        {title}
+      </p>
+      {links.map((link) => (
+        <Link
+          key={link.href}
+          href={link.href}
+          className="text-[13px] text-nc-muted-dark leading-snug transition-colors duration-200 hover:text-nc-text"
+        >
+          {link.label}
+        </Link>
+      ))}
+    </div>
   )
 }

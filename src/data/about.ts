@@ -4,7 +4,7 @@ export const aboutPage = {
     eyebrow: 'Σχετικά με εμάς',
     h1Line1: 'Δεν πουλάμε εργαλεία.',
     h1Line2: 'Σχεδιάζουμε συστήματα.',
-    subtext: 'Η Nouvo είναι ένα boutique ψηφιακό agency που γεφυρώνει το κενό ανάμεσα στην επιχειρηματική απόφαση και την τεχνική υλοποίηση. Με 16+ χρόνια εμπειρία και σαφή στρατηγική σκέψη.',
+    subtext: 'Η Nouvo είναι ένα boutique ψηφιακό agency που γεφυρώνει το κενό ανάμεσα στην επιχειρηματική απόφαση και την τεχνική υλοποίηση. Με 20+ χρόνια εμπειρία και σαφή στρατηγική σκέψη.',
 
     // Origin story
     originHeading: 'Πώς ξεκινήσαμε',
@@ -36,9 +36,9 @@ export const aboutPage = {
     // Stats
     statsHeading: 'Σε αριθμούς',
     stats: [
-      { value: '16+', label: 'Χρόνια εμπειρίας' },
-      { value: '5', label: 'Βασικές υπηρεσίες' },
-      { value: '100%', label: 'Custom υλοποίηση' },
+      { to: 20, suffix: '+', label: 'Χρόνια εμπειρίας' },
+      { to: 120, suffix: '+', label: 'Επιχειρήσεις' },
+      { to: 100, suffix: '%', label: 'Υλοποίηση στα μέτρα σας' },
     ],
 
     // Beliefs
@@ -66,7 +66,7 @@ export const aboutPage = {
     faq: [
       { q: 'Πού εδρεύει η Nouvo;', a: 'Η Nouvo εδρεύει στην Ελλάδα και δουλεύει με επιχειρήσεις σε όλη την Ευρώπη. Τα projects υλοποιούνται εξ αποστάσεως χωρίς περιορισμούς τοποθεσίας.' },
       { q: 'Με ποιες επιχειρήσεις συνεργάζεστε;', a: 'Δουλεύουμε με μικρομεσαίες επιχειρήσεις, ελεύθερους επαγγελματίες και εταιρείες που θέλουν να αναβαθμίσουν την ψηφιακή τους παρουσία και τις εσωτερικές τους διαδικασίες.' },
-      { q: 'Πόσο χρόνο έχει η Nouvo;', a: 'Η Nouvo είναι το αποτέλεσμα 16+ χρόνων εμπειρίας στον ψηφιακό χώρο — από web development και IT support μέχρι digital marketing και AI εργαλεία.' },
+      { q: 'Πόσο χρόνο έχει η Nouvo;', a: 'Η Nouvo είναι το αποτέλεσμα 20+ χρόνων εμπειρίας στον ψηφιακό χώρο — από web development και IT support μέχρι digital marketing και AI εργαλεία.' },
       { q: 'Μπορώ να ζητήσω μόνο μία υπηρεσία;', a: 'Ναι. Κάθε υπηρεσία μπορεί να σταθεί αυτόνομα. Τα καλύτερα αποτελέσματα έρχονται όταν συνδέονται — αλλά ξεκινάμε από εκεί που χρειάζεσαι.' },
     ],
 
@@ -79,8 +79,8 @@ export const aboutPage = {
     ctaGhostHref: '/ypiresies',
 
     // Meta
-    metaTitle: 'Σχετικά με τη Nouvo — Digital Agency με 16+ Χρόνια Εμπειρία',
-    metaDescription: 'Η Nouvo σχεδιάζει και υλοποιεί ψηφιακά συστήματα για επιχειρήσεις που θέλουν να λειτουργούν καλύτερα. 16+ χρόνια εμπειρία. Μάθετε περισσότερα.',
+    metaTitle: 'Σχετικά με τη Nouvo — Digital Agency με 20+ Χρόνια Εμπειρία',
+    metaDescription: 'Η Nouvo σχεδιάζει και υλοποιεί ψηφιακά συστήματα για επιχειρήσεις που θέλουν να λειτουργούν καλύτερα. 20+ χρόνια εμπειρία. Μάθετε περισσότερα.',
   },
 
   en: {
@@ -88,7 +88,7 @@ export const aboutPage = {
     eyebrow: 'About us',
     h1Line1: "We don't sell tools.",
     h1Line2: 'We design systems.',
-    subtext: 'Nouvo is a boutique digital agency that closes the gap between business decisions and technical execution. With 16+ years of experience and a clear architectural approach.',
+    subtext: 'Nouvo is a boutique digital agency that closes the gap between business decisions and technical execution. With 20+ years of experience and a clear architectural approach.',
 
     // Origin story
     originHeading: 'How we started',
@@ -120,9 +120,9 @@ export const aboutPage = {
     // Stats
     statsHeading: 'By the numbers',
     stats: [
-      { value: '16+', label: 'Years of experience' },
-      { value: '5', label: 'Core services' },
-      { value: '100%', label: 'Custom execution' },
+      { to: 20, suffix: '+', label: 'Years of experience' },
+      { to: 120, suffix: '+', label: 'Businesses' },
+      { to: 100, suffix: '%', label: 'Tailored execution' },
     ],
 
     // Beliefs
@@ -150,7 +150,7 @@ export const aboutPage = {
     faq: [
       { q: 'Where is Nouvo based?', a: 'Nouvo is based in Greece and works with businesses across Europe. All projects are delivered remotely without location restrictions.' },
       { q: 'What types of businesses do you work with?', a: 'We work with small and medium-sized businesses, freelancers, and companies looking to upgrade their digital presence and internal operations.' },
-      { q: 'How long has Nouvo been operating?', a: 'Nouvo is the result of 16+ years of experience in the digital space — from web development and IT support to digital marketing and AI tools.' },
+      { q: 'How long has Nouvo been operating?', a: 'Nouvo is the result of 20+ years of experience in the digital space — from web development and IT support to digital marketing and AI tools.' },
       { q: 'Can I request just one service?', a: 'Yes. Each service can stand on its own. The best results come when they connect — but we start from where you need us.' },
     ],
 
@@ -163,7 +163,7 @@ export const aboutPage = {
     ctaGhostHref: '/en/services',
 
     // Meta
-    metaTitle: 'About Nouvo — Digital Agency with 16+ Years of Experience',
-    metaDescription: 'Nouvo designs and implements digital systems for businesses that want to operate better. 16+ years of experience in web, AI, and digital strategy. Learn more.',
+    metaTitle: 'About Nouvo — Digital Agency with 20+ Years of Experience',
+    metaDescription: 'Nouvo designs and implements digital systems for businesses that want to operate better. 20+ years of experience in web, AI, and digital strategy. Learn more.',
   },
 }

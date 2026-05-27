@@ -1,18 +1,16 @@
 const statsEl = [
-  { value: '100+', label: 'επιχειρήσεις' },
-  { value: '16+', label: 'χρόνια εμπειρίας' },
-  { value: '5', label: 'υπηρεσίες' },
-  { value: '100%', label: 'custom υλοποίηση' },
-  { value: '0', label: 'templates' },
+  { value: '120+', label: 'επιχειρήσεις μας εμπιστεύτηκαν' },
+  { value: '20+', label: 'χρόνια εμπειρίας' },
+  { value: '100%', label: 'υλοποίηση στα μέτρα σας' },
+  { value: 'Zero', label: 'compromises' },
   { value: 'Strategy', label: 'first' },
 ]
 
 const statsEn = [
-  { value: '100+', label: 'businesses' },
-  { value: '16+', label: 'years of experience' },
-  { value: '5', label: 'core services' },
-  { value: '100%', label: 'custom execution' },
-  { value: '0', label: 'templates' },
+  { value: '120+', label: 'businesses trusted us' },
+  { value: '20+', label: 'years of experience' },
+  { value: '100%', label: 'tailored execution' },
+  { value: 'Zero', label: 'compromises' },
   { value: 'Strategy', label: 'first' },
 ]
 
