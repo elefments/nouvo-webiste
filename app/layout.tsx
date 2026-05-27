@@ -1,7 +1,12 @@
 import type { Metadata, Viewport } from 'next'
 
+// NOTE: Do NOT put themeColor here.
+// When themeColor is set via the Viewport API, Next.js automatically adds
+// "Accept-CH: Sec-CH-Prefers-Color-Scheme" and "Critical-CH: ..." response
+// headers. Chrome re-issues the full page request with the client hint attached,
+// which Lighthouse measures as a ~600 ms redirect penalty.
+// Instead, <meta name="theme-color"> is injected in the locale layout below.
 export const viewport: Viewport = {
-  themeColor: '#FFFFFF',
   width: 'device-width',
   initialScale: 1,
 }

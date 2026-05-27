@@ -9,7 +9,7 @@
  */
 
 import React from 'react'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 
 const WORD_VARIANTS = {
   hidden:  { opacity: 0, y: 20 },
@@ -21,12 +21,12 @@ const EASE = [0.22, 1, 0.36, 1] as const
 type Tag = 'h1' | 'h2' | 'h3' | 'h4' | 'p' | 'span'
 
 const MotionTag = {
-  h1:   motion.h1,
-  h2:   motion.h2,
-  h3:   motion.h3,
-  h4:   motion.h4,
-  p:    motion.p,
-  span: motion.span,
+  h1:   m.h1,
+  h2:   m.h2,
+  h3:   m.h3,
+  h4:   m.h4,
+  p:    m.p,
+  span: m.span,
 }
 
 export function TextReveal({
@@ -63,7 +63,7 @@ export function TextReveal({
       aria-label={text}
     >
       {words.map((word, i) => (
-        <motion.span
+        <m.span
           key={i}
           className="inline-block"
           style={{ marginRight: '0.28em' }}
@@ -71,7 +71,7 @@ export function TextReveal({
           transition={{ duration: wordDuration, ease: EASE }}
         >
           {word}
-        </motion.span>
+        </m.span>
       ))}
     </Tag>
   )

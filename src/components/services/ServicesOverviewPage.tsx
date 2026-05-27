@@ -8,7 +8,7 @@ import { Accordion } from '@/components/ui/Accordion'
 import { ServiceIcon, StepIcon } from '@/components/ui/Icons'
 import { AnimateIn, AnimateInGroup, AnimateInItem } from '@/components/ui/AnimateIn'
 import { TextReveal } from '@/components/ui/TextReveal'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 
 const EASE = [0.22, 1, 0.36, 1] as const
 
@@ -88,7 +88,7 @@ export function ServicesOverviewPage({ locale }: { locale: 'el' | 'en' }) {
             {serviceCategories.map((cat, i) => {
               const href = `/${locale === 'en' ? 'en/' : ''}${cat.parentSlug[locale]}/${cat.slug[locale]}`
               return (
-                <motion.div
+                <m.div
                   key={cat.id}
                   initial={{ opacity: 0, y: 32 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -122,7 +122,7 @@ export function ServicesOverviewPage({ locale }: { locale: 'el' | 'en' }) {
                       </span>
                     </div>
                   </Link>
-                </motion.div>
+                </m.div>
               )
             })}
           </div>

@@ -1,7 +1,7 @@
 'use client'
 
 import { useRef } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { m, useScroll, useTransform } from 'framer-motion'
 
 const copy = {
   el: {
@@ -28,12 +28,12 @@ export function Manifesto({ locale }: { locale: 'el' | 'en' }) {
     <section ref={ref} className="px-6 py-32">
       <div className="mx-auto max-w-[800px] text-center">
         <h2 className="sr-only">{t.srOnly}</h2>
-        <motion.p
+        <m.p
           className="font-marlet font-light italic leading-relaxed"
           style={{ color, fontSize: 'clamp(20px, 3vw, 28px)' }}
         >
           {t.text}
-        </motion.p>
+        </m.p>
         <p className="mt-8 font-marlet text-[16px] text-nc-muted-mid">
           Beyond Digital. Pure Strategy.
         </p>

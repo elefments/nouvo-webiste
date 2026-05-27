@@ -14,7 +14,7 @@
  */
 
 import Link from 'next/link'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import { Arrow } from '@/components/ui/Arrow'
 import { ServiceIcon } from '@/components/ui/Icons'
 
@@ -71,7 +71,7 @@ export function Services({ locale }: { locale: 'el' | 'en' }) {
       <div className="mx-auto max-w-[1280px]">
 
         {/* Section header */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
@@ -89,7 +89,7 @@ export function Services({ locale }: { locale: 'el' | 'en' }) {
           <p className="mt-4 text-[15px] text-nc-muted-dark max-w-[520px]">
             {t.subtext}
           </p>
-        </motion.div>
+        </m.div>
 
         {/* Stacked cards */}
         <div className="mt-12 relative" style={{ paddingBottom: `${CARD_TOP_STEP * (t.services.length - 1)}px` }}>
@@ -105,7 +105,7 @@ export function Services({ locale }: { locale: 'el' | 'en' }) {
                 marginBottom: i < t.services.length - 1 ? '16px' : '0',
               }}
             >
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-40px' }}
@@ -166,13 +166,13 @@ export function Services({ locale }: { locale: 'el' | 'en' }) {
                     className="shrink-0 text-nc-muted-light group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-[color,transform] duration-250"
                   />
                 </div>
-              </motion.div>
+              </m.div>
             </Link>
           ))}
         </div>
 
         {/* CTA */}
-        <motion.div
+        <m.div
           className="mt-12 pb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -186,7 +186,7 @@ export function Services({ locale }: { locale: 'el' | 'en' }) {
             <span>{t.cta}</span>
             <Arrow size={16} />
           </Link>
-        </motion.div>
+        </m.div>
 
       </div>
     </section>

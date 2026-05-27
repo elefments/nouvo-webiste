@@ -10,7 +10,7 @@
  * - `as` prop lets you render as any HTML element to avoid extra div wrappers
  */
 
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import type { ReactNode } from 'react'
 import type { Variants } from 'framer-motion'
 
@@ -46,7 +46,7 @@ export function AnimateIn({
   className = '',
 }: AnimateInProps) {
   return (
-    <motion.div
+    <m.div
       className={className}
       initial="hidden"
       whileInView="visible"
@@ -55,7 +55,7 @@ export function AnimateIn({
       transition={{ duration, delay, ease: EASE }}
     >
       {children}
-    </motion.div>
+    </m.div>
   )
 }
 
@@ -70,7 +70,7 @@ export function AnimateInGroup({
   className?: string
 }) {
   return (
-    <motion.div
+    <m.div
       className={className}
       initial="hidden"
       whileInView="visible"
@@ -81,7 +81,7 @@ export function AnimateInGroup({
       }}
     >
       {children}
-    </motion.div>
+    </m.div>
   )
 }
 
@@ -98,12 +98,12 @@ export function AnimateInItem({
   className?: string
 }) {
   return (
-    <motion.div
+    <m.div
       className={className}
       variants={{ hidden: VARIANTS[variant].hidden, visible: VARIANTS[variant].visible }}
       transition={{ duration, ease: EASE }}
     >
       {children}
-    </motion.div>
+    </m.div>
   )
 }
