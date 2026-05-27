@@ -131,14 +131,20 @@ export function CookieBanner({ locale: localeProp }: { locale: 'el' | 'en' }) {
 
   const t = copy[locale]
 
+  function dispatchAccepted() {
+    window.dispatchEvent(new Event('nouvo_cookie_accepted'))
+  }
+
   function acceptAll() {
     localStorage.setItem(STORAGE_KEY, 'all')
     setVisible(false)
+    dispatchAccepted()
   }
 
   function acceptEssential() {
     localStorage.setItem(STORAGE_KEY, 'essential')
     setVisible(false)
+    dispatchAccepted()
   }
 
   function savePreferences() {
@@ -147,6 +153,7 @@ export function CookieBanner({ locale: localeProp }: { locale: 'el' | 'en' }) {
       : 'essential'
     localStorage.setItem(STORAGE_KEY, JSON.stringify(value))
     setVisible(false)
+    dispatchAccepted()
   }
 
   if (!visible) return null

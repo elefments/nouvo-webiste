@@ -11,6 +11,7 @@ import { OrganizationJsonLd, WebSiteJsonLd } from '@/components/seo/JsonLd'
 import { MotionProvider } from '@/components/providers/MotionProvider'
 import { BookCallProvider } from '@/components/providers/BookCallProvider'
 import { BookCallModal } from '@/components/ui/BookCallModal'
+import { Analytics } from '@/components/analytics/Analytics'
 
 // Preload hint for Sofia Pro Light — the body font used by the LCP element.
 // With font-display:optional the browser only uses it within a ~100ms window;
@@ -40,6 +41,14 @@ export default async function LocaleLayout({
             Critical-CH: Sec-CH-Prefers-Color-Scheme (which forces a second
             page request and adds ~610 ms to LCP in Lighthouse simulations). */}
         <meta name="theme-color" content="#FFFFFF" />
+
+        {/* Google Search Console site verification.
+            Set NEXT_PUBLIC_GSC_VERIFICATION in Vercel env vars.
+            Value: the content attribute of the <meta name="google-site-verification"> tag
+            shown in GSC → Settings → Ownership verification → HTML tag method. */}
+        {process.env.NEXT_PUBLIC_GSC_VERIFICATION && (
+          <meta name="google-site-verification" content={process.env.NEXT_PUBLIC_GSC_VERIFICATION} />
+        )}
       </head>
       <body>
         <OrganizationJsonLd />
@@ -55,6 +64,7 @@ export default async function LocaleLayout({
             </MotionProvider>
           </BookCallProvider>
         </NextIntlClientProvider>
+        <Analytics />
       </body>
     </html>
   )
