@@ -25,6 +25,7 @@ export function ContactForm({ locale, labels: t }: ContactFormProps) {
   const [company, setCompany] = useState('')
   const [service, setService] = useState('')
   const [message, setMessage] = useState('')
+  const [honeypot, setHoneypot] = useState('')
   const [errors, setErrors]   = useState<{ name?: boolean; email?: boolean }>({})
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading]     = useState(false)
@@ -49,7 +50,7 @@ export function ContactForm({ locale, labels: t }: ContactFormProps) {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, company, service, message, locale, source: 'contact_form' }),
+        body: JSON.stringify({ name, email, company, service, message, locale, source: 'contact_form', _h: honeypot }),
       })
 
       if (!res.ok) throw new Error('Server error')
@@ -80,6 +81,19 @@ export function ContactForm({ locale, labels: t }: ContactFormProps) {
 
   return (
     <form onSubmit={handleSubmit} className="mx-auto max-w-[640px] space-y-5" noValidate>
+      {/* Honeypot — invisible to humans, bots fill it → silent reject on server */}
+      <div aria-hidden="true" style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px', overflow: 'hidden' }}>
+        <label htmlFor="website_url">Website</label>
+        <input
+          id="website_url"
+          type="text"
+          name="website_url"
+          value={honeypot}
+          onChange={(e) => setHoneypot(e.target.value)}
+          tabIndex={-1}
+          autoComplete="off"
+        />
+      </div>
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
         <div>
           <label className="mb-1.5 block font-sofia text-[13px] font-medium text-[#575657]">

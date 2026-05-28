@@ -5,7 +5,10 @@ import { sendSubmissionNotification } from '@/lib/resend'
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json()
-    const { name, email, phone, company, service, message, locale, source } = body
+    const { name, email, phone, company, service, message, locale, source, _h } = body
+
+    // Honeypot — bots fill hidden fields; silently succeed without saving
+    if (_h) return NextResponse.json({ ok: true })
 
     // Basic validation
     if (!name?.trim() || !email?.trim() || !email.includes('@')) {
