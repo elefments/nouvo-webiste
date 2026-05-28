@@ -18,7 +18,7 @@ export function AboutPage({ locale }: { locale: 'el' | 'en' }) {
     <main className="bg-white">
 
       {/* ─── Hero ─── */}
-      <section className="mx-auto max-w-[1280px] px-6 pt-40 pb-24">
+      <section className="mx-auto max-w-[1280px] px-6 pt-28 pb-14 lg:pt-40 lg:pb-24">
         <AnimateIn variant="fadeUp" delay={0}>
           <span className="text-[11px] font-medium uppercase tracking-[0.14em] text-nc-accent">
             {t.eyebrow}
@@ -51,8 +51,8 @@ export function AboutPage({ locale }: { locale: 'el' | 'en' }) {
       <GradientHR />
 
       {/* ─── Origin Story ─── */}
-      <section className="mx-auto max-w-[1280px] px-6 py-24">
-        <div className="grid grid-cols-1 gap-16 lg:grid-cols-[1fr_1.4fr]">
+      <section className="mx-auto max-w-[1280px] px-6 py-14 lg:py-24">
+        <div className="grid grid-cols-1 gap-8 lg:gap-16 lg:grid-cols-[1fr_1.4fr]">
           <AnimateIn variant="fadeUp">
             <h2
               className="font-snaga tracking-[-0.02em] text-nc-text leading-[1.1]"
@@ -91,7 +91,7 @@ export function AboutPage({ locale }: { locale: 'el' | 'en' }) {
       <GradientHR />
 
       {/* ─── How We Work ─── */}
-      <section className="bg-nc-surface py-24">
+      <section className="bg-nc-surface py-14 lg:py-24">
         <div className="mx-auto max-w-[1280px] px-6">
           <AnimateIn variant="fadeUp">
             <h2
@@ -140,7 +140,7 @@ export function AboutPage({ locale }: { locale: 'el' | 'en' }) {
       </section>
 
       {/* ─── Stats ─── */}
-      <section className="bg-nc-text py-20">
+      <section className="bg-nc-text py-14 lg:py-20">
         <div className="mx-auto max-w-[1280px] px-6">
           <AnimateIn variant="fadeUp">
             <p className="mb-12 text-center font-sofia text-[11px] uppercase tracking-[0.16em] text-white/40">
@@ -174,7 +174,7 @@ export function AboutPage({ locale }: { locale: 'el' | 'en' }) {
       <TechLogosMarquee category="tech" locale={locale} />
 
       {/* ─── Beliefs ─── */}
-      <section className="mx-auto max-w-[1280px] px-6 py-24">
+      <section className="mx-auto max-w-[1280px] px-6 py-14 lg:py-24">
         <AnimateIn variant="fadeUp">
           <h2
             className="font-snaga tracking-[-0.02em] text-nc-text leading-[1.1] mb-14"
@@ -208,7 +208,7 @@ export function AboutPage({ locale }: { locale: 'el' | 'en' }) {
       <GradientHR />
 
       {/* ─── What We Refuse ─── */}
-      <section className="bg-nc-surface py-24">
+      <section className="bg-nc-surface py-14 lg:py-24">
         <div className="mx-auto max-w-[1280px] px-6">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_1.6fr]">
             <AnimateIn variant="fadeUp">
@@ -231,8 +231,8 @@ export function AboutPage({ locale }: { locale: 'el' | 'en' }) {
       <GradientHR />
 
       {/* ─── Who We Work With ─── */}
-      <section className="mx-auto max-w-[1280px] px-6 py-24">
-        <div className="grid grid-cols-1 gap-16 lg:grid-cols-[1fr_1.4fr]">
+      <section className="mx-auto max-w-[1280px] px-6 py-14 lg:py-24">
+        <div className="grid grid-cols-1 gap-8 lg:gap-16 lg:grid-cols-[1fr_1.4fr]">
           <AnimateIn variant="fadeUp">
             <h2
               className="font-snaga tracking-[-0.02em] text-nc-text leading-[1.1]"
@@ -275,7 +275,7 @@ export function AboutPage({ locale }: { locale: 'el' | 'en' }) {
       <GradientHR />
 
       {/* ─── FAQ ─── */}
-      <section className="bg-nc-surface py-24">
+      <section className="bg-nc-surface py-14 lg:py-24">
         <div className="mx-auto max-w-[1280px] px-6">
           <AnimateIn variant="fadeUp">
             <h2
@@ -297,7 +297,7 @@ export function AboutPage({ locale }: { locale: 'el' | 'en' }) {
       </section>
 
       {/* ─── CTA ─── */}
-      <section className="mx-auto max-w-[1280px] px-6 py-28">
+      <section className="mx-auto max-w-[1280px] px-6 py-16 lg:py-28">
         <div className="flex flex-col items-center text-center">
           <AnimateIn variant="fadeUp">
             <h2

@@ -90,7 +90,7 @@ export function Hero({ locale }: { locale: 'el' | 'en' }) {
            * it from the first HTML byte, so LCP fires at ~1 s regardless of
            * how long the JS bundle takes to download.
            */}
-          <p className="mt-8 max-w-[460px] text-[18px] leading-[1.65] font-light text-nc-muted-dark">
+          <p className="mt-8 max-w-[460px] text-[16px] sm:text-[18px] leading-[1.65] font-light text-nc-muted-dark">
             {t.subtext}
           </p>
 

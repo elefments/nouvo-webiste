@@ -132,8 +132,8 @@ export function ServiceCategoryPage({
       </section>
 
       {/* Intro */}
-      <section className="px-6 py-20">
-        <div className="mx-auto max-w-[1280px] grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-16 items-center">
+      <section className="px-6 py-12 lg:py-20">
+        <div className="mx-auto max-w-[1280px] grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-8 lg:gap-16 items-center">
           <div>
             <TextReveal
               text={category.intro.heading[locale]}
@@ -168,7 +168,7 @@ export function ServiceCategoryPage({
       <GradientHR />
 
       {/* Sub-services grid */}
-      <section className="px-6 py-20 bg-nc-surface">
+      <section className="px-6 py-12 lg:py-20 bg-nc-surface">
         <div className="mx-auto max-w-[1280px]">
           <AnimateIn variant="fadeIn" duration={0.4}>
             <p className="text-[11px] font-medium tracking-[0.12em] uppercase text-nc-muted-mid mb-4">
@@ -230,7 +230,7 @@ export function ServiceCategoryPage({
       </section>
 
       {/* Approach / process steps */}
-      <section className="px-6 py-20">
+      <section className="px-6 py-12 lg:py-20">
         <div className="mx-auto max-w-[1280px]">
           <AnimateIn variant="fadeIn" duration={0.4}>
             <p className="text-[11px] font-medium tracking-[0.12em] uppercase text-nc-muted-mid mb-4">
@@ -277,7 +277,7 @@ export function ServiceCategoryPage({
       </section>
 
       {/* Non-negotiables */}
-      <section className="px-6 py-20 bg-nc-surface">
+      <section className="px-6 py-12 lg:py-20 bg-nc-surface">
         <div className="mx-auto max-w-[1280px]">
           <AnimateIn variant="fadeIn" duration={0.4}>
             <p className="text-[11px] font-medium tracking-[0.12em] uppercase text-nc-muted-mid mb-4">
@@ -319,7 +319,7 @@ export function ServiceCategoryPage({
       )}
 
       {/* FAQ */}
-      <section className="px-6 py-20">
+      <section className="px-6 py-12 lg:py-20">
         <div className="mx-auto max-w-[800px]">
           <AnimateIn variant="fadeIn" duration={0.4}>
             <p className="text-[11px] font-medium tracking-[0.12em] uppercase text-nc-muted-mid mb-4">
@@ -345,7 +345,7 @@ export function ServiceCategoryPage({
       </section>
 
       {/* Final CTA */}
-      <section className="px-6 py-20">
+      <section className="px-6 py-12 lg:py-20">
         <div className="mx-auto max-w-[800px] text-center">
           <TextReveal
             text={locale === 'en' ? 'Tell us where you are right now.' : 'Πείτε μας πού βρίσκεστε τώρα.'}

@@ -72,42 +72,26 @@ interface TechLogosMarqueeProps {
   locale: 'el' | 'en'
 }
 
-function LogoTrack({ logos, speed, reverse, ariaHidden = false }: {
-  logos: LogoItem[]
-  speed: string
-  reverse: boolean
-  ariaHidden?: boolean
-}) {
+function LogoItem({ logo }: { logo: LogoItem }) {
   return (
-    <div
-      className="flex shrink-0 items-center gap-10 pr-10"
-      aria-hidden={ariaHidden || undefined}
-      style={{
-        animation: `marquee ${speed} linear infinite ${reverse ? 'reverse' : ''}`,
-      }}
+    <span
+      className="inline-flex shrink-0 flex-col items-center gap-2 group"
+      title={logo.name}
     >
-      {logos.map((logo, i) => (
-        <span
-          key={i}
-          className="inline-flex shrink-0 flex-col items-center gap-2 group"
-          title={logo.name}
-        >
-          <span className="flex h-8 w-8 items-center justify-center opacity-40 grayscale transition-all duration-300 group-hover:opacity-80 group-hover:grayscale-0">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={`/logos/${logo.file}.svg`}
-              alt={logo.name}
-              width={32}
-              height={32}
-              className="h-full w-full object-contain"
-            />
-          </span>
-          <span className="text-[10px] text-nc-muted-light tracking-wide font-medium opacity-70 group-hover:opacity-100 transition-opacity duration-300">
-            {logo.name}
-          </span>
-        </span>
-      ))}
-    </div>
+      <span className="flex h-8 w-8 items-center justify-center opacity-40 grayscale transition-all duration-300 group-hover:opacity-80 group-hover:grayscale-0">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={`/logos/${logo.file}.svg`}
+          alt={logo.name}
+          width={32}
+          height={32}
+          className="h-full w-full object-contain"
+        />
+      </span>
+      <span className="text-[10px] text-nc-muted-light tracking-wide font-medium opacity-70 group-hover:opacity-100 transition-opacity duration-300">
+        {logo.name}
+      </span>
+    </span>
   )
 }
 
@@ -115,16 +99,31 @@ export function TechLogosMarquee({ category, locale }: TechLogosMarqueeProps) {
   const { logos, label, speed, reverse } = CATEGORY_MAP[category]
 
   return (
-    <div className="py-10 overflow-hidden border-y border-nc-border bg-white">
+    <div className="py-10 border-y border-nc-border bg-white">
       {/* Label */}
       <p className="text-center text-[10px] font-medium uppercase tracking-[0.18em] text-nc-muted-light mb-7">
         {label[locale]}
       </p>
 
-      {/* Two identical tracks running in sync → seamless loop */}
-      <div className="flex w-max">
-        <LogoTrack logos={logos} speed={speed} reverse={reverse} />
-        <LogoTrack logos={logos} speed={speed} reverse={reverse} ariaHidden />
+      {/* Single container animated once — two copies make it seamlessly loop */}
+      <div
+        className="relative overflow-hidden"
+        style={{ WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)' }}
+      >
+        <div
+          className="flex"
+          style={{
+            animation: `marquee ${speed} linear infinite${reverse ? ' reverse' : ''}`,
+            willChange: 'transform',
+          }}
+        >
+          <div className="flex shrink-0 items-center gap-10 pr-10">
+            {logos.map((logo, i) => <LogoItem key={i} logo={logo} />)}
+          </div>
+          <div className="flex shrink-0 items-center gap-10 pr-10" aria-hidden="true">
+            {logos.map((logo, i) => <LogoItem key={`d${i}`} logo={logo} />)}
+          </div>
+        </div>
       </div>
     </div>
   )

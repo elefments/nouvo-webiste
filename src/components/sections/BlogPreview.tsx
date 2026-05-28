@@ -30,7 +30,7 @@ export function BlogPreview({ locale }: { locale: 'el' | 'en' }) {
   const t = copy[locale]
 
   return (
-    <section className="px-6 py-24 bg-nc-surface">
+    <section className="px-6 py-14 lg:py-24 bg-nc-surface">
       <div className="mx-auto max-w-[1280px]">
         <AnimateIn variant="fadeIn" duration={0.4}>
           <p className="text-[11px] font-medium tracking-[0.12em] uppercase text-nc-muted-mid mb-4">

@@ -195,7 +195,7 @@ export function CookieBanner({ locale: localeProp }: { locale: 'el' | 'en' }) {
             </p>
 
             {/* Actions */}
-            <div className="mt-5 flex items-center gap-2.5">
+            <div className="mt-5 flex flex-col sm:flex-row items-stretch gap-2.5">
               <button
                 onClick={acceptAll}
                 className="flex-1 rounded-full bg-nc-text px-4 py-2.5 font-sofia text-[13px] font-medium text-white transition-colors duration-200 hover:bg-nc-accent"
@@ -203,16 +203,16 @@ export function CookieBanner({ locale: localeProp }: { locale: 'el' | 'en' }) {
                 {t.acceptAll}
               </button>
               <button
-                onClick={() => setView('options')}
-                className="flex-1 rounded-full border border-nc-border px-4 py-2.5 font-sofia text-[13px] font-medium text-nc-text transition-colors duration-200 hover:border-nc-text"
-              >
-                {t.options}
-              </button>
-              <button
                 onClick={acceptEssential}
-                className="shrink-0 font-sofia text-[12px] text-nc-muted-mid hover:text-nc-text transition-colors duration-200 whitespace-nowrap"
+                className="flex-1 rounded-full border border-nc-border text-nc-text px-4 py-2.5 font-sofia text-[13px] font-medium transition-colors duration-200 hover:border-nc-text"
               >
                 {t.essentialOnly}
+              </button>
+              <button
+                onClick={() => setView('options')}
+                className="flex-1 rounded-full border border-nc-border/50 text-nc-muted-dark px-4 py-2.5 font-sofia text-[13px] font-medium transition-colors duration-200 hover:border-nc-border hover:text-nc-text"
+              >
+                {t.options}
               </button>
             </div>
           </div>
