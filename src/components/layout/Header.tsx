@@ -116,7 +116,7 @@ export function Header() {
             <LanguageToggle />
             <BookCallButton
               label={talkLabel}
-              variant="primary"
+              variant="accent"
             />
           </div>
         </div>
@@ -163,7 +163,7 @@ export function Header() {
               <LanguageToggle />
               <BookCallButton
                 label={talkLabel}
-                variant="primary"
+                variant="accent"
                 onClick={() => setMobileOpen(false)}
               />
             </div>
