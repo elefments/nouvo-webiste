@@ -1,6 +1,8 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import GR from 'country-flag-icons/react/3x2/GR'
+import GB from 'country-flag-icons/react/3x2/GB'
 
 /**
  * Language switcher.
@@ -118,7 +120,10 @@ export function LanguageToggle() {
       aria-label={isEnglish ? 'Αλλαγή σε Ελληνικά' : 'Switch to English'}
       className="px-3 py-1.5 rounded-full border border-nc-border text-xs font-medium tracking-wide uppercase text-nc-muted-dark transition-colors duration-200 hover:border-nc-text hover:text-nc-text flex items-center gap-1.5"
     >
-      <span aria-hidden="true">{isEnglish ? '🇬🇷' : '🇬🇧'}</span>
+      {isEnglish
+        ? <GR className="w-4 h-auto rounded-[2px]" aria-hidden="true" />
+        : <GB className="w-4 h-auto rounded-[2px]" aria-hidden="true" />
+      }
       {isEnglish ? 'GR' : 'EN'}
     </button>
   )

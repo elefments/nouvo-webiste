@@ -2,16 +2,12 @@
 
 import ReactPhoneInput, { type Country } from 'react-phone-number-input/min'
 import 'react-phone-number-input/style.css'
+import * as flags from 'country-flag-icons/react/3x2'
 
-function EmojiFlag({ country }: { country: Country }) {
-  const emoji = country
-    .toUpperCase()
-    .replace(/./g, (char) => String.fromCodePoint(127397 + char.charCodeAt(0)))
-  return (
-    <span className="text-[18px] leading-none" aria-hidden="true">
-      {emoji}
-    </span>
-  )
+function SvgFlag({ country }: { country: Country }) {
+  const Flag = flags[country as keyof typeof flags]
+  if (!Flag) return <span className="w-5 h-auto inline-block" />
+  return <Flag className="w-5 h-auto rounded-[2px]" aria-hidden="true" />
 }
 
 interface PhoneInputProps {
@@ -27,7 +23,7 @@ export function PhoneInput({ value, onChange, placeholder, className = '' }: Pho
       international
       defaultCountry="GR"
       countryOptionsOrder={['GR', 'CY', '|', '...']}
-      flagComponent={EmojiFlag}
+      flagComponent={SvgFlag}
       value={value}
       onChange={(val) => onChange(val ?? '')}
       placeholder={placeholder}
