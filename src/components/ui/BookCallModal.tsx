@@ -4,8 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import { useBookCall } from '@/components/providers/BookCallProvider'
 import { dl } from '@/lib/dataLayer'
 
-// Replace with your actual Cal.com link
-const BOOKING_URL = 'https://cal.com/YOUR_LINK'
+const BOOKING_URL = 'https://cal.eu/nouvo/discovery'
 
 function getUtmParams() {
   if (typeof window === 'undefined') return {}
@@ -31,6 +30,8 @@ const copy = {
     emailPlaceholder: 'email@example.com',
     phone: 'Τηλέφωνο (προαιρετικό)',
     phonePlaceholder: '+30 69...',
+    company: 'Επιχείρηση (προαιρετικό)',
+    companyPlaceholder: 'Όνομα επιχείρησης',
     service: 'Υπηρεσία που σας ενδιαφέρει',
     services: [
       'Επιλέξτε υπηρεσία...',
@@ -57,6 +58,8 @@ const copy = {
     emailPlaceholder: 'email@example.com',
     phone: 'Phone (optional)',
     phonePlaceholder: '+1 ...',
+    company: 'Company (optional)',
+    companyPlaceholder: 'Company name',
     service: 'Service you\'re interested in',
     services: [
       'Select a service...',
@@ -88,6 +91,7 @@ export function BookCallModal({ locale }: BookCallModalProps) {
   const [lastName, setLastName]   = useState('')
   const [email, setEmail]         = useState('')
   const [phone, setPhone]         = useState('')
+  const [company, setCompany]     = useState('')
   const [service, setService]     = useState('')
   const [message, setMessage]     = useState('')
   const [errors, setErrors]       = useState<{ firstName?: boolean; email?: boolean }>({})
@@ -143,12 +147,17 @@ export function BookCallModal({ locale }: BookCallModalProps) {
     const fullName = [firstName.trim(), lastName.trim()].filter(Boolean).join(' ')
 
     const params = new URLSearchParams()
-    params.set('name', fullName)
+    params.set('firstName', firstName.trim())
+    if (lastName.trim()) params.set('lastName', lastName.trim())
     params.set('email', email.trim())
-    if (phone.trim()) params.set('phone', phone.trim())
-    if (service && service !== t.services[0]) params.set('notes', `${service}${message.trim() ? ' — ' + message.trim() : ''}`)
-    else if (message.trim()) params.set('notes', message.trim())
-    // Pass UTMs to Cal.com URL too
+    if (phone.trim()) params.set('attendeePhoneNumber', phone.trim())
+    if (company.trim()) params.set('company_name', company.trim())
+    const notesValue = [
+      service && service !== t.services[0] ? service : '',
+      message.trim(),
+    ].filter(Boolean).join(' — ')
+    if (notesValue) params.set('notes', notesValue)
+    // Pass UTMs to Cal.eu URL too
     if (utm.utmSource)   params.set('utm_source',   utm.utmSource)
     if (utm.utmMedium)   params.set('utm_medium',   utm.utmMedium)
     if (utm.utmCampaign) params.set('utm_campaign', utm.utmCampaign)
@@ -269,16 +278,28 @@ export function BookCallModal({ locale }: BookCallModalProps) {
                 )}
               </div>
 
-              {/* Phone */}
-              <div>
-                <label className="block text-[12px] font-medium text-nc-muted-dark mb-1.5">{t.phone}</label>
-                <input
-                  type="tel"
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                  placeholder={t.phonePlaceholder}
-                  className={inputClass}
-                />
+              {/* Phone + Company */}
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="block text-[12px] font-medium text-nc-muted-dark mb-1.5">{t.phone}</label>
+                  <input
+                    type="tel"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    placeholder={t.phonePlaceholder}
+                    className={inputClass}
+                  />
+                </div>
+                <div>
+                  <label className="block text-[12px] font-medium text-nc-muted-dark mb-1.5">{t.company}</label>
+                  <input
+                    type="text"
+                    value={company}
+                    onChange={(e) => setCompany(e.target.value)}
+                    placeholder={t.companyPlaceholder}
+                    className={inputClass}
+                  />
+                </div>
               </div>
 
               {/* Service */}
