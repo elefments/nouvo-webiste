@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { dl } from '@/lib/dataLayer'
+import { PhoneInput } from '@/components/ui/PhoneInput'
 
 interface ContactFormProps {
   locale: 'el' | 'en'
@@ -9,6 +10,7 @@ interface ContactFormProps {
     firstNameLabel: string
     lastNameLabel: string
     emailLabel: string
+    phoneLabel: string
     companyLabel: string
     serviceLabel: string
     serviceOptions: string[]
@@ -36,6 +38,7 @@ export function ContactForm({ locale, labels: t }: ContactFormProps) {
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName]   = useState('')
   const [email, setEmail]         = useState('')
+  const [phone, setPhone]         = useState('')
   const [company, setCompany]     = useState('')
   const [service, setService]     = useState('')
   const [message, setMessage]     = useState('')
@@ -77,7 +80,7 @@ export function ContactForm({ locale, labels: t }: ContactFormProps) {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          firstName, lastName, email, company, service, message,
+          firstName, lastName, email, phone, company, service, message,
           locale, source: 'contact_form', _h: honeypot,
           ...utm,
         }),
@@ -185,6 +188,18 @@ export function ContactForm({ locale, labels: t }: ContactFormProps) {
             className={inputClass}
           />
         </div>
+      </div>
+
+      {/* Phone */}
+      <div>
+        <label className="mb-1.5 block font-sofia text-[13px] font-medium text-[#575657]">
+          {t.phoneLabel}
+        </label>
+        <PhoneInput
+          value={phone}
+          onChange={setPhone}
+          placeholder="+30 69..."
+        />
       </div>
 
       {/* Service */}

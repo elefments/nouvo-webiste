@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { useBookCall } from '@/components/providers/BookCallProvider'
 import { dl } from '@/lib/dataLayer'
+import { PhoneInput } from '@/components/ui/PhoneInput'
 
 const BOOKING_URL = 'https://cal.eu/nouvo/discovery'
 
@@ -282,12 +283,10 @@ export function BookCallModal({ locale }: BookCallModalProps) {
               <div className="grid grid-cols-2 gap-3">
                 <div>
                   <label className="block text-[12px] font-medium text-nc-muted-dark mb-1.5">{t.phone}</label>
-                  <input
-                    type="tel"
+                  <PhoneInput
                     value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                    placeholder={t.phonePlaceholder}
-                    className={inputClass}
+                    onChange={setPhone}
+                    placeholder="+30 69..."
                   />
                 </div>
                 <div>
