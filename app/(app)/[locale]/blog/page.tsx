@@ -119,15 +119,22 @@ export default async function BlogPage({
               return (
                 <Link key={post.id} href={href} className="group">
                   <div className="relative aspect-[16/10] rounded-xl bg-nc-surface mb-4 overflow-hidden">
-                    {post.featuredImage && typeof post.featuredImage === 'object' && post.featuredImage.url && (
-                      <Image
-                        src={post.featuredImage.url}
-                        alt={post.featuredImage.alt ?? ''}
-                        fill
-                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                        className="object-cover"
-                      />
-                    )}
+                    <Image
+                      src={
+                        post.featuredImage && typeof post.featuredImage === 'object' && post.featuredImage.url
+                          ? post.featuredImage.url
+                          : '/images/blog-default.webp'
+                      }
+                      alt={
+                        post.featuredImage && typeof post.featuredImage === 'object'
+                          ? (post.featuredImage.alt ?? post.title ?? '')
+                          : (post.title ?? '')
+                      }
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                      quality={85}
+                    />
                   </div>
                   <p className="text-[11px] font-medium tracking-[0.12em] uppercase text-nc-muted-mid">
                     {typeof category === 'object' && category?.category ? category.category : ''}{' '}

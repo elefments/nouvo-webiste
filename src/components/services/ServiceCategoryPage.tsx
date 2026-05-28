@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { Arrow } from '@/components/ui/Arrow'
 import { Accordion } from '@/components/ui/Accordion'
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs'
@@ -17,6 +18,14 @@ const MARQUEE_MAP: Record<string, 'tech' | 'marketing' | 'ai'> = {
   marketing:'marketing',
   ai:       'ai',
   it:       'tech',
+}
+
+const CATEGORY_IMAGE: Record<string, string> = {
+  websites: '/images/services-code.webp',
+  search:   '/images/services-analytics.webp',
+  marketing:'/images/services-analytics.webp',
+  ai:       '/images/services-ai.webp',
+  it:       '/images/services-code.webp',
 }
 
 const defaultMetrics = {
@@ -124,21 +133,35 @@ export function ServiceCategoryPage({
 
       {/* Intro */}
       <section className="px-6 py-20">
-        <div className="mx-auto max-w-[1280px]">
-          <TextReveal
-            text={category.intro.heading[locale]}
-            as="h2"
-            className="font-objektiv font-bold tracking-[-0.02em] text-nc-text"
-            style={{ fontSize: 'clamp(28px, 4vw, 48px)' }}
-            staggerDelay={0.05}
-          />
-          {category.intro.body[locale].map((p, i) => (
-            <AnimateIn key={i} variant="fadeUp" delay={0.1 + i * 0.1}>
-              <p className="mt-4 text-[16px] leading-relaxed text-nc-muted-dark max-w-[720px]">
-                {p}
-              </p>
-            </AnimateIn>
-          ))}
+        <div className="mx-auto max-w-[1280px] grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-16 items-center">
+          <div>
+            <TextReveal
+              text={category.intro.heading[locale]}
+              as="h2"
+              className="font-objektiv font-bold tracking-[-0.02em] text-nc-text"
+              style={{ fontSize: 'clamp(28px, 4vw, 48px)' }}
+              staggerDelay={0.05}
+            />
+            {category.intro.body[locale].map((p, i) => (
+              <AnimateIn key={i} variant="fadeUp" delay={0.1 + i * 0.1}>
+                <p className="mt-4 text-[16px] leading-relaxed text-nc-muted-dark">
+                  {p}
+                </p>
+              </AnimateIn>
+            ))}
+          </div>
+          <AnimateIn variant="fadeUp" delay={0.2} className="hidden lg:block">
+            <div className="relative w-full h-[340px] rounded-[20px] overflow-hidden">
+              <Image
+                src={CATEGORY_IMAGE[category.id] ?? '/images/services-code.webp'}
+                alt={category.title[locale]}
+                fill
+                sizes="(max-width: 1024px) 0vw, 50vw"
+                className="object-cover"
+                quality={85}
+              />
+            </div>
+          </AnimateIn>
         </div>
       </section>
 

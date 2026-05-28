@@ -9,6 +9,7 @@ import { GradientHR } from '@/components/ui/GradientHR'
 import { Arrow } from '@/components/ui/Arrow'
 import { CountUp } from '@/components/ui/CountUp'
 import { TechLogosMarquee } from '@/components/sections/TechLogosMarquee'
+import Image from 'next/image'
 
 export function AboutPage({ locale }: { locale: 'el' | 'en' }) {
   const t = aboutPage[locale]
@@ -70,6 +71,22 @@ export function AboutPage({ locale }: { locale: 'el' | 'en' }) {
           </AnimateInGroup>
         </div>
       </section>
+
+      {/* ─── Office photo ─── */}
+      <div className="mx-auto max-w-[1280px] px-6 pb-4">
+        <AnimateIn variant="fadeUp" delay={0.1}>
+          <div className="relative w-full h-[340px] md:h-[480px] rounded-[20px] overflow-hidden">
+            <Image
+              src="/images/about-office.webp"
+              alt="Nouvo workspace"
+              fill
+              sizes="(max-width: 768px) 100vw, 1280px"
+              className="object-cover"
+              quality={85}
+            />
+          </div>
+        </AnimateIn>
+      </div>
 
       <GradientHR />
 
