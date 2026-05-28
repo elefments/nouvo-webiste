@@ -32,7 +32,7 @@ export function BookCallButton({ label, variant = 'primary', className = '', onC
         height="13"
         viewBox="0 0 13 13"
         fill="none"
-        className="text-nc-accent"
+        className="text-white"
         aria-hidden="true"
       >
         <path d="M2 11L11 2M11 2H4M11 2V9" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
