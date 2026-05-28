@@ -1,7 +1,6 @@
 // No 'use client' — this is a Server Component.
 // All animation is CSS-only via the marquee keyframe in globals.css.
 
-import Image from 'next/image'
 
 interface LogoItem {
   name: string
@@ -98,7 +97,8 @@ export function TechLogosMarquee({ category, locale }: TechLogosMarqueeProps) {
             title={logo.name}
           >
             <span className="flex h-8 w-8 items-center justify-center opacity-40 grayscale transition-all duration-300 group-hover:opacity-80 group-hover:grayscale-0">
-              <Image
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
                 src={`/logos/${logo.file}.svg`}
                 alt={logo.name}
                 width={32}
