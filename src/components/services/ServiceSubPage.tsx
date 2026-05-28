@@ -4,6 +4,7 @@ import { Breadcrumbs } from '@/components/ui/Breadcrumbs'
 import { IconCheck } from '@/components/ui/Icons'
 import { AnimateIn, AnimateInGroup, AnimateInItem } from '@/components/ui/AnimateIn'
 import { TextReveal } from '@/components/ui/TextReveal'
+import { BreadcrumbJsonLd, ServiceJsonLd } from '@/components/seo/JsonLd'
 import type { ServiceCategory, ServiceSubItem } from '@/data/services'
 
 export function ServiceSubPage({
@@ -22,8 +23,23 @@ export function ServiceSubPage({
   const servicesLabel = locale === 'en' ? 'Services' : 'Υπηρεσίες'
   const servicesHref = locale === 'en' ? '/en/services' : '/ypiresies'
 
+  const subServiceUrl = `https://nouvo.agency${categoryPath}/${subService.slug[locale]}`
+
   return (
     <>
+      {/* Structured data */}
+      <BreadcrumbJsonLd items={[
+        { name: locale === 'en' ? 'Home' : 'Αρχική', url: locale === 'en' ? 'https://nouvo.agency/en' : 'https://nouvo.agency' },
+        { name: servicesLabel, url: locale === 'en' ? 'https://nouvo.agency/en/services' : 'https://nouvo.agency/ypiresies' },
+        { name: category.title[locale], url: `https://nouvo.agency${categoryPath}` },
+        { name: subService.title[locale], url: subServiceUrl },
+      ]} />
+      <ServiceJsonLd
+        name={subService.title[locale]}
+        description={subService.description[locale]}
+        url={subServiceUrl}
+      />
+
       {/* Breadcrumbs */}
       <div className="mx-auto max-w-[1280px] px-6 pt-28">
         <Breadcrumbs

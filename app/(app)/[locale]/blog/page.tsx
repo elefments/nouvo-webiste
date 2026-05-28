@@ -44,17 +44,29 @@ export async function generateMetadata({
 
   return {
     title: isEn
-      ? 'Blog | Digital Strategy & Systems | Nouvo'
-      : 'Blog | Ψηφιακή Στρατηγική & Συστήματα | Nouvo',
+      ? 'Blog | SEO, Website Development & Digital Marketing | Nouvo'
+      : 'Blog | SEO, Κατασκευή Ιστοσελίδων & Digital Marketing | Nouvo',
     description: isEn
-      ? 'Articles on digital strategy, SEO, AI, website development and digital marketing. No noise. Only what has practical value for your business.'
-      : 'Άρθρα για ψηφιακή στρατηγική, SEO, AI, κατασκευή ιστοσελίδων και digital marketing. Χωρίς θόρυβο. Μόνο ό,τι έχει πρακτική αξία για την επιχείρησή σας.',
+      ? 'Articles on SEO, website development, AI automation and digital marketing. No noise. Only what has practical value for your business.'
+      : 'Άρθρα για SEO, κατασκευή ιστοσελίδων, AI και digital marketing. Χωρίς θόρυβο. Μόνο ό,τι έχει πρακτική αξία για την επιχείρησή σας.',
     alternates: {
       canonical: isEn ? 'https://nouvo.agency/en/blog' : 'https://nouvo.agency/blog',
       languages: {
         el: 'https://nouvo.agency/blog',
         en: 'https://nouvo.agency/en/blog',
+        'x-default': 'https://nouvo.agency/blog',
       },
+    },
+    openGraph: {
+      title: isEn
+        ? 'Nouvo Blog | SEO, Website Development & Digital Marketing'
+        : 'Nouvo Blog | SEO, Κατασκευή Ιστοσελίδων & Digital Marketing',
+      description: isEn
+        ? 'Practical articles on SEO, website development, AI and digital marketing from a boutique digital agency in Athens.'
+        : 'Πρακτικά άρθρα για SEO, κατασκευή ιστοσελίδων, AI και digital marketing από boutique digital agency στην Αθήνα.',
+      url: isEn ? 'https://nouvo.agency/en/blog' : 'https://nouvo.agency/blog',
+      type: 'website',
+      siteName: 'Nouvo',
     },
   }
 }

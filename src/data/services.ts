@@ -47,8 +47,8 @@ export const serviceCategories: ServiceCategory[] = [
     slug: { el: 'kataskevi-istoselidon', en: 'websites-digital-presence' },
     parentSlug: { el: 'ypiresies', en: 'services' },
     meta: {
-      title: { el: 'Κατασκευή Ιστοσελίδων Επιχείρησης | Nouvo', en: 'Business Website Development | Nouvo' },
-      description: { el: 'Κατασκευή ιστοσελίδων επιχείρησης, eshop, landing pages και portfolio sites. Custom αρχιτεκτονική, SEO-ready δομή, χωρίς templates. Δείτε τις λύσεις μας.', en: 'Business website development, eshop, landing pages and portfolio sites. Custom architecture, SEO-ready structure, no templates. Explore our solutions.' },
+      title: { el: 'Κατασκευή Ιστοσελίδων Αθήνα | Eshop & Landing Pages | Nouvo', en: 'Website Development Athens | Eshop & Landing Pages | Nouvo' },
+      description: { el: 'Κατασκευή ιστοσελίδων επιχείρησης, eshop, landing pages και portfolio sites στην Αθήνα. Custom αρχιτεκτονική, SEO-ready δομή, χωρίς templates.', en: 'Business website development, eshop, landing pages and portfolio sites. Custom architecture, SEO-ready structure, no templates. Based in Athens, serving Greece and Cyprus.' },
     },
     intro: {
       heading: { el: 'Η ιστοσελίδα δεν είναι προϊόν. Είναι υποδομή.', en: 'A website is not a product. It\'s infrastructure.' },
@@ -129,8 +129,8 @@ export const serviceCategories: ServiceCategory[] = [
     slug: { el: 'anazitisi-oratotita', en: 'search-visibility' },
     parentSlug: { el: 'ypiresies', en: 'services' },
     meta: {
-      title: { el: 'SEO Υπηρεσίες για Επιχειρήσεις | Nouvo', en: 'SEO Services for Businesses | Nouvo' },
-      description: { el: 'SEO, local SEO, technical SEO, AEO και GEO για επιχειρήσεις. Ορατότητα σε Google και AI από boutique collective με δομημένη προσέγγιση. Μάθετε περισσότερα.', en: 'SEO services for businesses: local SEO, technical SEO, AEO and GEO. Visibility across Google and AI search, built on structure. Learn more.' },
+      title: { el: 'SEO Υπηρεσίες Ελλάδα | Local SEO, Technical SEO, AEO & GEO | Nouvo', en: 'SEO Services Greece | Local SEO, Technical SEO, AEO & GEO | Nouvo' },
+      description: { el: 'SEO, Local SEO, Technical SEO, AEO και GEO για επιχειρήσεις στην Ελλάδα. Ορατότητα σε Google, AI Overviews και generative engines με δομημένη στρατηγική.', en: 'SEO services for businesses in Greece: Local SEO, Technical SEO, AEO and GEO. Visibility across Google, AI Overviews and generative engines, built on structure.' },
     },
     intro: {
       heading: { el: 'Η αναζήτηση αλλάζει. Η ορατότητα πρέπει να ακολουθεί.', en: 'Search is changing. Visibility must follow.' },
@@ -180,8 +180,8 @@ export const serviceCategories: ServiceCategory[] = [
     slug: { el: 'marketing-psifiaki-anaptyxi', en: 'marketing-digital-growth' },
     parentSlug: { el: 'ypiresies', en: 'services' },
     meta: {
-      title: { el: 'Digital Marketing για Επιχειρήσεις | Nouvo', en: 'Digital Marketing for Businesses | Nouvo' },
-      description: { el: 'Google Ads, Meta Ads, TikTok Ads, email marketing και content strategy για επιχειρήσεις. Μετρήσιμο ROI, δομημένη στρατηγική. Μάθετε περισσότερα.', en: 'Google Ads, Meta Ads, TikTok Ads, email marketing and content strategy for businesses. Measurable ROI, structured strategy. Learn more.' },
+      title: { el: 'Digital Marketing Ελλάδα | Google Ads, Meta Ads, Email | Nouvo', en: 'Digital Marketing Greece | Google Ads, Meta Ads, Email | Nouvo' },
+      description: { el: 'Google Ads, Meta Ads, TikTok Ads, email marketing και content strategy για επιχειρήσεις στην Ελλάδα. Μετρήσιμο ROI και δομημένη στρατηγική βασισμένη σε δεδομένα.', en: 'Google Ads, Meta Ads, TikTok Ads, email marketing and content strategy for businesses in Greece. Measurable ROI and data-driven structured strategy.' },
     },
     intro: {
       heading: { el: 'Το marketing δεν είναι κόστος. Είναι σύστημα ανάπτυξης.', en: 'Marketing is not an expense. It\'s a growth system.' },
@@ -229,8 +229,8 @@ export const serviceCategories: ServiceCategory[] = [
     slug: { el: 'psifiakos-metasximatismos-ai', en: 'digital-transformation-ai' },
     parentSlug: { el: 'ypiresies', en: 'services' },
     meta: {
-      title: { el: 'Ψηφιακός Μετασχηματισμός & AI | Nouvo', en: 'Digital Transformation & AI | Nouvo' },
-      description: { el: 'AI εργαλεία, αυτοματισμός διαδικασιών, ψηφιοποίηση επιχείρησης και AI chatbots. Εγκαθιστούμε μόνο ό,τι έχει πρακτική αξία. Μάθετε περισσότερα.', en: 'AI tools, process automation, business digitization and AI chatbots. We install only what has practical value. Learn more.' },
+      title: { el: 'AI Αυτοματισμός & Ψηφιακός Μετασχηματισμός Επιχείρησης | Nouvo', en: 'AI Automation & Digital Transformation for Business | Nouvo' },
+      description: { el: 'AI εργαλεία, αυτοματισμός διαδικασιών, ψηφιοποίηση επιχείρησης και AI chatbots. Εγκαθιστούμε μόνο ό,τι μειώνει πραγματικά κόστος ή χρόνο.', en: 'AI tools, process automation, business digitization and AI chatbots. We install only what actually reduces cost or time. Practical value, not hype.' },
     },
     intro: {
       heading: { el: 'Το AI έχει αξία μόνο όταν μειώνει κόστος ή χρόνο.', en: 'AI has value only when it reduces cost or time.' },
@@ -278,8 +278,8 @@ export const serviceCategories: ServiceCategory[] = [
     slug: { el: 'it-support-sintirisi', en: 'it-support-maintenance' },
     parentSlug: { el: 'ypiresies', en: 'services' },
     meta: {
-      title: { el: 'IT Support & Συντήρηση Ιστοσελίδων | Nouvo', en: 'IT Support & Website Maintenance | Nouvo' },
-      description: { el: 'Συντήρηση ιστοσελίδων, τεχνική υποστήριξη, cloud hosting και domain management. Σταθερότητα για τα ψηφιακά σας συστήματα. Μάθετε περισσότερα.', en: 'Website maintenance, technical support, cloud hosting and domain management. Stability for your digital systems. Learn more.' },
+      title: { el: 'IT Support & Συντήρηση Ιστοσελίδων Ελλάδα | Nouvo', en: 'IT Support & Website Maintenance Greece | Nouvo' },
+      description: { el: 'Συντήρηση ιστοσελίδων, τεχνική υποστήριξη, cloud hosting και domain management για επιχειρήσεις στην Ελλάδα. Σταθερότητα χωρίς διακοπές.', en: 'Website maintenance, technical support, cloud hosting and domain management for businesses in Greece. Stability without interruption.' },
     },
     intro: {
       heading: { el: 'Τα συστήματα χρειάζονται συντήρηση. Πάντα.', en: 'Systems need maintenance. Always.' },

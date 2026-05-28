@@ -9,12 +9,24 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params
   const loc = locale as 'el' | 'en'
   const t = servicesOverview[loc]
+  const canonical = loc === 'en' ? 'https://nouvo.agency/en/services' : 'https://nouvo.agency/ypiresies'
   return {
     title: t.metaTitle,
     description: t.metaDescription,
     alternates: {
-      canonical: loc === 'en' ? 'https://nouvo.agency/en/services' : 'https://nouvo.agency/ypiresies',
-      languages: { el: 'https://nouvo.agency/ypiresies', en: 'https://nouvo.agency/en/services' },
+      canonical,
+      languages: {
+        el: 'https://nouvo.agency/ypiresies',
+        en: 'https://nouvo.agency/en/services',
+        'x-default': 'https://nouvo.agency/ypiresies',
+      },
+    },
+    openGraph: {
+      title: t.metaTitle,
+      description: t.metaDescription,
+      url: canonical,
+      type: 'website',
+      siteName: 'Nouvo',
     },
   }
 }

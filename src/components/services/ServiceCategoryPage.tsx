@@ -10,6 +10,7 @@ import { ServiceHeroVisual } from './ServiceHeroVisual'
 import { AnimateIn, AnimateInGroup, AnimateInItem } from '@/components/ui/AnimateIn'
 import { TextReveal } from '@/components/ui/TextReveal'
 import { TechLogosMarquee } from '@/components/sections/TechLogosMarquee'
+import { BreadcrumbJsonLd, FAQJsonLd, ServiceJsonLd } from '@/components/seo/JsonLd'
 import type { ServiceCategory } from '@/data/services'
 
 const MARQUEE_MAP: Record<string, 'tech' | 'marketing' | 'ai'> = {
@@ -56,8 +57,25 @@ export function ServiceCategoryPage({
   const servicesLabel = locale === 'en' ? 'Services' : 'Υπηρεσίες'
   const servicesHref = locale === 'en' ? '/en/services' : '/ypiresies'
 
+  const categoryUrl = `https://nouvo.agency/${locale === 'en' ? `en/${category.parentSlug.en}/${category.slug.en}` : `${category.parentSlug.el}/${category.slug.el}`}`
+
   return (
     <>
+      {/* Structured data */}
+      <BreadcrumbJsonLd items={[
+        { name: locale === 'en' ? 'Home' : 'Αρχική', url: locale === 'en' ? 'https://nouvo.agency/en' : 'https://nouvo.agency' },
+        { name: servicesLabel, url: locale === 'en' ? 'https://nouvo.agency/en/services' : 'https://nouvo.agency/ypiresies' },
+        { name: category.title[locale], url: categoryUrl },
+      ]} />
+      <ServiceJsonLd
+        name={category.title[locale]}
+        description={category.meta.description[locale]}
+        url={categoryUrl}
+      />
+      <FAQJsonLd
+        items={category.faq.map((item) => ({ question: item.q[locale], answer: item.a[locale] }))}
+      />
+
       {/* Breadcrumbs */}
       <div className="mx-auto max-w-[1280px] px-6 pt-28">
         <Breadcrumbs

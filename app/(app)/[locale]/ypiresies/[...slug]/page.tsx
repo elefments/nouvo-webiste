@@ -34,7 +34,15 @@ export async function generateMetadata({
         languages: {
           el: `https://nouvo.agency/${category.parentSlug.el}/${category.slug.el}`,
           en: `https://nouvo.agency/en/${category.parentSlug.en}/${category.slug.en}`,
+          'x-default': `https://nouvo.agency/${category.parentSlug.el}/${category.slug.el}`,
         },
+      },
+      openGraph: {
+        title: category.meta.title[loc],
+        description: category.meta.description[loc],
+        url: canonical,
+        type: 'website',
+        siteName: 'Nouvo',
       },
     }
   }
@@ -52,7 +60,15 @@ export async function generateMetadata({
         languages: {
           el: `https://nouvo.agency/${category.parentSlug.el}/${category.slug.el}/${subService.slug.el}`,
           en: `https://nouvo.agency/en/${category.parentSlug.en}/${category.slug.en}/${subService.slug.en}`,
+          'x-default': `https://nouvo.agency/${category.parentSlug.el}/${category.slug.el}/${subService.slug.el}`,
         },
+      },
+      openGraph: {
+        title: `${subService.title[loc]} | Nouvo`,
+        description: subService.description[loc],
+        url: canonical,
+        type: 'website',
+        siteName: 'Nouvo',
       },
     }
   }

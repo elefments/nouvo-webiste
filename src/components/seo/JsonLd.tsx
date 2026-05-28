@@ -1,17 +1,63 @@
 export function OrganizationJsonLd() {
   const data = {
     '@context': 'https://schema.org',
-    '@type': 'Organization',
+    '@type': ['Organization', 'ProfessionalService'],
+    '@id': 'https://nouvo.agency/#organization',
     name: 'Nouvo',
     url: 'https://nouvo.agency',
-    logo: 'https://nouvo.agency/favicon.svg',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://nouvo.agency/favicon.svg',
+      width: 512,
+      height: 512,
+    },
     description:
-      'Boutique digital agency specializing in web development, eshop, SEO, AI and marketing with architectural thinking and measurable value.',
-    sameAs: [],
+      'Boutique digital agency in Athens specializing in website development, eshop, SEO, AI automation and digital marketing with architectural thinking and measurable value.',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Athens',
+      addressCountry: 'GR',
+    },
+    areaServed: [
+      { '@type': 'Country', name: 'Greece' },
+      { '@type': 'Country', name: 'Cyprus' },
+    ],
+    knowsAbout: [
+      'Web Development',
+      'Eshop Development',
+      'Search Engine Optimization',
+      'Local SEO',
+      'Technical SEO',
+      'Answer Engine Optimization',
+      'Generative Engine Optimization',
+      'Digital Marketing',
+      'Google Ads',
+      'Meta Ads',
+      'AI Automation',
+      'Digital Transformation',
+      'IT Support',
+    ],
+    sameAs: [
+      'https://www.linkedin.com/company/nouvo-agency',
+      'https://www.instagram.com/nouvo.agency',
+      'https://www.facebook.com/nouvo.agency',
+    ],
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'customer service',
+      email: 'hello@nouvo.agency',
       availableLanguage: ['Greek', 'English'],
+    },
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Digital Agency Services',
+      itemListElement: [
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Website Development', url: 'https://nouvo.agency/ypiresies/kataskevi-istoselidon' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'SEO Services', url: 'https://nouvo.agency/ypiresies/anazitisi-oratotita' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Digital Marketing', url: 'https://nouvo.agency/ypiresies/marketing-psifiaki-anaptyxi' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'AI & Digital Transformation', url: 'https://nouvo.agency/ypiresies/psifiakos-metasximatismos-ai' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'IT Support & Maintenance', url: 'https://nouvo.agency/ypiresies/it-support-sintirisi' } },
+      ],
     },
   }
 
@@ -27,17 +73,11 @@ export function WebSiteJsonLd({ locale }: { locale: 'el' | 'en' }) {
   const data = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
+    '@id': 'https://nouvo.agency/#website',
     name: 'Nouvo',
     url: 'https://nouvo.agency',
     inLanguage: locale === 'el' ? 'el-GR' : 'en-US',
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: {
-        '@type': 'EntryPoint',
-        urlTemplate: `https://nouvo.agency${locale === 'en' ? '/en' : ''}/blog?q={search_term_string}`,
-      },
-      'query-input': 'required name=search_term_string',
-    },
+    publisher: { '@id': 'https://nouvo.agency/#organization' },
   }
 
   return (
@@ -88,6 +128,41 @@ export function FAQJsonLd({
         text: item.answer,
       },
     })),
+  }
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  )
+}
+
+export function ServiceJsonLd({
+  name,
+  description,
+  url,
+  provider,
+}: {
+  name: string
+  description: string
+  url: string
+  provider?: string
+}) {
+  const data = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name,
+    description,
+    url,
+    provider: {
+      '@id': 'https://nouvo.agency/#organization',
+      name: provider ?? 'Nouvo',
+    },
+    areaServed: [
+      { '@type': 'Country', name: 'Greece' },
+      { '@type': 'Country', name: 'Cyprus' },
+    ],
   }
 
   return (

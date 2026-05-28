@@ -9,6 +9,7 @@ import { GradientHR } from '@/components/ui/GradientHR'
 import { Arrow } from '@/components/ui/Arrow'
 import { CountUp } from '@/components/ui/CountUp'
 import { TechLogosMarquee } from '@/components/sections/TechLogosMarquee'
+import { FAQJsonLd } from '@/components/seo/JsonLd'
 import Image from 'next/image'
 
 export function AboutPage({ locale }: { locale: 'el' | 'en' }) {
@@ -275,6 +276,7 @@ export function AboutPage({ locale }: { locale: 'el' | 'en' }) {
       <GradientHR />
 
       {/* ─── FAQ ─── */}
+      <FAQJsonLd items={t.faq.map((item) => ({ question: item.q, answer: item.a }))} />
       <section className="bg-nc-surface py-14 lg:py-24">
         <div className="mx-auto max-w-[1280px] px-6">
           <AnimateIn variant="fadeUp">

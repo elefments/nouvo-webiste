@@ -55,23 +55,29 @@ export async function generateMetadata({
 
   return {
     title: isEn
-      ? 'Digital Strategy & Systems Implementation | Nouvo'
-      : 'Ψηφιακή Στρατηγική & Υλοποίηση Συστημάτων | Nouvo',
+      ? 'Website Development, SEO & Digital Marketing | Nouvo Agency'
+      : 'Κατασκευή Ιστοσελίδων, SEO & Digital Marketing | Nouvo Agency',
     description: isEn
-      ? 'We design digital systems that work in real conditions. Website development, eshop, SEO and AI services from a boutique digital agency. Learn more.'
-      : 'Σχεδιάζουμε ψηφιακά συστήματα που λειτουργούν στην πράξη. Κατασκευή ιστοσελίδων, eshop, SEO και AI από boutique digital agency. Μάθετε περισσότερα.',
+      ? 'Boutique digital agency in Athens. Website development, eshop, SEO, AI and digital marketing with architectural thinking and measurable results. Free project assessment.'
+      : 'Boutique digital agency στην Αθήνα. Κατασκευή ιστοσελίδων, eshop, SEO, AI και digital marketing με αρχιτεκτονική σκέψη και μετρήσιμα αποτελέσματα.',
     alternates: {
-      canonical: 'https://nouvo.agency/',
+      canonical: isEn ? 'https://nouvo.agency/en/' : 'https://nouvo.agency/',
       languages: {
         el: 'https://nouvo.agency/',
         en: 'https://nouvo.agency/en/',
+        'x-default': 'https://nouvo.agency/',
       },
     },
     openGraph: {
-      title: 'Nouvo | Beyond Digital. Pure Strategy.',
+      title: isEn
+        ? 'Nouvo | Website Development, SEO & Digital Marketing'
+        : 'Nouvo | Κατασκευή Ιστοσελίδων, SEO & Digital Marketing',
       description: isEn
-        ? 'From business decision to the system that executes it. Websites, eshop, SEO, AI and marketing with architectural thinking and measurable value.'
-        : 'Από την επιχειρηματική απόφαση ως το σύστημα που την εκτελεί. Ιστοσελίδες, eshop, SEO, AI και marketing με αρχιτεκτονική σκέψη και μετρήσιμη αξία.',
+        ? 'Boutique digital agency in Athens. From website development and eshop to SEO, AI and marketing — one architecture, measurable value.'
+        : 'Boutique digital agency στην Αθήνα. Από κατασκευή ιστοσελίδων και eshop ως SEO, AI και marketing με αρχιτεκτονική σκέψη.',
+      url: isEn ? 'https://nouvo.agency/en/' : 'https://nouvo.agency/',
+      type: 'website',
+      siteName: 'Nouvo',
     },
   }
 }

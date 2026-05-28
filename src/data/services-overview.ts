@@ -43,8 +43,8 @@ export const servicesOverview = {
     ctaBody: 'Δεν χρειάζεται να έχετε έτοιμο brief. Αρκεί να ξέρετε τι δεν λειτουργεί. Εκεί ξεκινάμε.',
     ctaFinalPrimary: 'Επικοινωνήστε Μαζί Μας',
     ctaFinalGhost: 'Δείτε τα Case Studies',
-    metaTitle: 'Ψηφιακές Υπηρεσίες για Επιχειρήσεις | Nouvo',
-    metaDescription: 'Ψηφιακές υπηρεσίες για επιχειρήσεις: ιστοσελίδες, eshop, SEO, AI και digital marketing από boutique collective. Δείτε όλες τις υπηρεσίες μας.',
+    metaTitle: 'Ψηφιακές Υπηρεσίες για Επιχειρήσεις | Κατασκευή Ιστοσελίδων, SEO, AI | Nouvo',
+    metaDescription: 'Κατασκευή ιστοσελίδων, eshop, SEO, digital marketing και AI για επιχειρήσεις. Πέντε κατηγορίες υπηρεσιών από boutique digital agency στην Αθήνα.',
   },
   en: {
     eyebrow: 'Services',
@@ -90,7 +90,7 @@ export const servicesOverview = {
     ctaBody: 'You don\'t need a finished brief. You just need to know what isn\'t working. That\'s where we start.',
     ctaFinalPrimary: 'Contact Us',
     ctaFinalGhost: 'View Case Studies',
-    metaTitle: 'Digital Services for Businesses | Nouvo',
-    metaDescription: 'Digital services for businesses: websites, eshop, SEO, AI and digital marketing from a boutique collective. One logic, end to end. Explore our services.',
+    metaTitle: 'Digital Services for Businesses | Website Development, SEO, AI | Nouvo',
+    metaDescription: 'Website development, eshop, SEO, digital marketing and AI for businesses. Five service categories from a boutique digital agency in Athens. Explore our services.',
   },
 }

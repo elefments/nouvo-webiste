@@ -54,17 +54,29 @@ export async function generateMetadata({
 
   return {
     title: isEn
-      ? 'Case Studies | Work and Results | Nouvo'
-      : 'Case Studies | Εργασία και Αποτελέσματα | Nouvo',
+      ? 'Case Studies | Website, SEO & Marketing Results | Nouvo'
+      : 'Case Studies | Αποτελέσματα Ιστοσελίδων, SEO & Marketing | Nouvo',
     description: isEn
-      ? 'Real results from website, eshop, SEO and digital marketing projects. Not impressions. Outcomes. View our work.'
-      : 'Πραγματικά αποτελέσματα από projects ιστοσελίδων, eshop, SEO και digital marketing. Δεν παρουσιάζουμε εντυπώσεις. Παρουσιάζουμε αποτελέσματα. Δείτε την εργασία μας.',
+      ? 'Real results from website development, eshop, SEO and digital marketing projects. Not impressions — outcomes. View our work.'
+      : 'Πραγματικά αποτελέσματα από projects κατασκευής ιστοσελίδων, eshop, SEO και digital marketing. Δείτε την εργασία μας.',
     alternates: {
       canonical: isEn ? 'https://nouvo.agency/en/case-studies' : 'https://nouvo.agency/case-studies',
       languages: {
         el: 'https://nouvo.agency/case-studies',
         en: 'https://nouvo.agency/en/case-studies',
+        'x-default': 'https://nouvo.agency/case-studies',
       },
+    },
+    openGraph: {
+      title: isEn
+        ? 'Nouvo Case Studies | Website, SEO & Marketing Results'
+        : 'Nouvo Case Studies | Αποτελέσματα Ιστοσελίδων, SEO & Marketing',
+      description: isEn
+        ? 'Real results from website development, eshop, SEO and digital marketing projects.'
+        : 'Πραγματικά αποτελέσματα από projects κατασκευής ιστοσελίδων, eshop, SEO και digital marketing.',
+      url: isEn ? 'https://nouvo.agency/en/case-studies' : 'https://nouvo.agency/case-studies',
+      type: 'website',
+      siteName: 'Nouvo',
     },
   }
 }

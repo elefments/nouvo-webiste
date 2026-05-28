@@ -79,8 +79,8 @@ export const aboutPage = {
     ctaGhostHref: '/ypiresies',
 
     // Meta
-    metaTitle: 'Σχετικά με τη Nouvo — Digital Agency με 20+ Χρόνια Εμπειρία',
-    metaDescription: 'Η Nouvo σχεδιάζει και υλοποιεί ψηφιακά συστήματα για επιχειρήσεις που θέλουν να λειτουργούν καλύτερα. 20+ χρόνια εμπειρία. Μάθετε περισσότερα.',
+    metaTitle: 'Σχετικά με τη Nouvo | Boutique Digital Agency Αθήνα',
+    metaDescription: 'Η Nouvo είναι boutique digital agency στην Αθήνα. Σχεδιάζουμε και υλοποιούμε ψηφιακά συστήματα: ιστοσελίδες, eshop, SEO, AI και marketing. 120+ επιχειρήσεις.',
   },
 
   en: {
@@ -163,7 +163,7 @@ export const aboutPage = {
     ctaGhostHref: '/en/services',
 
     // Meta
-    metaTitle: 'About Nouvo — Digital Agency with 20+ Years of Experience',
-    metaDescription: 'Nouvo designs and implements digital systems for businesses that want to operate better. 20+ years of experience in web, AI, and digital strategy. Learn more.',
+    metaTitle: 'About Nouvo | Boutique Digital Agency Athens, Greece',
+    metaDescription: 'Nouvo is a boutique digital agency in Athens. We design and implement digital systems: websites, eshop, SEO, AI and marketing. 120+ businesses served.',
   },
 }
