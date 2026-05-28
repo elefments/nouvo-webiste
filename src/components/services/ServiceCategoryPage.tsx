@@ -8,7 +8,16 @@ import { StepIcon, IconCheck } from '@/components/ui/Icons'
 import { ServiceHeroVisual } from './ServiceHeroVisual'
 import { AnimateIn, AnimateInGroup, AnimateInItem } from '@/components/ui/AnimateIn'
 import { TextReveal } from '@/components/ui/TextReveal'
+import { TechLogosMarquee } from '@/components/sections/TechLogosMarquee'
 import type { ServiceCategory } from '@/data/services'
+
+const MARQUEE_MAP: Record<string, 'tech' | 'marketing' | 'ai'> = {
+  websites: 'tech',
+  search:   'marketing',
+  marketing:'marketing',
+  ai:       'ai',
+  it:       'tech',
+}
 
 const defaultMetrics = {
   el: [
@@ -280,6 +289,11 @@ export function ServiceCategoryPage({
       </section>
 
       <GradientHR />
+
+      {/* Tech logos marquee — relevant tools for this category */}
+      {MARQUEE_MAP[category.id] && (
+        <TechLogosMarquee category={MARQUEE_MAP[category.id]!} locale={locale} />
+      )}
 
       {/* FAQ */}
       <section className="px-6 py-20">

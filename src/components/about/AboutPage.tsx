@@ -8,6 +8,7 @@ import { Accordion } from '@/components/ui/Accordion'
 import { GradientHR } from '@/components/ui/GradientHR'
 import { Arrow } from '@/components/ui/Arrow'
 import { CountUp } from '@/components/ui/CountUp'
+import { TechLogosMarquee } from '@/components/sections/TechLogosMarquee'
 
 export function AboutPage({ locale }: { locale: 'el' | 'en' }) {
   const t = aboutPage[locale]
@@ -151,6 +152,9 @@ export function AboutPage({ locale }: { locale: 'el' | 'en' }) {
           </AnimateInGroup>
         </div>
       </section>
+
+      {/* Tech stack marquee — between stats and beliefs as a visual break */}
+      <TechLogosMarquee category="tech" locale={locale} />
 
       {/* ─── Beliefs ─── */}
       <section className="mx-auto max-w-[1280px] px-6 py-24">
