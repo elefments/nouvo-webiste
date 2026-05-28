@@ -72,9 +72,47 @@ interface TechLogosMarqueeProps {
   locale: 'el' | 'en'
 }
 
+function LogoTrack({ logos, speed, reverse, ariaHidden = false }: {
+  logos: LogoItem[]
+  speed: string
+  reverse: boolean
+  ariaHidden?: boolean
+}) {
+  return (
+    <div
+      className="flex shrink-0 items-center gap-10 pr-10"
+      aria-hidden={ariaHidden || undefined}
+      style={{
+        animation: `marquee ${speed} linear infinite ${reverse ? 'reverse' : ''}`,
+      }}
+    >
+      {logos.map((logo, i) => (
+        <span
+          key={i}
+          className="inline-flex shrink-0 flex-col items-center gap-2 group"
+          title={logo.name}
+        >
+          <span className="flex h-8 w-8 items-center justify-center opacity-40 grayscale transition-all duration-300 group-hover:opacity-80 group-hover:grayscale-0">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={`/logos/${logo.file}.svg`}
+              alt={logo.name}
+              width={32}
+              height={32}
+              className="h-full w-full object-contain"
+            />
+          </span>
+          <span className="text-[10px] text-nc-muted-light tracking-wide font-medium opacity-70 group-hover:opacity-100 transition-opacity duration-300">
+            {logo.name}
+          </span>
+        </span>
+      ))}
+    </div>
+  )
+}
+
 export function TechLogosMarquee({ category, locale }: TechLogosMarqueeProps) {
   const { logos, label, speed, reverse } = CATEGORY_MAP[category]
-  const doubled = [...logos, ...logos]
 
   return (
     <div className="py-10 overflow-hidden border-y border-nc-border bg-white">
@@ -83,34 +121,10 @@ export function TechLogosMarquee({ category, locale }: TechLogosMarqueeProps) {
         {label[locale]}
       </p>
 
-      {/* Marquee track */}
-      <div
-        className="flex items-center gap-10 whitespace-nowrap"
-        style={{
-          animation: `marquee ${speed} linear infinite ${reverse ? 'reverse' : ''}`,
-        }}
-      >
-        {doubled.map((logo, i) => (
-          <span
-            key={i}
-            className="inline-flex shrink-0 flex-col items-center gap-2 group"
-            title={logo.name}
-          >
-            <span className="flex h-8 w-8 items-center justify-center opacity-40 grayscale transition-all duration-300 group-hover:opacity-80 group-hover:grayscale-0">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={`/logos/${logo.file}.svg`}
-                alt={logo.name}
-                width={32}
-                height={32}
-                className="h-full w-full object-contain"
-              />
-            </span>
-            <span className="text-[10px] text-nc-muted-light tracking-wide font-medium opacity-70 group-hover:opacity-100 transition-opacity duration-300">
-              {logo.name}
-            </span>
-          </span>
-        ))}
+      {/* Two identical tracks running in sync → seamless loop */}
+      <div className="flex w-max">
+        <LogoTrack logos={logos} speed={speed} reverse={reverse} />
+        <LogoTrack logos={logos} speed={speed} reverse={reverse} ariaHidden />
       </div>
     </div>
   )
