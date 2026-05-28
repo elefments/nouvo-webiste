@@ -20,7 +20,7 @@ import { ServiceIcon } from '@/components/ui/Icons'
 
 const copy = {
   el: {
-    eyebrow: 'Υπηρεσίες',
+    eyebrow: 'Υπηρεσίες Digital Agency',
     heading: 'Πέντε επίπεδα.\nΜία λογική.',
     subtext: 'Κάθε υπηρεσία μπορεί να σταθεί αυτόνομα. Αποδίδει μέγιστα όταν συνδέεται με τις υπόλοιπες.',
     cta: 'Όλες οι Υπηρεσίες',
@@ -34,7 +34,7 @@ const copy = {
     ],
   },
   en: {
-    eyebrow: 'Services',
+    eyebrow: 'Digital Agency Services',
     heading: 'Five pillars.\nOne logic.',
     subtext: 'Each service stands on its own. Together, they deliver maximum impact.',
     cta: 'All Services',
@@ -77,15 +77,15 @@ export function Services({ locale }: { locale: 'el' | 'en' }) {
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.55, ease: EASE }}
         >
-          <p className="text-[11px] font-medium tracking-[0.12em] uppercase text-nc-muted-mid mb-4">
+          <h2 className="text-[11px] font-medium tracking-[0.12em] uppercase text-nc-muted-mid mb-4">
             {t.eyebrow}
-          </p>
-          <h2
+          </h2>
+          <p
             className="font-objektiv font-bold tracking-[-0.02em] text-nc-text whitespace-pre-line"
             style={{ fontSize: 'clamp(36px, 5vw, 64px)' }}
           >
             {t.heading}
-          </h2>
+          </p>
           <p className="mt-4 text-[15px] text-nc-muted-dark max-w-[520px]">
             {t.subtext}
           </p>
