@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { getPayloadClient } from '@/lib/payload'
 import { Arrow } from '@/components/ui/Arrow'
+import { PageView } from '@/components/analytics/PageView'
 
 export const revalidate = 3600
 
@@ -73,6 +74,8 @@ export default async function CaseStudyPage({
   const indexHref = loc === 'en' ? '/en/case-studies' : '/case-studies'
 
   return (
+    <>
+    <PageView pageType="case_study" locale={loc} />
     <article className="px-6 py-24">
       <div className="mx-auto max-w-[900px]">
         <Link
@@ -166,5 +169,6 @@ export default async function CaseStudyPage({
         </div>
       </div>
     </article>
+    </>
   )
 }

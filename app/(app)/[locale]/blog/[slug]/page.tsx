@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { getPayloadClient } from '@/lib/payload'
 import { Arrow } from '@/components/ui/Arrow'
+import { PageView } from '@/components/analytics/PageView'
 
 export const revalidate = 3600
 
@@ -90,10 +91,20 @@ export default async function BlogSlugPage({
   const loc = locale as 'el' | 'en'
 
   if (isCategory(slug)) {
-    return <CategoryArchive locale={loc} categorySlug={slug} />
+    return (
+      <>
+        <PageView pageType="blog" locale={loc} />
+        <CategoryArchive locale={loc} categorySlug={slug} />
+      </>
+    )
   }
 
-  return <SinglePost locale={loc} slug={slug} />
+  return (
+    <>
+      <PageView pageType="blog_post" locale={loc} />
+      <SinglePost locale={loc} slug={slug} />
+    </>
+  )
 }
 
 async function CategoryArchive({ locale, categorySlug }: { locale: 'el' | 'en'; categorySlug: string }) {

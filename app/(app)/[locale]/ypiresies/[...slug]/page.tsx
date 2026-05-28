@@ -3,6 +3,16 @@ import { notFound } from 'next/navigation'
 import { ServiceCategoryPage } from '@/components/services/ServiceCategoryPage'
 import { ServiceSubPage } from '@/components/services/ServiceSubPage'
 import { findCategoryBySlug, findSubServiceBySlug } from '@/data/services'
+import { PageView } from '@/components/analytics/PageView'
+import type { ServiceCategory } from '@/lib/dataLayer'
+
+const SLUG_TO_CATEGORY: Record<string, ServiceCategory> = {
+  'kataskevi-istoselidon':    'websites',
+  'anazitisi-oratotita':      'search',
+  'marketing-psifiaki-anaptyxi': 'marketing',
+  'psifiakos-metasximatismos-ai': 'ai_automation',
+  'it-support-sintirisi':     'it_support',
+}
 
 export async function generateMetadata({
   params,
@@ -58,16 +68,28 @@ export default async function Page({
   const { locale, slug } = await params
   const loc = locale as 'el' | 'en'
 
+  const serviceCategory = SLUG_TO_CATEGORY[slug[0]]
+
   if (slug.length === 1) {
     const category = findCategoryBySlug(slug[0])
     if (!category) notFound()
-    return <ServiceCategoryPage category={category} locale={loc} />
+    return (
+      <>
+        <PageView pageType="service_category" locale={loc} serviceCategory={serviceCategory} serviceSlug={slug[0]} />
+        <ServiceCategoryPage category={category} locale={loc} />
+      </>
+    )
   }
 
   if (slug.length === 2) {
     const result = findSubServiceBySlug(slug[0], slug[1])
     if (!result) notFound()
-    return <ServiceSubPage category={result.category} subService={result.subService} locale={loc} />
+    return (
+      <>
+        <PageView pageType="service_detail" locale={loc} serviceCategory={serviceCategory} serviceSlug={slug[1]} />
+        <ServiceSubPage category={result.category} subService={result.subService} locale={loc} />
+      </>
+    )
   }
 
   notFound()

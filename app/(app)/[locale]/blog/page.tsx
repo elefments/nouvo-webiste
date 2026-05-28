@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { getPayloadClient } from '@/lib/payload'
 import { Arrow } from '@/components/ui/Arrow'
+import { PageView } from '@/components/analytics/PageView'
 
 export const revalidate = 3600
 
@@ -77,6 +78,8 @@ export default async function BlogPage({
   })
 
   return (
+    <>
+    <PageView pageType="blog" locale={loc} />
     <section className="px-6 py-24">
       <div className="mx-auto max-w-[1280px]">
         <p className="text-[11px] font-medium tracking-[0.12em] uppercase text-nc-muted-mid mb-4">
@@ -183,5 +186,6 @@ export default async function BlogPage({
         </div>
       </div>
     </section>
+    </>
   )
 }

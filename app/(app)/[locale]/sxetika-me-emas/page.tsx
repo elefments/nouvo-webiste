@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { AboutPage } from '@/components/about/AboutPage'
 import { aboutPage } from '@/data/about'
+import { PageView } from '@/components/analytics/PageView'
 
 export const dynamic = 'force-static'
 
@@ -20,5 +21,11 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
 export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params
-  return <AboutPage locale={locale as 'el' | 'en'} />
+  const loc = locale as 'el' | 'en'
+  return (
+    <>
+      <PageView pageType="about" locale={loc} />
+      <AboutPage locale={loc} />
+    </>
+  )
 }
