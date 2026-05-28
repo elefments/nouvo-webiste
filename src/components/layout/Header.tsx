@@ -53,10 +53,8 @@ export function Header() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  const ctaLabel = locale === 'el' ? 'Επικοινωνία' : 'Contact'
-  const ctaHref = locale === 'el' ? '/epikoinonia' : '/en/contact'
   const servicesLabel = locale === 'el' ? 'Υπηρεσίες' : 'Services'
-  const bookCallLabel = locale === 'el' ? 'Κλείστε κλήση' : 'Book a call'
+  const talkLabel = locale === 'el' ? 'Ας μιλήσουμε' : "Let's talk"
 
   return (
     <header
@@ -117,16 +115,9 @@ export function Header() {
           <div className="flex items-center gap-3 ml-2">
             <LanguageToggle />
             <BookCallButton
-              label={bookCallLabel}
-              variant="ghost"
+              label={talkLabel}
+              variant="primary"
             />
-            <Link
-              href={ctaHref}
-              className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-nc-text text-white text-sm font-medium tracking-wide transition-all duration-200 hover:bg-nc-accent"
-            >
-              <span>{ctaLabel}</span>
-              <Arrow size={16} />
-            </Link>
           </div>
         </div>
 
@@ -170,14 +161,11 @@ export function Header() {
             ))}
             <div className="flex items-center gap-3 mt-4">
               <LanguageToggle />
-              <Link
-                href={ctaHref}
-                className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-nc-text text-white text-sm font-medium tracking-wide"
+              <BookCallButton
+                label={talkLabel}
+                variant="primary"
                 onClick={() => setMobileOpen(false)}
-              >
-                <span>{ctaLabel}</span>
-                <Arrow size={16} />
-              </Link>
+              />
             </div>
           </div>
         </div>

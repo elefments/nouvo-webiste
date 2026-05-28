@@ -6,9 +6,10 @@ interface BookCallButtonProps {
   label: string
   variant?: 'primary' | 'ghost' | 'accent'
   className?: string
+  onClick?: () => void
 }
 
-export function BookCallButton({ label, variant = 'primary', className = '' }: BookCallButtonProps) {
+export function BookCallButton({ label, variant = 'primary', className = '', onClick }: BookCallButtonProps) {
   const { open } = useBookCall()
 
   const base = 'inline-flex items-center gap-3 rounded-full text-sm font-medium tracking-wide transition-all duration-200 cursor-pointer'
@@ -22,7 +23,7 @@ export function BookCallButton({ label, variant = 'primary', className = '' }: B
   return (
     <button
       type="button"
-      onClick={open}
+      onClick={() => { open(); onClick?.() }}
       className={`${base} ${variants[variant]} ${className}`}
     >
       {label}

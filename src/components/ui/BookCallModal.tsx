@@ -4,15 +4,29 @@ import { useEffect, useRef, useState } from 'react'
 import { useBookCall } from '@/components/providers/BookCallProvider'
 import { dl } from '@/lib/dataLayer'
 
-// Replace with your actual Calendly / TidyCal link
-const BOOKING_URL = 'https://calendly.com/YOUR_LINK'
+// Replace with your actual Cal.com link
+const BOOKING_URL = 'https://cal.com/YOUR_LINK'
+
+function getUtmParams() {
+  if (typeof window === 'undefined') return {}
+  const p = new URLSearchParams(window.location.search)
+  return {
+    utmSource:   p.get('utm_source')   || sessionStorage.getItem('utm_source')   || undefined,
+    utmMedium:   p.get('utm_medium')   || sessionStorage.getItem('utm_medium')   || undefined,
+    utmCampaign: p.get('utm_campaign') || sessionStorage.getItem('utm_campaign') || undefined,
+    utmContent:  p.get('utm_content')  || sessionStorage.getItem('utm_content')  || undefined,
+    utmTerm:     p.get('utm_term')     || sessionStorage.getItem('utm_term')     || undefined,
+  }
+}
 
 const copy = {
   el: {
-    title: 'Κλείστε μια κλήση',
+    title: 'Ας μιλήσουμε',
     subtitle: 'Συμπληρώστε τα στοιχεία σας και θα σας κατευθύνουμε απευθείας στο ημερολόγιο.',
-    name: 'Όνομα',
-    namePlaceholder: 'Το όνομά σας',
+    firstName: 'Όνομα',
+    firstNamePlaceholder: 'Το όνομά σας',
+    lastName: 'Επώνυμο',
+    lastNamePlaceholder: 'Προαιρετικό',
     email: 'Email',
     emailPlaceholder: 'email@example.com',
     phone: 'Τηλέφωνο (προαιρετικό)',
@@ -33,10 +47,12 @@ const copy = {
     required: 'Υποχρεωτικό πεδίο',
   },
   en: {
-    title: 'Book a call',
-    subtitle: 'Fill in your details and we\'ll redirect you straight to the calendar.',
-    name: 'Name',
-    namePlaceholder: 'Your name',
+    title: "Let's talk",
+    subtitle: "Fill in your details and we'll redirect you straight to the calendar.",
+    firstName: 'First Name',
+    firstNamePlaceholder: 'Your first name',
+    lastName: 'Last Name',
+    lastNamePlaceholder: 'Optional',
     email: 'Email',
     emailPlaceholder: 'email@example.com',
     phone: 'Phone (optional)',
@@ -68,12 +84,23 @@ export function BookCallModal({ locale }: BookCallModalProps) {
   const overlayRef = useRef<HTMLDivElement>(null)
   const openTracked = useRef(false)
 
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [phone, setPhone] = useState('')
-  const [service, setService] = useState('')
-  const [message, setMessage] = useState('')
-  const [errors, setErrors] = useState<{ name?: boolean; email?: boolean }>({})
+  const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName]   = useState('')
+  const [email, setEmail]         = useState('')
+  const [phone, setPhone]         = useState('')
+  const [service, setService]     = useState('')
+  const [message, setMessage]     = useState('')
+  const [errors, setErrors]       = useState<{ firstName?: boolean; email?: boolean }>({})
+
+  // Persist UTM params from URL to sessionStorage on mount
+  useEffect(() => {
+    const p = new URLSearchParams(window.location.search)
+    const keys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term']
+    keys.forEach((k) => {
+      const v = p.get(k)
+      if (v) sessionStorage.setItem(k, v)
+    })
+  }, [])
 
   // Track modal open (once per open session)
   useEffect(() => {
@@ -101,8 +128,8 @@ export function BookCallModal({ locale }: BookCallModalProps) {
   }, [isOpen])
 
   function validate() {
-    const e: { name?: boolean; email?: boolean } = {}
-    if (!name.trim()) e.name = true
+    const e: { firstName?: boolean; email?: boolean } = {}
+    if (!firstName.trim()) e.firstName = true
     if (!email.trim() || !email.includes('@')) e.email = true
     setErrors(e)
     return Object.keys(e).length === 0
@@ -112,19 +139,43 @@ export function BookCallModal({ locale }: BookCallModalProps) {
     ev.preventDefault()
     if (!validate()) return
 
+    const utm = getUtmParams()
+    const fullName = [firstName.trim(), lastName.trim()].filter(Boolean).join(' ')
+
     const params = new URLSearchParams()
-    params.set('name', name.trim())
+    params.set('name', fullName)
     params.set('email', email.trim())
     if (phone.trim()) params.set('phone', phone.trim())
     if (service && service !== t.services[0]) params.set('notes', `${service}${message.trim() ? ' — ' + message.trim() : ''}`)
     else if (message.trim()) params.set('notes', message.trim())
+    // Pass UTMs to Cal.com URL too
+    if (utm.utmSource)   params.set('utm_source',   utm.utmSource)
+    if (utm.utmMedium)   params.set('utm_medium',   utm.utmMedium)
+    if (utm.utmCampaign) params.set('utm_campaign', utm.utmCampaign)
 
-    // Track lead before opening Calendly
+    // Track lead before opening Cal.com
     dl.generateLead({
       source: 'book_call_modal',
       service: service && service !== t.services[0] ? service : undefined,
       locale,
     })
+
+    // Also save to Payload via API (non-blocking)
+    fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        firstName: firstName.trim(),
+        lastName: lastName.trim() || undefined,
+        email: email.trim(),
+        phone: phone.trim() || undefined,
+        service: service && service !== t.services[0] ? service : undefined,
+        message: message.trim() || undefined,
+        locale,
+        source: 'book_call_modal',
+        ...utm,
+      }),
+    }).catch(() => {})
 
     window.open(`${BOOKING_URL}?${params.toString()}`, '_blank', 'noopener,noreferrer')
     close()
@@ -150,9 +201,7 @@ export function BookCallModal({ locale }: BookCallModalProps) {
         {/* Modal */}
         <div
           className="relative w-full max-w-[520px] rounded-t-[24px] sm:rounded-[24px] bg-white p-8 shadow-2xl"
-          style={{
-            animation: 'modalSlideUp 0.35s cubic-bezier(0.22, 1, 0.36, 1) both',
-          }}
+          style={{ animation: 'modalSlideUp 0.35s cubic-bezier(0.22, 1, 0.36, 1) both' }}
         >
           {/* Close button */}
           <button
@@ -172,21 +221,35 @@ export function BookCallModal({ locale }: BookCallModalProps) {
 
           <form onSubmit={handleSubmit} noValidate>
             <div className="space-y-4">
-              {/* Name */}
-              <div>
-                <label className="block text-[12px] font-medium text-nc-muted-dark mb-1.5">
-                  {t.name} <span className="text-nc-accent">*</span>
-                </label>
-                <input
-                  type="text"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  placeholder={t.namePlaceholder}
-                  className={`${inputClass} ${errors.name ? errorInputClass : ''}`}
-                />
-                {errors.name && (
-                  <p className="mt-1 text-[11px] text-nc-accent">{t.required}</p>
-                )}
+              {/* First + Last name */}
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="block text-[12px] font-medium text-nc-muted-dark mb-1.5">
+                    {t.firstName} <span className="text-nc-accent">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    value={firstName}
+                    onChange={(e) => setFirstName(e.target.value)}
+                    placeholder={t.firstNamePlaceholder}
+                    className={`${inputClass} ${errors.firstName ? errorInputClass : ''}`}
+                  />
+                  {errors.firstName && (
+                    <p className="mt-1 text-[11px] text-nc-accent">{t.required}</p>
+                  )}
+                </div>
+                <div>
+                  <label className="block text-[12px] font-medium text-nc-muted-dark mb-1.5">
+                    {t.lastName}
+                  </label>
+                  <input
+                    type="text"
+                    value={lastName}
+                    onChange={(e) => setLastName(e.target.value)}
+                    placeholder={t.lastNamePlaceholder}
+                    className={inputClass}
+                  />
+                </div>
               </div>
 
               {/* Email */}

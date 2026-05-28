@@ -12,7 +12,8 @@ export const contactPage = {
       { number: '04', title: 'Προσφορα', body: 'Συγκεκριμενη προσφορα με scope, timeline και κοστος. Οχι vague "επικοινωνηστε για τιμες".' },
     ],
     form: {
-      nameLabel: 'Ονομα και Επωνυμο',
+      firstNameLabel: 'Ονομα',
+      lastNameLabel: 'Επωνυμο',
       emailLabel: 'Email',
       companyLabel: 'Επιχειρηση',
       serviceLabel: 'Τι χρειαζεστε',
@@ -44,7 +45,8 @@ export const contactPage = {
       { number: '04', title: 'Proposal', body: 'A specific proposal with scope, timeline and cost. No vague contact us for pricing.' },
     ],
     form: {
-      nameLabel: 'Full Name',
+      firstNameLabel: 'First Name',
+      lastNameLabel: 'Last Name',
       emailLabel: 'Email',
       companyLabel: 'Company',
       serviceLabel: 'What do you need',

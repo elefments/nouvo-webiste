@@ -26,6 +26,9 @@ interface SubmissionData {
   service?: string
   message?: string
   locale: string
+  utmSource?: string
+  utmMedium?: string
+  utmCampaign?: string
 }
 
 export async function sendSubmissionNotification(data: SubmissionData) {
@@ -45,7 +48,10 @@ export async function sendSubmissionNotification(data: SubmissionData) {
     data.phone   ? ['Τηλέφωνο',  data.phone]   : null,
     data.company ? ['Εταιρεία',  data.company] : null,
     data.service ? ['Υπηρεσία',  data.service] : null,
-    data.message ? ['Μήνυμα',   data.message]  : null,
+    data.message     ? ['Μήνυμα',       data.message]      : null,
+    data.utmSource   ? ['UTM Source',   data.utmSource]    : null,
+    data.utmMedium   ? ['UTM Medium',   data.utmMedium]    : null,
+    data.utmCampaign ? ['UTM Campaign', data.utmCampaign]  : null,
   ].filter(Boolean) as [string, string][]
 
   const tableRows = rows

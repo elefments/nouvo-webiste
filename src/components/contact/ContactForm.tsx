@@ -1,12 +1,13 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { dl } from '@/lib/dataLayer'
 
 interface ContactFormProps {
   locale: 'el' | 'en'
   labels: {
-    nameLabel: string
+    firstNameLabel: string
+    lastNameLabel: string
     emailLabel: string
     companyLabel: string
     serviceLabel: string
@@ -19,22 +20,45 @@ interface ContactFormProps {
   }
 }
 
+function getUtmParams() {
+  if (typeof window === 'undefined') return {}
+  const p = new URLSearchParams(window.location.search)
+  return {
+    utmSource:   p.get('utm_source')   || sessionStorage.getItem('utm_source')   || undefined,
+    utmMedium:   p.get('utm_medium')   || sessionStorage.getItem('utm_medium')   || undefined,
+    utmCampaign: p.get('utm_campaign') || sessionStorage.getItem('utm_campaign') || undefined,
+    utmContent:  p.get('utm_content')  || sessionStorage.getItem('utm_content')  || undefined,
+    utmTerm:     p.get('utm_term')     || sessionStorage.getItem('utm_term')     || undefined,
+  }
+}
+
 export function ContactForm({ locale, labels: t }: ContactFormProps) {
-  const [name, setName]       = useState('')
-  const [email, setEmail]     = useState('')
-  const [company, setCompany] = useState('')
-  const [service, setService] = useState('')
-  const [message, setMessage] = useState('')
-  const [honeypot, setHoneypot] = useState('')
-  const [errors, setErrors]   = useState<{ name?: boolean; email?: boolean }>({})
+  const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName]   = useState('')
+  const [email, setEmail]         = useState('')
+  const [company, setCompany]     = useState('')
+  const [service, setService]     = useState('')
+  const [message, setMessage]     = useState('')
+  const [honeypot, setHoneypot]   = useState('')
+  const [errors, setErrors]       = useState<{ firstName?: boolean; email?: boolean }>({})
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading]     = useState(false)
   const [serverError, setServerError] = useState(false)
 
+  // Persist UTM params from URL to sessionStorage on first load
+  useEffect(() => {
+    const p = new URLSearchParams(window.location.search)
+    const keys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term']
+    keys.forEach((k) => {
+      const v = p.get(k)
+      if (v) sessionStorage.setItem(k, v)
+    })
+  }, [])
+
   function validate() {
-    const e: { name?: boolean; email?: boolean } = {}
-    if (!name.trim())                          e.name = true
-    if (!email.trim() || !email.includes('@')) e.email = true
+    const e: { firstName?: boolean; email?: boolean } = {}
+    if (!firstName.trim())                         e.firstName = true
+    if (!email.trim() || !email.includes('@'))     e.email = true
     setErrors(e)
     return Object.keys(e).length === 0
   }
@@ -46,18 +70,22 @@ export function ContactForm({ locale, labels: t }: ContactFormProps) {
     setLoading(true)
     setServerError(false)
 
+    const utm = getUtmParams()
+
     try {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, company, service, message, locale, source: 'contact_form', _h: honeypot }),
+        body: JSON.stringify({
+          firstName, lastName, email, company, service, message,
+          locale, source: 'contact_form', _h: honeypot,
+          ...utm,
+        }),
       })
 
       if (!res.ok) throw new Error('Server error')
 
-      // Push lead event to GTM dataLayer
       dl.generateLead({ source: 'contact_form', service: service || undefined, locale })
-
       setSubmitted(true)
     } catch {
       setServerError(true)
@@ -81,7 +109,7 @@ export function ContactForm({ locale, labels: t }: ContactFormProps) {
 
   return (
     <form onSubmit={handleSubmit} className="mx-auto max-w-[640px] space-y-5" noValidate>
-      {/* Honeypot — invisible to humans, bots fill it → silent reject on server */}
+      {/* Honeypot */}
       <div aria-hidden="true" style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px', overflow: 'hidden' }}>
         <label htmlFor="website_url">Website</label>
         <input
@@ -94,24 +122,41 @@ export function ContactForm({ locale, labels: t }: ContactFormProps) {
           autoComplete="off"
         />
       </div>
+
+      {/* First name + Last name */}
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
         <div>
           <label className="mb-1.5 block font-sofia text-[13px] font-medium text-[#575657]">
-            {t.nameLabel} *
+            {t.firstNameLabel} *
           </label>
           <input
             type="text"
             required
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            className={`${inputClass} ${errors.name ? errorClass : ''}`}
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+            className={`${inputClass} ${errors.firstName ? errorClass : ''}`}
           />
-          {errors.name && (
+          {errors.firstName && (
             <p className="mt-1 pl-2 font-sofia text-[12px] text-[#E34F39]">
               {locale === 'el' ? 'Υποχρεωτικό πεδίο' : 'Required field'}
             </p>
           )}
         </div>
+        <div>
+          <label className="mb-1.5 block font-sofia text-[13px] font-medium text-[#575657]">
+            {t.lastNameLabel}
+          </label>
+          <input
+            type="text"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+            className={inputClass}
+          />
+        </div>
+      </div>
+
+      {/* Email + Company */}
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
         <div>
           <label className="mb-1.5 block font-sofia text-[13px] font-medium text-[#575657]">
             {t.emailLabel} *
@@ -129,9 +174,6 @@ export function ContactForm({ locale, labels: t }: ContactFormProps) {
             </p>
           )}
         </div>
-      </div>
-
-      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
         <div>
           <label className="mb-1.5 block font-sofia text-[13px] font-medium text-[#575657]">
             {t.companyLabel}
@@ -143,23 +185,26 @@ export function ContactForm({ locale, labels: t }: ContactFormProps) {
             className={inputClass}
           />
         </div>
-        <div>
-          <label className="mb-1.5 block font-sofia text-[13px] font-medium text-[#575657]">
-            {t.serviceLabel}
-          </label>
-          <select
-            value={service}
-            onChange={(e) => setService(e.target.value)}
-            className="w-full appearance-none rounded-[100px] border border-[rgba(0,0,0,0.07)] bg-white px-5 py-3 font-sofia text-[14px] outline-none transition-colors focus:border-[#E34F39]"
-          >
-            <option value="">---</option>
-            {t.serviceOptions.map((opt) => (
-              <option key={opt} value={opt}>{opt}</option>
-            ))}
-          </select>
-        </div>
       </div>
 
+      {/* Service */}
+      <div>
+        <label className="mb-1.5 block font-sofia text-[13px] font-medium text-[#575657]">
+          {t.serviceLabel}
+        </label>
+        <select
+          value={service}
+          onChange={(e) => setService(e.target.value)}
+          className="w-full appearance-none rounded-[100px] border border-[rgba(0,0,0,0.07)] bg-white px-5 py-3 font-sofia text-[14px] outline-none transition-colors focus:border-[#E34F39]"
+        >
+          <option value="">---</option>
+          {t.serviceOptions.map((opt) => (
+            <option key={opt} value={opt}>{opt}</option>
+          ))}
+        </select>
+      </div>
+
+      {/* Message */}
       <div>
         <label className="mb-1.5 block font-sofia text-[13px] font-medium text-[#575657]">
           {t.messageLabel}
