@@ -226,8 +226,8 @@ export function BookCallModal({ locale }: BookCallModalProps) {
           </button>
 
           {/* Header */}
-          <h2 className="font-snaga text-[24px] text-nc-text mb-1">{t.title}</h2>
-          <p className="text-[13px] text-nc-muted-dark mb-7">{t.subtitle}</p>
+          <h2 className="font-objektiv font-bold text-[22px] tracking-[-0.02em] text-nc-text mb-1">{t.title}</h2>
+          <p className="text-[13px] text-nc-muted-dark mb-6">{t.subtitle}</p>
 
           <form onSubmit={handleSubmit} noValidate>
             <div className="space-y-4">
@@ -338,7 +338,7 @@ export function BookCallModal({ locale }: BookCallModalProps) {
             {/* Submit */}
             <button
               type="submit"
-              className="mt-6 w-full rounded-full bg-nc-text px-6 py-4 text-[14px] font-medium text-white tracking-wide transition-all duration-200 hover:bg-nc-accent"
+              className="mt-6 w-full rounded-full bg-nc-accent px-6 py-4 text-[14px] font-medium text-white tracking-wide transition-all duration-200 hover:bg-[#c93e28]"
             >
               {t.submit}
             </button>
