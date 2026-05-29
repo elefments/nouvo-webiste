@@ -1,9 +1,9 @@
-import * as migration_20260527_233840 from './20260527_233840';
+import * as migration_20260527_add_seo_to_posts from './20260527_add_seo_to_posts';
 
 export const migrations = [
   {
-    up: migration_20260527_233840.up,
-    down: migration_20260527_233840.down,
-    name: '20260527_233840'
+    up: migration_20260527_add_seo_to_posts.up,
+    down: migration_20260527_add_seo_to_posts.down,
+    name: '20260527_add_seo_to_posts',
   },
 ];
