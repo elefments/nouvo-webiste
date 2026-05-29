@@ -60,5 +60,40 @@ export const Posts: CollectionConfig = {
       ],
       admin: { position: 'sidebar' },
     },
+    {
+      name: 'seo',
+      type: 'group',
+      label: 'SEO',
+      admin: { position: 'sidebar' },
+      fields: [
+        {
+          name: 'metaTitle',
+          type: 'text',
+          label: 'Meta Title',
+          admin: { description: 'Target: 50-60 characters' },
+        },
+        {
+          name: 'metaDescription',
+          type: 'textarea',
+          label: 'Meta Description',
+          admin: { description: 'Target: 150-160 characters' },
+        },
+        {
+          name: 'ogTitle',
+          type: 'text',
+          label: 'OG Title',
+        },
+        {
+          name: 'ogDescription',
+          type: 'textarea',
+          label: 'OG Description',
+        },
+        {
+          name: 'focusKeyword',
+          type: 'text',
+          label: 'Focus Keyword',
+        },
+      ],
+    },
   ],
 }
