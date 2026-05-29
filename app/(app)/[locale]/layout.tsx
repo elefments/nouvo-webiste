@@ -12,6 +12,7 @@ import { MotionProvider } from '@/components/providers/MotionProvider'
 import { BookCallProvider } from '@/components/providers/BookCallProvider'
 import { BookCallModal } from '@/components/ui/BookCallModal'
 import { Analytics } from '@/components/analytics/Analytics'
+import { UtmCapture } from '@/components/analytics/UtmCapture'
 
 // Preload hint for Sofia Pro Light — the body font used by the LCP element.
 // With font-display:optional the browser only uses it within a ~100ms window;
@@ -65,6 +66,7 @@ export default async function LocaleLayout({
           </BookCallProvider>
         </NextIntlClientProvider>
         <Analytics />
+        <UtmCapture />
       </body>
     </html>
   )

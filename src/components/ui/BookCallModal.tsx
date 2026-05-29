@@ -4,20 +4,9 @@ import { useEffect, useRef, useState } from 'react'
 import { useBookCall } from '@/components/providers/BookCallProvider'
 import { dl } from '@/lib/dataLayer'
 import { PhoneInput } from '@/components/ui/PhoneInput'
+import { getUtmParams, captureUtmFromUrl } from '@/lib/utm'
 
 const BOOKING_URL = 'https://cal.eu/nouvo/discovery'
-
-function getUtmParams() {
-  if (typeof window === 'undefined') return {}
-  const p = new URLSearchParams(window.location.search)
-  return {
-    utmSource:   p.get('utm_source')   || sessionStorage.getItem('utm_source')   || undefined,
-    utmMedium:   p.get('utm_medium')   || sessionStorage.getItem('utm_medium')   || undefined,
-    utmCampaign: p.get('utm_campaign') || sessionStorage.getItem('utm_campaign') || undefined,
-    utmContent:  p.get('utm_content')  || sessionStorage.getItem('utm_content')  || undefined,
-    utmTerm:     p.get('utm_term')     || sessionStorage.getItem('utm_term')     || undefined,
-  }
-}
 
 const copy = {
   el: {
@@ -97,14 +86,9 @@ export function BookCallModal({ locale }: BookCallModalProps) {
   const [message, setMessage]     = useState('')
   const [errors, setErrors]       = useState<{ firstName?: boolean; email?: boolean }>({})
 
-  // Persist UTM params from URL to sessionStorage on mount
+  // Capture UTMs from URL into localStorage (30-day attribution window)
   useEffect(() => {
-    const p = new URLSearchParams(window.location.search)
-    const keys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term']
-    keys.forEach((k) => {
-      const v = p.get(k)
-      if (v) sessionStorage.setItem(k, v)
-    })
+    captureUtmFromUrl()
   }, [])
 
   // Track modal open (once per open session)

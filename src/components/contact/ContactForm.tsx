@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { dl } from '@/lib/dataLayer'
 import { PhoneInput } from '@/components/ui/PhoneInput'
+import { getUtmParams, captureUtmFromUrl } from '@/lib/utm'
 
 interface ContactFormProps {
   locale: 'el' | 'en'
@@ -22,17 +23,7 @@ interface ContactFormProps {
   }
 }
 
-function getUtmParams() {
-  if (typeof window === 'undefined') return {}
-  const p = new URLSearchParams(window.location.search)
-  return {
-    utmSource:   p.get('utm_source')   || sessionStorage.getItem('utm_source')   || undefined,
-    utmMedium:   p.get('utm_medium')   || sessionStorage.getItem('utm_medium')   || undefined,
-    utmCampaign: p.get('utm_campaign') || sessionStorage.getItem('utm_campaign') || undefined,
-    utmContent:  p.get('utm_content')  || sessionStorage.getItem('utm_content')  || undefined,
-    utmTerm:     p.get('utm_term')     || sessionStorage.getItem('utm_term')     || undefined,
-  }
-}
+// getUtmParams is imported from @/lib/utm
 
 export function ContactForm({ locale, labels: t }: ContactFormProps) {
   const [firstName, setFirstName] = useState('')
@@ -48,14 +39,9 @@ export function ContactForm({ locale, labels: t }: ContactFormProps) {
   const [loading, setLoading]     = useState(false)
   const [serverError, setServerError] = useState(false)
 
-  // Persist UTM params from URL to sessionStorage on first load
+  // Capture UTMs from URL into localStorage (30-day attribution window)
   useEffect(() => {
-    const p = new URLSearchParams(window.location.search)
-    const keys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term']
-    keys.forEach((k) => {
-      const v = p.get(k)
-      if (v) sessionStorage.setItem(k, v)
-    })
+    captureUtmFromUrl()
   }, [])
 
   function validate() {
