@@ -43,8 +43,8 @@ export const servicesOverview = {
     ctaBody: 'Δεν χρειάζεται να έχετε έτοιμο brief. Αρκεί να ξέρετε τι δεν λειτουργεί. Εκεί ξεκινάμε.',
     ctaFinalPrimary: 'Επικοινωνήστε Μαζί Μας',
     ctaFinalGhost: 'Δείτε τα Case Studies',
-    metaTitle: 'Ψηφιακές Υπηρεσίες για Επιχειρήσεις | Κατασκευή Ιστοσελίδων, SEO, AI | Nouvo',
-    metaDescription: 'Κατασκευή ιστοσελίδων, eshop, SEO, digital marketing και AI για επιχειρήσεις. Πέντε κατηγορίες υπηρεσιών από boutique digital agency στην Αθήνα.',
+    metaTitle: 'Ψηφιακές Υπηρεσίες για Επιχειρήσεις στην Ελλάδα | Nouvo',
+    metaDescription: 'Ψηφιακές υπηρεσίες Nouvo: κατασκευή ιστοσελίδων, SEO, AI workflows, digital marketing και IT support. Boutique agency Αθήνα. 120+ επιχειρήσεις.',
   },
   en: {
     eyebrow: 'Services',

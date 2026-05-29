@@ -52,9 +52,13 @@ export async function generateMetadata({
     if (!result) return {}
     const { category, subService } = result
     const canonical = `https://nouvo.agency/${loc === 'en' ? 'en/' : ''}${category.parentSlug[loc]}/${category.slug[loc]}/${subService.slug[loc]}`
+    const metaTitle = subService.meta?.title?.[loc] ?? `${subService.title[loc]} | Nouvo`
+    const metaDesc = subService.meta?.description?.[loc] ?? subService.description[loc]
+    const ogTitle = subService.meta?.ogTitle?.[loc] ?? metaTitle
+    const ogDesc = subService.meta?.ogDescription?.[loc] ?? metaDesc
     return {
-      title: `${subService.title[loc]} | Nouvo`,
-      description: subService.description[loc],
+      title: metaTitle,
+      description: metaDesc,
       alternates: {
         canonical,
         languages: {
@@ -64,8 +68,8 @@ export async function generateMetadata({
         },
       },
       openGraph: {
-        title: `${subService.title[loc]} | Nouvo`,
-        description: subService.description[loc],
+        title: ogTitle,
+        description: ogDesc,
         url: canonical,
         type: 'website',
         siteName: 'Nouvo',

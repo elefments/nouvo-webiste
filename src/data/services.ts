@@ -5,6 +5,12 @@ export interface ServiceSubItem {
   slug: { el: string; en: string }
   description: { el: string; en: string }
   includes?: { el: string[]; en: string[] }
+  meta?: {
+    title?: { el: string; en: string }
+    description?: { el: string; en: string }
+    ogTitle?: { el: string; en: string }
+    ogDescription?: { el: string; en: string }
+  }
 }
 
 export interface ServiceCategory {
@@ -62,36 +68,72 @@ export const serviceCategories: ServiceCategory[] = [
         title: { el: 'Κατασκευή E-shop', en: 'E-shop Development' },
         slug: { el: 'eshop', en: 'eshop' },
         description: { el: 'Ένα eshop δεν είναι απλώς κατάλογος προϊόντων. Είναι ένα πλήρες σύστημα πωλήσεων: αρχιτεκτονική κατηγοριών, δομή checkout, ενσωμάτωση πληρωμών, διαχείριση αποθέματος, logistics και SEO σε επίπεδο προϊόντος.', en: 'An eshop is not just a product catalogue. It\'s a complete sales system: category architecture, checkout structure, payment integration, inventory management, logistics and product-level SEO.' },
+        meta: {
+          title: { el: 'Κατασκευή E-shop Αθήνα | WooCommerce & Custom | Nouvo', en: 'E-shop Development Athens | WooCommerce & Custom | Nouvo' },
+          description: { el: 'Κατασκευή eshop με myDATA, ERP integration και checkout optimization. B2C και B2B λύσεις WooCommerce και custom. Από €3.000. Χωρίς outsourcing. Αθήνα.', en: 'E-shop development with myDATA, ERP integration and checkout optimization. B2C and B2B WooCommerce and custom solutions. From €3,000. No outsourcing. Athens.' },
+          ogTitle: { el: 'Κατασκευή E-shop Αθήνα | WooCommerce & Custom | Nouvo', en: 'E-shop Development Athens | WooCommerce & Custom | Nouvo' },
+          ogDescription: { el: 'Custom eshop με myDATA integration, checkout optimization και SEO σε επίπεδο SKU. B2C και B2B λύσεις. Από €3.000. Χωρίς templates, χωρίς outsourcing.', en: 'Custom eshop with myDATA integration, checkout optimization and SKU-level SEO. B2C and B2B solutions. From €3,000. No templates, no outsourcing.' },
+        },
         includes: { el: ['Custom αρχιτεκτονική κατηγοριών και προϊόντων', 'Ενσωμάτωση πληρωμών (Stripe, PayPal, αντικαταβολή)', 'SEO σε επίπεδο προϊόντος και κατηγορίας', 'Mobile-first σχεδιασμός', 'Σύνδεση με ERP / αποθήκη εφόσον απαιτείται'], en: ['Custom product and category architecture', 'Payment integration (Stripe, PayPal, cash on delivery)', 'Product and category-level SEO', 'Mobile-first design', 'ERP / warehouse integration when required'] },
       },
       {
         title: { el: 'Εταιρική Ιστοσελίδα', en: 'Corporate Website' },
         slug: { el: 'etairiki-istoselida', en: 'corporate-website' },
         description: { el: 'Η εταιρική ιστοσελίδα είναι το πρώτο σημείο αξιολόγησης για κάθε υποψήφιο πελάτη. Σχεδιάζουμε επαγγελματικές σελίδες με σαφή ιεραρχία πληροφορίας, ισχυρό brand positioning και δομή που οδηγεί σε επικοινωνία.', en: 'The corporate website is the first point of evaluation for every prospective client. We design professional pages with clear information hierarchy, strong brand positioning and structure that drives communication.' },
+        meta: {
+          title: { el: 'Κατασκευή Εταιρικής Ιστοσελίδας Αθήνα | Από €1.500 | Nouvo', en: 'Corporate Website Development Athens | From €1,500 | Nouvo' },
+          description: { el: 'Custom εταιρική ιστοσελίδα χωρίς templates, με SEO-ready αρχιτεκτονική και GDPR compliance. Για ΙΚΕ, ΑΕ, ΕΠΕ. Από €1.500. 16+ χρόνια εμπειρίας. Αθήνα.', en: 'Custom corporate website without templates, with SEO-ready architecture and GDPR compliance. For Ltd, SA, partnerships. From €1,500. 16+ years experience. Athens.' },
+          ogTitle: { el: 'Κατασκευή Εταιρικής Ιστοσελίδας Αθήνα | Από €1.500 | Nouvo', en: 'Corporate Website Development Athens | From €1,500 | Nouvo' },
+          ogDescription: { el: 'Εταιρική ιστοσελίδα που μετατρέπει επισκέπτες σε leads. Custom design, on-page SEO, CMS, GDPR compliance και 30 ημέρες post-launch υποστήριξη. Από €1.500 έως €2.500.', en: 'Corporate website that converts visitors into leads. Custom design, on-page SEO, CMS, GDPR compliance and 30 days post-launch support. From €1,500 to €2,500.' },
+        },
         includes: { el: ['Αρχιτεκτονική σελίδων και ιεραρχία περιεχομένου', 'Brand-consistent σχεδιασμός', 'SEO-ready δομή και meta tags', 'Contact forms και CTAs με στόχο μετατροπής', 'Πλήρης responsiveness σε όλες τις συσκευές'], en: ['Page architecture and content hierarchy', 'Brand-consistent design', 'SEO-ready structure and meta tags', 'Contact forms and CTAs with conversion goals', 'Full responsiveness across all devices'] },
       },
       {
         title: { el: 'Landing Page', en: 'Landing Page' },
         slug: { el: 'landing-page', en: 'landing-page' },
         description: { el: 'Η κατασκευή landing page είναι η πιο focused επένδυση στη ψηφιακή παρουσία. Μία σελίδα, σχεδιασμένη αποκλειστικά για να μετατρέπει: εγγραφές, αγορές, αιτήσεις, leads.', en: 'Landing page development is the most focused investment in digital presence. One page, designed exclusively to convert: registrations, purchases, applications, leads.' },
+        meta: {
+          title: { el: 'Κατασκευή Landing Page για Ads Αθήνα | Από €800 | Nouvo', en: 'Landing Page Development for Ads Athens | From €800 | Nouvo' },
+          description: { el: 'Κατασκευή landing page υψηλής μετατροπής για Google Ads, Meta Ads και organic. A/B testing ready, mobile-first, με conversion tracking. Αθήνα, από €800.', en: 'High-conversion landing page development for Google Ads, Meta Ads and organic. A/B testing ready, mobile-first, with conversion tracking. Athens, from €800.' },
+          ogTitle: { el: 'Κατασκευή Landing Page για Ads Αθήνα | Από €800 | Nouvo', en: 'Landing Page Development Athens | From €800 | Nouvo' },
+          ogDescription: { el: 'Landing page σχεδιασμένο αποκλειστικά για conversion. Single-goal αρχιτεκτονική, fast load, conversion tracking. Ιδανικό για paid campaigns. Από €800.', en: 'Landing page designed exclusively for conversion. Single-goal architecture, fast load, conversion tracking. Ideal for paid campaigns. From €800.' },
+        },
         includes: { el: ['Single-goal αρχιτεκτονική', 'Copywriting framework για μετατροπή', 'Fast load κάτω από 2 δευτερόλεπτα', 'Ενσωμάτωση με ad platforms (Meta, Google)', 'Analytics και conversion tracking setup'], en: ['Single-goal architecture', 'Copywriting framework for conversion', 'Fast load under 2 seconds', 'Ad platform integration (Meta, Google)', 'Analytics and conversion tracking setup'] },
       },
       {
         title: { el: 'Portfolio Website', en: 'Portfolio Website' },
         slug: { el: 'portfolio-website', en: 'portfolio-website' },
         description: { el: 'Η κατασκευή ιστοσελίδας portfolio απαιτεί ισορροπία ανάμεσα στην αισθητική και τη λειτουργικότητα. Σχεδιάζουμε portfolio sites για architects, photographers, designers, lawyers, consultants.', en: 'Portfolio website development requires balance between aesthetics and functionality. We design portfolio sites for architects, photographers, designers, lawyers, consultants.' },
+        meta: {
+          title: { el: 'Κατασκευή Portfolio Ιστοσελίδας Αθήνα | Από €1.500 | Nouvo', en: 'Portfolio Website Development Athens | From €1,500 | Nouvo' },
+          description: { el: 'Κατασκευή portfolio ιστοσελίδας για freelancers και δημιουργικά επαγγέλματα. Visual-first design, mobile-optimized, με SEO. Αθήνα, από €900.', en: 'Portfolio website development for freelancers and creative professionals. Visual-first design, mobile-optimized, with SEO. Athens, from €900.' },
+          ogTitle: { el: 'Κατασκευή Portfolio Ιστοσελίδας Αθήνα | Από €1.500 | Nouvo', en: 'Portfolio Website Development Athens | From €1,500 | Nouvo' },
+          ogDescription: { el: 'Portfolio site για architects, photographers, designers, δικηγόρους, συμβούλους. Visual-first design, project galleries, personal brand positioning.', en: 'Portfolio site for architects, photographers, designers, lawyers, consultants. Visual-first design, project galleries, personal brand positioning.' },
+        },
         includes: { el: ['Αρχιτεκτονική project gallery και case studies', 'Personal brand positioning', 'SEO για επαγγελματικές αναζητήσεις', 'Fast image loading με WebP optimization', 'Contact και inquiry forms'], en: ['Project gallery and case studies architecture', 'Personal brand positioning', 'SEO for professional searches', 'Fast image loading with WebP optimization', 'Contact and inquiry forms'] },
       },
       {
         title: { el: 'Ιστοσελίδα Κρατήσεων', en: 'Booking Website' },
         slug: { el: 'istoselida-kratiseon', en: 'booking-website' },
         description: { el: 'Η κατασκευή ιστοσελίδας κρατήσεων δίνει πλήρη έλεγχο του booking process. Ξενοδοχεία, εστιατόρια, ιατρεία, γυμναστήρια, beauty salons.', en: 'Booking website development gives full control of the booking process. Hotels, restaurants, medical offices, gyms, beauty salons.' },
+        meta: {
+          title: { el: 'Ιστοσελίδα Κρατήσεων Online | Custom Booking | Nouvo', en: 'Online Booking Website | Custom Booking System | Nouvo' },
+          description: { el: 'Ιστοσελίδα κρατήσεων με online booking system, αυτόματες επιβεβαιώσεις και calendar management. Για εστιατόρια, ξενοδοχεία και υπηρεσίες. Αθήνα.', en: 'Booking website with online booking system, automatic confirmations and calendar management. For restaurants, hotels and services. Athens.' },
+          ogTitle: { el: 'Ιστοσελίδα Κρατήσεων Online | Custom Booking | Nouvo', en: 'Online Booking Website | Custom Booking System | Nouvo' },
+          ogDescription: { el: 'Custom booking system για ξενοδοχεία, εστιατόρια, ιατρεία, γυμναστήρια. Real-time διαθεσιμότητα, αυτόματες επιβεβαιώσεις, payment integration.', en: 'Custom booking system for hotels, restaurants, medical offices, gyms. Real-time availability, automatic confirmations, payment integration.' },
+        },
         includes: { el: ['Real-time διαθεσιμότητα και calendar management', 'Αυτόματες επιβεβαιώσεις και reminders', 'Ενσωμάτωση πληρωμών ή prepayment', 'Admin panel για διαχείριση κρατήσεων', 'Ειδοποιήσεις SMS και email'], en: ['Real-time availability and calendar management', 'Automatic confirmations and reminders', 'Payment or prepayment integration', 'Admin panel for booking management', 'SMS and email notifications'] },
       },
       {
         title: { el: 'Website Redesign', en: 'Website Redesign' },
         slug: { el: 'website-redesign', en: 'website-redesign' },
         description: { el: 'Η ανακατασκευή ιστοσελίδας είναι η πιο κρίσιμη παρέμβαση στη ψηφιακή παρουσία μιας επιχείρησης. Ξεκινάμε από πλήρη αξιολόγηση: τι λειτουργεί, τι χάνεται, πού φεύγουν οι επισκέπτες.', en: 'Website redesign is the most critical intervention in a business\'s digital presence. We start from a full assessment: what works, what\'s lost, where visitors leave.' },
+        meta: {
+          title: { el: 'Ανακατασκευή Ιστοσελίδας Αθήνα | SEO Continuity | Nouvo', en: 'Website Redesign Athens | SEO Continuity | Nouvo' },
+          description: { el: 'Redesign ιστοσελίδας χωρίς SEO regression: 301 redirects, content migration και Core Web Vitals optimization. Αθήνα. Από €1.500. 16+ χρόνια εμπειρίας.', en: 'Website redesign without SEO regression: 301 redirects, content migration and Core Web Vitals optimization. Athens. From €1,500. 16+ years experience.' },
+          ogTitle: { el: 'Ανακατασκευή Ιστοσελίδας Αθήνα | SEO Continuity | Nouvo', en: 'Website Redesign Athens | SEO Continuity | Nouvo' },
+          ogDescription: { el: 'Ανακατασκευή ιστοσελίδας που διατηρεί και βελτιώνει το SEO. Πλήρης audit, νέα αρχιτεκτονική, 301 redirects, Core Web Vitals. Χωρίς ρίσκο SEO regression.', en: 'Website redesign that preserves and improves SEO. Full audit, new architecture, 301 redirects, Core Web Vitals. No risk of SEO regression.' },
+        },
         includes: { el: ['Audit υπάρχουσας αρχιτεκτονικής και SEO', 'Στρατηγική νέας δομής και περιεχομένου', '301 redirects και SEO continuity plan', 'Performance optimization', 'Παράδοση με πλήρη documentation'], en: ['Existing architecture and SEO audit', 'New structure and content strategy', '301 redirects and SEO continuity plan', 'Performance optimization', 'Delivery with full documentation'] },
       },
     ],
