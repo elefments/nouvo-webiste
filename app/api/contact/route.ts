@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getPayloadClient } from '@/lib/payload'
 import { sendSubmissionNotification } from '@/lib/resend'
+import { syncToAttio } from '@/lib/attio'
 
 export async function POST(req: NextRequest) {
   try {
@@ -46,7 +47,7 @@ export async function POST(req: NextRequest) {
       },
     })
 
-    // Send email notification (non-blocking — don't fail the request if email fails)
+    // Send email notification (non-blocking)
     sendSubmissionNotification({
       source: source ?? 'contact_form',
       name,
@@ -60,6 +61,21 @@ export async function POST(req: NextRequest) {
       utmMedium: utmMedium?.trim(),
       utmCampaign: utmCampaign?.trim(),
     }).catch((err) => console.error('[resend]', err))
+
+    // Sync to Attio CRM (non-blocking)
+    syncToAttio({
+      name,
+      email: email.trim().toLowerCase(),
+      phone: phone?.trim(),
+      company: company?.trim(),
+      service: service?.trim(),
+      message: message?.trim(),
+      source: source ?? 'contact_form',
+      locale: locale ?? 'el',
+      utmSource: utmSource?.trim(),
+      utmMedium: utmMedium?.trim(),
+      utmCampaign: utmCampaign?.trim(),
+    }).catch((err) => console.error('[attio]', err))
 
     return NextResponse.json({ ok: true })
   } catch (err) {
