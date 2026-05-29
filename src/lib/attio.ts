@@ -4,7 +4,9 @@
  *
  * On each form submission:
  * 1. Upsert a Person record (matched by email)
- * 2. Create a Note with the message + service interest
+ * 2. Add person to "Clients & Leads" list
+ * 3. Create a Deal linked to the person
+ * 4. Create a Note with full context
  */
 
 const BASE_URL = 'https://api.attio.com/v2'
@@ -22,7 +24,7 @@ function headers() {
   }
 }
 
-// ── Types ────────────────────────────────────────────────────────────────────
+// ── Types ─────────────────────────────────────────────────────────────────────
 
 interface UpsertPersonParams {
   name: string
@@ -42,6 +44,13 @@ interface CreateNoteParams {
   utmCampaign?: string
 }
 
+interface CreateDealParams {
+  personRecordId: string
+  name: string
+  service?: string
+  source?: string
+}
+
 // ── Person upsert ─────────────────────────────────────────────────────────────
 
 /**
@@ -52,11 +61,9 @@ export async function upsertPerson(params: UpsertPersonParams): Promise<string |
   const [firstName, ...rest] = params.name.trim().split(' ')
   const lastName = rest.join(' ') || undefined
 
-  // Build name value — Attio expects first_name / last_name
   const nameValue: Record<string, string> = { first_name: firstName }
   if (lastName) nameValue.last_name = lastName
 
-  // Values that are always present
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const values: Record<string, any> = {
     name: [nameValue],
@@ -75,9 +82,7 @@ export async function upsertPerson(params: UpsertPersonParams): Promise<string |
     const res = await fetch(`${BASE_URL}/objects/people/records?matching_attribute=email_addresses`, {
       method: 'PUT',
       headers: headers(),
-      body: JSON.stringify({
-        data: { values },
-      }),
+      body: JSON.stringify({ data: { values } }),
     })
 
     if (!res.ok) {
@@ -94,10 +99,87 @@ export async function upsertPerson(params: UpsertPersonParams): Promise<string |
   }
 }
 
+// ── Add to Clients & Leads list ───────────────────────────────────────────────
+
+/**
+ * Adds a Person to the "Clients & Leads" Attio list.
+ * List ID is read from ATTIO_LEADS_LIST_ID env var.
+ */
+export async function addToLeadsList(personRecordId: string): Promise<void> {
+  const LIST_ID = process.env.ATTIO_LEADS_LIST_ID
+
+  if (!LIST_ID) {
+    console.error('[attio] ATTIO_LEADS_LIST_ID is not set')
+    return
+  }
+
+  try {
+    const res = await fetch(`${BASE_URL}/lists/${LIST_ID}/entries`, {
+      method: 'POST',
+      headers: headers(),
+      body: JSON.stringify({
+        data: {
+          parent_record_id: personRecordId,
+          parent_object: 'people',
+        },
+      }),
+    })
+
+    if (!res.ok) {
+      const err = await res.text()
+      // 409 = already in list — not an error
+      if (res.status !== 409) {
+        console.error('[attio] addToLeadsList error:', res.status, err)
+      }
+    }
+  } catch (err) {
+    console.error('[attio] addToLeadsList exception:', err)
+  }
+}
+
+// ── Deal creation ─────────────────────────────────────────────────────────────
+
+/**
+ * Creates a new Deal in Attio linked to a Person.
+ */
+export async function createDeal(params: CreateDealParams): Promise<void> {
+  const dealName = `${params.name} — ${params.service ?? 'General Inquiry'}`
+  const sourceLabel = params.source === 'book_call_modal' ? 'Book a Call' : 'Contact Form'
+
+  try {
+    const res = await fetch(`${BASE_URL}/objects/deals/records`, {
+      method: 'POST',
+      headers: headers(),
+      body: JSON.stringify({
+        data: {
+          values: {
+            name: [{ value: dealName }],
+            stage: [{ status: 'New Lead' }],
+            associated_people: [{
+              target_object: 'people',
+              target_record_id: params.personRecordId,
+            }],
+            // Store source as a note-style field if it exists on your workspace
+            // Uncomment if you have a custom "source" attribute on deals:
+            // source: [{ value: sourceLabel }],
+          },
+        },
+      }),
+    })
+
+    if (!res.ok) {
+      const err = await res.text()
+      console.error('[attio] createDeal error:', res.status, err)
+    }
+  } catch (err) {
+    console.error('[attio] createDeal exception:', err)
+  }
+}
+
 // ── Note creation ─────────────────────────────────────────────────────────────
 
 /**
- * Creates a Note on a Person record in Attio.
+ * Creates a Note on a Person record with full submission context.
  */
 export async function createNote(params: CreateNoteParams): Promise<void> {
   const sourceLabel = params.source === 'book_call_modal' ? 'Book a Call' : 'Contact Form'
@@ -156,7 +238,12 @@ interface AttioSubmissionParams {
 }
 
 /**
- * Syncs a form submission to Attio: upserts person + creates note.
+ * Full sync of a form submission to Attio:
+ * 1. Upsert person (matched by email)
+ * 2. Add to "Clients & Leads" list
+ * 3. Create deal linked to person
+ * 4. Create note with full context
+ *
  * Non-blocking — call with .catch() to avoid failing the request.
  */
 export async function syncToAttio(params: AttioSubmissionParams): Promise<void> {
@@ -173,15 +260,29 @@ export async function syncToAttio(params: AttioSubmissionParams): Promise<void> 
     return
   }
 
-  // Step 2: create note
-  await createNote({
-    personRecordId,
-    source: params.source,
-    service: params.service,
-    message: params.message,
-    locale: params.locale,
-    utmSource: params.utmSource,
-    utmMedium: params.utmMedium,
-    utmCampaign: params.utmCampaign,
-  })
+  // Steps 2-4 run in parallel — all non-blocking individually
+  await Promise.allSettled([
+    // Step 2: add to Clients & Leads list
+    addToLeadsList(personRecordId),
+
+    // Step 3: create deal
+    createDeal({
+      personRecordId,
+      name: params.name,
+      service: params.service,
+      source: params.source,
+    }),
+
+    // Step 4: create note
+    createNote({
+      personRecordId,
+      source: params.source,
+      service: params.service,
+      message: params.message,
+      locale: params.locale,
+      utmSource: params.utmSource,
+      utmMedium: params.utmMedium,
+      utmCampaign: params.utmCampaign,
+    }),
+  ])
 }
