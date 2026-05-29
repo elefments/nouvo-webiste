@@ -8,6 +8,11 @@
 import path from 'path'
 import { fileURLToPath } from 'url'
 import fs from 'fs'
+import { config as dotenvConfig } from 'dotenv'
+
+// Load .env.local so DATABASE_URI points to production Neon
+dotenvConfig({ path: path.resolve(process.cwd(), '.env.local') })
+
 import { getPayload } from 'payload'
 import configPromise from '../src/payload.config'
 

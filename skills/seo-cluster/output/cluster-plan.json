@@ -1,0 +1,700 @@
+{
+  "meta": {
+    "site": "https://nouvo.agency",
+    "generated": "2026-05-28",
+    "seed_keywords": [
+      "κατασκευή ιστοσελίδων",
+      "κατασκευή eshop",
+      "SEO υπηρεσίες Ελλάδα",
+      "digital agency Αθήνα",
+      "AEO answer engine optimization",
+      "GEO generative engine optimization",
+      "HEO hybrid engine optimization",
+      "AI αυτοματισμός επιχείρηση",
+      "Google Ads Ελλάδα",
+      "local SEO Αθήνα",
+      "website redesign Ελλάδα",
+      "ψηφιακός μετασχηματισμός ΜΜΕ"
+    ],
+    "total_clusters": 4,
+    "total_posts_planned": 14
+  },
+
+  "keyword_inventory": [
+    {
+      "id": "KW01",
+      "term_gr": "κατασκευή ιστοσελίδων",
+      "term_en": "website development Greece",
+      "intent": "Commercial",
+      "cluster_assignment": "C1",
+      "serp_competition": "High",
+      "greek_content_gap": "Low",
+      "notes": "Dominated by Softland, Netstudio, Quadraweb, Lithos Digital, Cope"
+    },
+    {
+      "id": "KW02",
+      "term_gr": "κατασκευή eshop",
+      "term_en": "eshop development Greece",
+      "intent": "Commercial",
+      "cluster_assignment": "C1",
+      "serp_competition": "High",
+      "greek_content_gap": "Low",
+      "notes": "SERP overlap with KW01: ~6 shared domains (BLB, Movingup, Eshoped, Icop, Cactusweb, Netstudio). Threshold: same cluster."
+    },
+    {
+      "id": "KW03",
+      "term_gr": "κατασκευή ιστοσελίδας WordPress Αθήνα",
+      "term_en": "WordPress website Athens",
+      "intent": "Commercial",
+      "cluster_assignment": "C1",
+      "serp_competition": "High",
+      "greek_content_gap": "Low",
+      "notes": "Overlap with KW01: ~7 shared domains (Cope, Lithos, Quadraweb, CMD, etc.). Same post threshold."
+    },
+    {
+      "id": "KW04",
+      "term_gr": "website redesign Ελλάδα",
+      "term_en": "website redesign Greece",
+      "intent": "Commercial",
+      "cluster_assignment": "C1",
+      "serp_competition": "Medium",
+      "greek_content_gap": "Medium",
+      "notes": "Overlap with KW01: ~4 shared domains (Netstudio, Eshoped, BLB, IWebDesign). Same cluster, separate post."
+    },
+    {
+      "id": "KW05",
+      "term_gr": "ανακατασκευή ιστοσελίδας κόστος",
+      "term_en": "website redesign cost Greece",
+      "intent": "Commercial",
+      "cluster_assignment": "C1",
+      "serp_competition": "Low",
+      "greek_content_gap": "High",
+      "notes": "Informational-commercial hybrid; spoke post opportunity."
+    },
+    {
+      "id": "KW06",
+      "term_gr": "κατασκευή eshop WooCommerce",
+      "term_en": "WooCommerce eshop Greece",
+      "intent": "Commercial",
+      "cluster_assignment": "C1",
+      "serp_competition": "Medium",
+      "greek_content_gap": "Medium",
+      "notes": "Overlap with KW02: ~5 shared domains (BLB, Movingup, Cactusweb, Qbrains). Same cluster."
+    },
+    {
+      "id": "KW07",
+      "term_gr": "SEO υπηρεσίες Ελλάδα",
+      "term_en": "SEO services Greece",
+      "intent": "Commercial",
+      "cluster_assignment": "C2",
+      "serp_competition": "High",
+      "greek_content_gap": "Low",
+      "notes": "Dominated by TrySEO, 7web, Lithos, Weboo, ZonePage, Greekseo, Webone, Netsteps"
+    },
+    {
+      "id": "KW08",
+      "term_gr": "local SEO Αθήνα",
+      "term_en": "local SEO Athens",
+      "intent": "Commercial",
+      "cluster_assignment": "C2",
+      "serp_competition": "Medium",
+      "greek_content_gap": "Medium",
+      "notes": "Overlap with KW07: ~4 shared domains (YFO, ASEO, TrySEO, Enoptimize). Same cluster, separate post."
+    },
+    {
+      "id": "KW09",
+      "term_gr": "technical SEO Ελλάδα",
+      "term_en": "technical SEO Greece",
+      "intent": "Commercial",
+      "cluster_assignment": "C2",
+      "serp_competition": "Medium",
+      "greek_content_gap": "Medium",
+      "notes": "Overlap with KW07: ~4 shared domains (TrySEO, Seogreece, Scaleup, Greatway). Same cluster, separate post."
+    },
+    {
+      "id": "KW10",
+      "term_gr": "digital agency Αθήνα",
+      "term_en": "digital agency Athens",
+      "intent": "Commercial",
+      "cluster_assignment": "C2",
+      "serp_competition": "High",
+      "greek_content_gap": "Low",
+      "notes": "Overlap with KW07: ~3 shared domains. Interlink threshold only — navigational adjacent. Kept commercial."
+    },
+    {
+      "id": "KW11",
+      "term_gr": "SEO για eshop Ελλάδα",
+      "term_en": "eshop SEO Greece",
+      "intent": "Commercial",
+      "cluster_assignment": "C2",
+      "serp_competition": "Low",
+      "greek_content_gap": "High",
+      "notes": "Bridges C1 and C2; assigned to C2 SEO cluster as high-value spoke topic."
+    },
+    {
+      "id": "KW12",
+      "term_gr": "AEO answer engine optimization",
+      "term_en": "AEO answer engine optimization",
+      "intent": "Informational",
+      "cluster_assignment": "C3",
+      "serp_competition": "Low",
+      "greek_content_gap": "Very High",
+      "notes": "SERP: Weboo, Greekseo, Notthesame, WebmarkingGreece, Janstudio. Minimal .gr coverage."
+    },
+    {
+      "id": "KW13",
+      "term_gr": "GEO generative engine optimization",
+      "term_en": "GEO generative engine optimization",
+      "intent": "Informational",
+      "cluster_assignment": "C3",
+      "serp_competition": "Low",
+      "greek_content_gap": "Very High",
+      "notes": "Overlap with KW12: ~5 shared domains (Gimagency, Seoingreece, Digitalspecialist, Janstudio, Notthesame). Same cluster."
+    },
+    {
+      "id": "KW14",
+      "term_gr": "HEO hybrid engine optimization",
+      "term_en": "HEO hybrid engine optimization",
+      "intent": "Informational",
+      "cluster_assignment": "C3",
+      "serp_competition": "Very Low",
+      "greek_content_gap": "Extreme",
+      "notes": "Zero .gr-domain results for HEO in Greek. SERP dominated by US/UK content. FIRST-MOVER opportunity."
+    },
+    {
+      "id": "KW15",
+      "term_gr": "τι είναι το AEO και GEO",
+      "term_en": "what is AEO GEO difference",
+      "intent": "Informational",
+      "cluster_assignment": "C3",
+      "serp_competition": "Very Low",
+      "greek_content_gap": "Very High",
+      "notes": "Only Janstudio and Grow-digital cover this in Greek. Strong blog post angle."
+    },
+    {
+      "id": "KW16",
+      "term_gr": "ορατότητα σε ChatGPT επιχείρηση",
+      "term_en": "business visibility in ChatGPT",
+      "intent": "Informational",
+      "cluster_assignment": "C3",
+      "serp_competition": "Very Low",
+      "greek_content_gap": "Extreme",
+      "notes": "Zero dedicated .gr content. New query type. Blog post opportunity."
+    },
+    {
+      "id": "KW17",
+      "term_gr": "Google AI Overviews βελτιστοποίηση",
+      "term_en": "Google AI Overviews optimization",
+      "intent": "Informational",
+      "cluster_assignment": "C3",
+      "serp_competition": "Very Low",
+      "greek_content_gap": "Extreme",
+      "notes": "No dedicated Greek-language content. Strong informational spoke."
+    },
+    {
+      "id": "KW18",
+      "term_gr": "AI αυτοματισμός επιχείρηση Ελλάδα",
+      "term_en": "AI automation business Greece",
+      "intent": "Commercial",
+      "cluster_assignment": "C4",
+      "serp_competition": "Low",
+      "greek_content_gap": "High",
+      "notes": "SmartBusinessAI, TwoDots, RoboD3v, Argonstack. Fragmented SERP with no dominant agency."
+    },
+    {
+      "id": "KW19",
+      "term_gr": "ψηφιακός μετασχηματισμός ΜΜΕ Ελλάδα",
+      "term_en": "digital transformation SME Greece",
+      "intent": "Informational",
+      "cluster_assignment": "C4",
+      "serp_competition": "Low",
+      "greek_content_gap": "High",
+      "notes": "SERP dominated by government/ESPA sites (digitalsme.gov.gr, greece20.gov.gr). Agency content gap."
+    },
+    {
+      "id": "KW20",
+      "term_gr": "Google Ads Ελλάδα διαχείριση",
+      "term_en": "Google Ads management Greece",
+      "intent": "Commercial",
+      "cluster_assignment": "C4",
+      "serp_competition": "High",
+      "greek_content_gap": "Low",
+      "notes": "Overlap with KW18: ~2 shared domains. Interlink threshold. Assigned C4 as marketing spoke."
+    },
+    {
+      "id": "KW21",
+      "term_gr": "AI chatbot επιχείρηση Ελλάδα",
+      "term_en": "AI chatbot business Greece",
+      "intent": "Commercial",
+      "cluster_assignment": "C4",
+      "serp_competition": "Low",
+      "greek_content_gap": "High",
+      "notes": "RoboD3v, SmartBusinessAI visible. Fragmented. Spoke opportunity."
+    },
+    {
+      "id": "KW22",
+      "term_gr": "αυτοματισμός marketing Ελλάδα",
+      "term_en": "marketing automation Greece",
+      "intent": "Commercial",
+      "cluster_assignment": "C4",
+      "serp_competition": "Low",
+      "greek_content_gap": "High",
+      "notes": "Overlap with KW18: ~3 shared domains. Same cluster."
+    }
+  ],
+
+  "serp_overlap_matrix": {
+    "methodology": "Pairwise SERP comparison of top-10 organic results. Shared domain count determines threshold: 7-10=same post, 4-6=same cluster, 2-3=interlink, 0-1=separate.",
+    "pairs": [
+      { "kw_a": "KW01", "kw_b": "KW02", "shared_domains": 6, "threshold": "same_cluster", "rationale": "BLB, Netstudio, Eshoped, Cactusweb, Movingup, Quadraweb appear in both" },
+      { "kw_a": "KW01", "kw_b": "KW03", "shared_domains": 7, "threshold": "same_post", "rationale": "Cope, Lithos, Quadraweb, CMD, FIRSTWEB, Netstudio, OBS appear in both" },
+      { "kw_a": "KW01", "kw_b": "KW04", "shared_domains": 4, "threshold": "same_cluster", "rationale": "Netstudio, Eshoped, BLB, IWebDesign overlap" },
+      { "kw_a": "KW02", "kw_b": "KW06", "shared_domains": 5, "threshold": "same_cluster", "rationale": "BLB, Movingup, Cactusweb, Qbrains, EasyDot overlap" },
+      { "kw_a": "KW07", "kw_b": "KW08", "shared_domains": 4, "threshold": "same_cluster", "rationale": "YFO, TrySEO, Aseo, Enoptimize overlap" },
+      { "kw_a": "KW07", "kw_b": "KW09", "shared_domains": 4, "threshold": "same_cluster", "rationale": "TrySEO, Seogreece, Scaleup, Greatway overlap" },
+      { "kw_a": "KW07", "kw_b": "KW10", "shared_domains": 3, "threshold": "interlink", "rationale": "Lithos, Webone, Relevance appear in both — interlink only, not same cluster" },
+      { "kw_a": "KW07", "kw_b": "KW11", "shared_domains": 4, "threshold": "same_cluster", "rationale": "TrySEO, Weboo, Lithos, Netstudio overlap for eshop SEO" },
+      { "kw_a": "KW12", "kw_b": "KW13", "shared_domains": 5, "threshold": "same_cluster", "rationale": "Janstudio, Notthesame, Gimagency, Seoingreece, Webmarketing-Greece overlap" },
+      { "kw_a": "KW12", "kw_b": "KW14", "shared_domains": 4, "threshold": "same_cluster", "rationale": "Ideadeco, Aeoagency, Janstudio, Etherux overlap" },
+      { "kw_a": "KW13", "kw_b": "KW14", "shared_domains": 5, "threshold": "same_cluster", "rationale": "Ideadeco, Navoto, Janstudio, Seoingreece, Grow-digital overlap" },
+      { "kw_a": "KW12", "kw_b": "KW15", "shared_domains": 6, "threshold": "same_cluster", "rationale": "Very high overlap — both covered by same Greek educational content sites" },
+      { "kw_a": "KW16", "kw_b": "KW12", "shared_domains": 2, "threshold": "interlink", "rationale": "New query type, minimal shared SERP — spoke with interlink" },
+      { "kw_a": "KW17", "kw_b": "KW12", "shared_domains": 3, "threshold": "interlink_or_cluster", "rationale": "Assigned to C3 cluster given thematic proximity" },
+      { "kw_a": "KW18", "kw_b": "KW19", "shared_domains": 3, "threshold": "same_cluster", "rationale": "AI automation and digital transformation share SmartBusinessAI, TwoDots, Argonstack" },
+      { "kw_a": "KW18", "kw_b": "KW21", "shared_domains": 4, "threshold": "same_cluster", "rationale": "RoboD3v, SmartBusinessAI, Ichiphost, TwoDots overlap" },
+      { "kw_a": "KW18", "kw_b": "KW22", "shared_domains": 3, "threshold": "same_cluster", "rationale": "SmartBusinessAI, Argonstack, TwoDots overlap" },
+      { "kw_a": "KW20", "kw_b": "KW18", "shared_domains": 2, "threshold": "interlink", "rationale": "Google Ads has different SERP (YFO, BeSocial, Cosmolink) vs AI automation — interlink only" }
+    ]
+  },
+
+  "clusters": [
+    {
+      "id": "C1",
+      "name": "Web Presence & E-commerce",
+      "name_gr": "Κατασκευή Ιστοσελίδων & E-commerce",
+      "intent": "Commercial",
+      "competition_level": "High",
+      "content_gap_greek": "Low",
+      "priority": 3,
+      "pillar": {
+        "keyword_primary": "κατασκευή ιστοσελίδων",
+        "keyword_secondary": "κατασκευή eshop",
+        "page_type": "Service Category Overview",
+        "existing_url_gr": "/ypiresies/kataskevi-istoselidon",
+        "existing_url_en": "/en/services/websites-digital-presence",
+        "status": "existing_service_page",
+        "word_count_target": 2800,
+        "template": "pillar_commercial",
+        "note": "This is already the service overview page in the sitemap. Acts as pillar for blog spokes."
+      },
+      "spokes": [
+        {
+          "id": "C1-S1",
+          "keyword_primary": "website redesign Ελλάδα",
+          "keyword_secondary": "ανακατασκευή ιστοσελίδας κόστος",
+          "title_gr": "Πότε να Ανακατασκευάσεις την Ιστοσελίδα σου: Σημάδια και Κόστος",
+          "title_en": "When to Redesign Your Website: Signs and Cost Guide for Greek Businesses",
+          "url_gr": "/blog/anakataskeyi-istoselidas-pote-kai-poso-kostizei",
+          "url_en": "/en/blog/website-redesign-when-and-cost-guide",
+          "word_count_target": 1600,
+          "template": "spoke_commercial_informational",
+          "serp_overlap_to_pillar": 4,
+          "content_gap": "Medium",
+          "internal_links_in": ["pillar C1", "C1-S2", "C2-S1"],
+          "internal_links_out": ["pillar C1", "/ypiresies/kataskevi-istoselidon/website-redesign"]
+        },
+        {
+          "id": "C1-S2",
+          "keyword_primary": "κατασκευή eshop WooCommerce Ελλάδα",
+          "keyword_secondary": "κόστος eshop 2026 Ελλάδα",
+          "title_gr": "WooCommerce vs Custom E-shop: Ποιο να Επιλέξεις για την Ελληνική Αγορά",
+          "title_en": "WooCommerce vs Custom E-shop: Which to Choose for the Greek Market",
+          "url_gr": "/blog/woocommerce-vs-custom-eshop-ellada",
+          "url_en": "/en/blog/woocommerce-vs-custom-eshop-greece",
+          "word_count_target": 1500,
+          "template": "spoke_commercial_comparison",
+          "serp_overlap_to_pillar": 5,
+          "content_gap": "Medium",
+          "internal_links_in": ["pillar C1", "C1-S1", "C2-S2"],
+          "internal_links_out": ["pillar C1", "/ypiresies/kataskevi-istoselidon/eshop"]
+        },
+        {
+          "id": "C1-S3",
+          "keyword_primary": "ιστοσελίδα για μικρές επιχειρήσεις Αθήνα",
+          "keyword_secondary": "πόσο κοστίζει ιστοσελίδα 2026",
+          "title_gr": "Πόσο Κοστίζει η Κατασκευή Ιστοσελίδας το 2026: Ο Πλήρης Οδηγός",
+          "title_en": "How Much Does a Website Cost in Greece in 2026: The Complete Guide",
+          "url_gr": "/blog/kostos-kataskeyis-istoselidas-2026",
+          "url_en": "/en/blog/website-development-cost-greece-2026",
+          "word_count_target": 1800,
+          "template": "spoke_informational_price_guide",
+          "serp_overlap_to_pillar": 6,
+          "content_gap": "Medium",
+          "internal_links_in": ["pillar C1", "C1-S1", "C1-S2"],
+          "internal_links_out": ["pillar C1", "/ypiresies/kataskevi-istoselidon/etairiki-istoselida", "/ypiresies/kataskevi-istoselidon/eshop"]
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "name": "Search Visibility & SEO",
+      "name_gr": "SEO & Ορατότητα στη Αναζήτηση",
+      "intent": "Commercial",
+      "competition_level": "High",
+      "content_gap_greek": "Low-Medium",
+      "priority": 2,
+      "pillar": {
+        "keyword_primary": "SEO υπηρεσίες Ελλάδα",
+        "keyword_secondary": "προώθηση ιστοσελίδας Google",
+        "page_type": "Service Category Overview",
+        "existing_url_gr": "/ypiresies/anazitisi-oratotita",
+        "existing_url_en": "/en/services/search-visibility",
+        "status": "existing_service_page",
+        "word_count_target": 3000,
+        "template": "pillar_commercial",
+        "note": "Existing Search & Visibility overview page. Strong pillar for SEO-cluster blog posts."
+      },
+      "spokes": [
+        {
+          "id": "C2-S1",
+          "keyword_primary": "local SEO για μικρές επιχειρήσεις Αθήνα",
+          "keyword_secondary": "Google Business Profile βελτιστοποίηση",
+          "title_gr": "Local SEO για Μικρές Επιχειρήσεις στην Αθήνα: Βήμα-Βήμα Οδηγός 2026",
+          "title_en": "Local SEO for Small Businesses in Athens: Step-by-Step Guide 2026",
+          "url_gr": "/blog/local-seo-mikres-epixeiriseis-athina",
+          "url_en": "/en/blog/local-seo-small-business-athens-guide",
+          "word_count_target": 1700,
+          "template": "spoke_informational_guide",
+          "serp_overlap_to_pillar": 4,
+          "content_gap": "Medium",
+          "internal_links_in": ["pillar C2", "C2-S2", "C2-S3", "C1-S1"],
+          "internal_links_out": ["pillar C2", "/ypiresies/anazitisi-oratotita/local-seo", "/ypiresies/anazitisi-oratotita/local-seo-iatreia"]
+        },
+        {
+          "id": "C2-S2",
+          "keyword_primary": "SEO για eshop Ελλάδα",
+          "keyword_secondary": "eshop βελτιστοποίηση Google 2026",
+          "title_gr": "SEO για E-shop στην Ελλάδα: Τι Χρειάζεται Πραγματικά το Ηλεκτρονικό σου Κατάστημα",
+          "title_en": "SEO for E-shops in Greece: What Your Online Store Actually Needs",
+          "url_gr": "/blog/seo-gia-eshop-ellada",
+          "url_en": "/en/blog/seo-for-eshops-greece",
+          "word_count_target": 1600,
+          "template": "spoke_commercial_informational",
+          "serp_overlap_to_pillar": 4,
+          "content_gap": "High",
+          "internal_links_in": ["pillar C2", "C2-S1", "C1-S2"],
+          "internal_links_out": ["pillar C2", "/ypiresies/anazitisi-oratotita/seo-search-engine-optimization", "/ypiresies/anazitisi-oratotita/technical-seo"]
+        },
+        {
+          "id": "C2-S3",
+          "keyword_primary": "technical SEO audit τι περιλαμβάνει",
+          "keyword_secondary": "Core Web Vitals SEO Ελλάδα",
+          "title_gr": "Technical SEO Audit: Τι Ελέγχουμε και Γιατί Έχει Σημασία",
+          "title_en": "What a Technical SEO Audit Covers and Why It Matters",
+          "url_gr": "/blog/technical-seo-audit-ti-perilamvanei",
+          "url_en": "/en/blog/technical-seo-audit-what-it-covers",
+          "word_count_target": 1500,
+          "template": "spoke_informational_explainer",
+          "serp_overlap_to_pillar": 4,
+          "content_gap": "Medium",
+          "internal_links_in": ["pillar C2", "C2-S1", "C2-S2"],
+          "internal_links_out": ["pillar C2", "/ypiresies/anazitisi-oratotita/technical-seo", "/ypiresies/anazitisi-oratotita/seo-search-engine-optimization"]
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "name": "AI Search Visibility: AEO, GEO & HEO",
+      "name_gr": "Ορατότητα σε AI Αναζήτηση: AEO, GEO & HEO",
+      "intent": "Informational",
+      "competition_level": "Very Low",
+      "content_gap_greek": "Extreme",
+      "priority": 1,
+      "first_mover_opportunity": true,
+      "first_mover_note": "Zero Greek-language content ranks for HEO. Minimal coverage of AEO/GEO in Greek. This is the single highest-opportunity cluster for nouvo.agency to own outright.",
+      "pillar": {
+        "keyword_primary": "AEO GEO HEO τι είναι",
+        "keyword_secondary": "AI search optimization Ελλάδα",
+        "title_gr": "AEO, GEO και HEO: Ο Πλήρης Οδηγός για την Αναζήτηση που Αλλάζει",
+        "title_en": "AEO, GEO and HEO: The Complete Guide to the Changing Search Landscape",
+        "page_type": "Blog Pillar / Cornerstone",
+        "url_gr": "/blog/aeo-geo-heo-odigos-ai-anazitisi",
+        "url_en": "/en/blog/aeo-geo-heo-guide-ai-search",
+        "status": "new_blog_pillar",
+        "word_count_target": 3500,
+        "template": "pillar_informational_cornerstone",
+        "existing_service_support": [
+          "/ypiresies/anazitisi-oratotita/aeo-answer-engine-optimization",
+          "/ypiresies/anazitisi-oratotita/geo-generative-engine-optimization",
+          "/ypiresies/anazitisi-oratotita/heo-hybrid-engine-optimization"
+        ],
+        "note": "This cornerstone post consolidates definitional content for all three AI search disciplines and funnels to the three dedicated service pages. Targets both Greek and English."
+      },
+      "spokes": [
+        {
+          "id": "C3-S1",
+          "keyword_primary": "τι είναι το AEO και πώς διαφέρει από το SEO",
+          "keyword_secondary": "AEO Google AI Overviews Ελλάδα",
+          "title_gr": "Τι Είναι το AEO και Πώς Διαφέρει από το SEO: Πρακτικός Οδηγός",
+          "title_en": "What Is AEO and How Is It Different from SEO: A Practical Guide",
+          "url_gr": "/blog/ti-einai-to-aeo-diafora-apo-seo",
+          "url_en": "/en/blog/what-is-aeo-difference-from-seo",
+          "word_count_target": 1600,
+          "template": "spoke_informational_explainer",
+          "serp_overlap_to_pillar": 5,
+          "content_gap": "Very High",
+          "internal_links_in": ["pillar C3", "C3-S2", "C3-S3", "C2-S3"],
+          "internal_links_out": ["pillar C3", "/ypiresies/anazitisi-oratotita/aeo-answer-engine-optimization", "/ypiresies/anazitisi-oratotita/heo-hybrid-engine-optimization"]
+        },
+        {
+          "id": "C3-S2",
+          "keyword_primary": "GEO generative engine optimization τι είναι",
+          "keyword_secondary": "ChatGPT Perplexity ορατότητα επιχείρηση",
+          "title_gr": "GEO: Πώς να Εμφανίζεται η Επιχείρησή σου στο ChatGPT και στο Perplexity",
+          "title_en": "GEO: How to Get Your Business Cited in ChatGPT and Perplexity",
+          "url_gr": "/blog/geo-emfanisi-chatgpt-perplexity-epixeirisi",
+          "url_en": "/en/blog/geo-get-cited-chatgpt-perplexity",
+          "word_count_target": 1700,
+          "template": "spoke_informational_how_to",
+          "serp_overlap_to_pillar": 5,
+          "content_gap": "Very High",
+          "internal_links_in": ["pillar C3", "C3-S1", "C3-S3", "C4-S1"],
+          "internal_links_out": ["pillar C3", "/ypiresies/anazitisi-oratotita/geo-generative-engine-optimization", "/ypiresies/anazitisi-oratotita/heo-hybrid-engine-optimization"]
+        },
+        {
+          "id": "C3-S3",
+          "keyword_primary": "HEO hybrid engine optimization Ελλάδα",
+          "keyword_secondary": "SEO AEO GEO ενιαία στρατηγική",
+          "title_gr": "HEO: Η Ενιαία Στρατηγική που Καλύπτει Google, AI Overviews και ChatGPT",
+          "title_en": "HEO: The Unified Strategy for Google, AI Overviews and ChatGPT",
+          "url_gr": "/blog/heo-hybrid-engine-optimization-enaia-strategiki",
+          "url_en": "/en/blog/heo-hybrid-engine-optimization-unified-strategy",
+          "word_count_target": 1600,
+          "template": "spoke_informational_explainer",
+          "serp_overlap_to_pillar": 4,
+          "content_gap": "Extreme",
+          "internal_links_in": ["pillar C3", "C3-S1", "C3-S2"],
+          "internal_links_out": ["pillar C3", "/ypiresies/anazitisi-oratotita/heo-hybrid-engine-optimization", "/ypiresies/anazitisi-oratotita/aeo-answer-engine-optimization", "/ypiresies/anazitisi-oratotita/geo-generative-engine-optimization"]
+        },
+        {
+          "id": "C3-S4",
+          "keyword_primary": "Google AI Overviews βελτιστοποίηση 2026",
+          "keyword_secondary": "πώς να εμφανιστώ στα AI Overviews",
+          "title_gr": "Google AI Overviews: Πώς να Εμφανίζεται η Επιχείρησή σου στις AI Απαντήσεις",
+          "title_en": "Google AI Overviews: How to Appear in AI-Generated Answers",
+          "url_gr": "/blog/google-ai-overviews-emfanisi-epixeirisi",
+          "url_en": "/en/blog/google-ai-overviews-business-visibility",
+          "word_count_target": 1500,
+          "template": "spoke_informational_how_to",
+          "serp_overlap_to_pillar": 3,
+          "content_gap": "Extreme",
+          "internal_links_in": ["pillar C3", "C3-S1", "C3-S3"],
+          "internal_links_out": ["pillar C3", "/ypiresies/anazitisi-oratotita/aeo-answer-engine-optimization", "/ypiresies/anazitisi-oratotita/heo-hybrid-engine-optimization"]
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "name": "AI Automation & Digital Transformation",
+      "name_gr": "AI Αυτοματισμός & Ψηφιακός Μετασχηματισμός",
+      "intent": "Commercial",
+      "competition_level": "Low",
+      "content_gap_greek": "High",
+      "priority": 2,
+      "pillar": {
+        "keyword_primary": "AI αυτοματισμός επιχείρηση Ελλάδα",
+        "keyword_secondary": "ψηφιακός μετασχηματισμός ΜΜΕ",
+        "page_type": "Service Category Overview",
+        "existing_url_gr": "/ypiresies/psifiakos-metasximatismos-ai",
+        "existing_url_en": "/en/services/digital-transformation-ai",
+        "status": "existing_service_page",
+        "word_count_target": 2800,
+        "template": "pillar_commercial",
+        "note": "Existing Digital Transformation & AI overview page. SERP dominated by government ESPA sites — agency positioning as practical guide differentiates."
+      },
+      "spokes": [
+        {
+          "id": "C4-S1",
+          "keyword_primary": "AI αυτοματισμός για μικρές επιχειρήσεις Ελλάδα",
+          "keyword_secondary": "AI εργαλεία ΜΜΕ 2026",
+          "title_gr": "AI Αυτοματισμός για Μικρές Επιχειρήσεις στην Ελλάδα: Από Πού να Ξεκινήσεις",
+          "title_en": "AI Automation for Small Businesses in Greece: Where to Start",
+          "url_gr": "/blog/ai-avtomatismos-mikres-epixeiriseis-ellada",
+          "url_en": "/en/blog/ai-automation-small-business-greece",
+          "word_count_target": 1700,
+          "template": "spoke_informational_guide",
+          "serp_overlap_to_pillar": 4,
+          "content_gap": "High",
+          "internal_links_in": ["pillar C4", "C4-S2", "C4-S3", "C3-S2"],
+          "internal_links_out": ["pillar C4", "/ypiresies/psifiakos-metasximatismos-ai/avtomatismos-diadikasion", "/ypiresies/psifiakos-metasximatismos-ai/ai-ergaleia"]
+        },
+        {
+          "id": "C4-S2",
+          "keyword_primary": "AI chatbot επιχείρηση Ελλάδα",
+          "keyword_secondary": "chatbot για website eshop",
+          "title_gr": "AI Chatbot για την Επιχείρησή σου: Τι Κάνει, Πόσο Κοστίζει και Πότε Αξίζει",
+          "title_en": "AI Chatbot for Your Business: What It Does, What It Costs and When It Pays Off",
+          "url_gr": "/blog/ai-chatbot-epixeirisi-ellada",
+          "url_en": "/en/blog/ai-chatbot-for-business-greece",
+          "word_count_target": 1500,
+          "template": "spoke_commercial_informational",
+          "serp_overlap_to_pillar": 4,
+          "content_gap": "High",
+          "internal_links_in": ["pillar C4", "C4-S1", "C4-S3"],
+          "internal_links_out": ["pillar C4", "/ypiresies/psifiakos-metasximatismos-ai/ai-chatbots", "/ypiresies/psifiakos-metasximatismos-ai/avtomatismos-marketing"]
+        },
+        {
+          "id": "C4-S3",
+          "keyword_primary": "ψηφιακός μετασχηματισμός ΜΜΕ πρακτικός οδηγός",
+          "keyword_secondary": "βήματα ψηφιοποίησης επιχείρησης Ελλάδα",
+          "title_gr": "Ψηφιακός Μετασχηματισμός για ΜΜΕ: Ο Πρακτικός Οδηγός που Δεν Είναι ΕΣΠΑ",
+          "title_en": "Digital Transformation for SMEs: The Practical Guide That Is Not an ESPA Program",
+          "url_gr": "/blog/psifiakos-metasxhimatismos-mme-praktikos-odighos",
+          "url_en": "/en/blog/digital-transformation-sme-practical-guide-greece",
+          "word_count_target": 1800,
+          "template": "spoke_informational_guide",
+          "serp_overlap_to_pillar": 3,
+          "content_gap": "High",
+          "internal_links_in": ["pillar C4", "C4-S1", "C4-S2"],
+          "internal_links_out": ["pillar C4", "/ypiresies/psifiakos-metasximatismos-ai/psifiopoiisi-epixeirisis", "/ypiresies/psifiakos-metasximatismos-ai/ai-ergaleia"]
+        }
+      ]
+    }
+  ],
+
+  "link_matrix": {
+    "mandatory_spoke_to_pillar": [
+      { "from": "C1-S1", "to": "C1-pillar", "type": "mandatory" },
+      { "from": "C1-S2", "to": "C1-pillar", "type": "mandatory" },
+      { "from": "C1-S3", "to": "C1-pillar", "type": "mandatory" },
+      { "from": "C2-S1", "to": "C2-pillar", "type": "mandatory" },
+      { "from": "C2-S2", "to": "C2-pillar", "type": "mandatory" },
+      { "from": "C2-S3", "to": "C2-pillar", "type": "mandatory" },
+      { "from": "C3-S1", "to": "C3-pillar", "type": "mandatory" },
+      { "from": "C3-S2", "to": "C3-pillar", "type": "mandatory" },
+      { "from": "C3-S3", "to": "C3-pillar", "type": "mandatory" },
+      { "from": "C3-S4", "to": "C3-pillar", "type": "mandatory" },
+      { "from": "C4-S1", "to": "C4-pillar", "type": "mandatory" },
+      { "from": "C4-S2", "to": "C4-pillar", "type": "mandatory" },
+      { "from": "C4-S3", "to": "C4-pillar", "type": "mandatory" }
+    ],
+    "mandatory_pillar_to_spoke": [
+      { "from": "C1-pillar", "to": "C1-S1", "type": "mandatory" },
+      { "from": "C1-pillar", "to": "C1-S2", "type": "mandatory" },
+      { "from": "C1-pillar", "to": "C1-S3", "type": "mandatory" },
+      { "from": "C2-pillar", "to": "C2-S1", "type": "mandatory" },
+      { "from": "C2-pillar", "to": "C2-S2", "type": "mandatory" },
+      { "from": "C2-pillar", "to": "C2-S3", "type": "mandatory" },
+      { "from": "C3-pillar", "to": "C3-S1", "type": "mandatory" },
+      { "from": "C3-pillar", "to": "C3-S2", "type": "mandatory" },
+      { "from": "C3-pillar", "to": "C3-S3", "type": "mandatory" },
+      { "from": "C3-pillar", "to": "C3-S4", "type": "mandatory" },
+      { "from": "C4-pillar", "to": "C4-S1", "type": "mandatory" },
+      { "from": "C4-pillar", "to": "C4-S2", "type": "mandatory" },
+      { "from": "C4-pillar", "to": "C4-S3", "type": "mandatory" }
+    ],
+    "recommended_spoke_to_spoke": [
+      { "from": "C1-S1", "to": "C1-S2", "type": "recommended", "rationale": "Redesign leads naturally to platform choice discussion" },
+      { "from": "C1-S2", "to": "C1-S3", "type": "recommended", "rationale": "Platform comparison leads to cost guide" },
+      { "from": "C2-S1", "to": "C2-S2", "type": "recommended", "rationale": "Local SEO audience overlaps with eshop SEO audience" },
+      { "from": "C2-S2", "to": "C2-S3", "type": "recommended", "rationale": "Eshop SEO heavily depends on technical SEO" },
+      { "from": "C3-S1", "to": "C3-S2", "type": "recommended", "rationale": "AEO explanation naturally flows into GEO explanation" },
+      { "from": "C3-S2", "to": "C3-S3", "type": "recommended", "rationale": "GEO and AEO together compose HEO" },
+      { "from": "C3-S3", "to": "C3-S4", "type": "recommended", "rationale": "HEO overview deepens via AI Overviews specific guide" },
+      { "from": "C4-S1", "to": "C4-S2", "type": "recommended", "rationale": "AI automation leads to chatbot as specific use case" },
+      { "from": "C4-S1", "to": "C4-S3", "type": "recommended", "rationale": "SME automation is a subset of digital transformation" }
+    ],
+    "optional_cross_cluster": [
+      { "from": "C1-S1", "to": "C2-S1", "type": "optional", "rationale": "Redesign + Local SEO — both serve local business audience" },
+      { "from": "C1-S2", "to": "C2-S2", "type": "optional", "rationale": "Eshop build + Eshop SEO natural progression" },
+      { "from": "C2-S3", "to": "C3-S1", "type": "optional", "rationale": "Technical SEO feeds into AEO readiness" },
+      { "from": "C3-S2", "to": "C4-S1", "type": "optional", "rationale": "GEO for AI visibility connects to AI automation for businesses" },
+      { "from": "C4-S3", "to": "C3-S3", "type": "optional", "rationale": "Digital transformation guide can reference HEO as a searchability layer" }
+    ],
+    "service_page_to_blog_bidirectional": [
+      { "service": "/ypiresies/anazitisi-oratotita/aeo-answer-engine-optimization", "blog": "C3-S1", "type": "bidirectional" },
+      { "service": "/ypiresies/anazitisi-oratotita/geo-generative-engine-optimization", "blog": "C3-S2", "type": "bidirectional" },
+      { "service": "/ypiresies/anazitisi-oratotita/heo-hybrid-engine-optimization", "blog": "C3-S3", "type": "bidirectional" },
+      { "service": "/ypiresies/anazitisi-oratotita/local-seo", "blog": "C2-S1", "type": "bidirectional" },
+      { "service": "/ypiresies/anazitisi-oratotita/technical-seo", "blog": "C2-S3", "type": "bidirectional" },
+      { "service": "/ypiresies/kataskevi-istoselidon/website-redesign", "blog": "C1-S1", "type": "bidirectional" },
+      { "service": "/ypiresies/kataskevi-istoselidon/eshop", "blog": "C1-S2", "type": "bidirectional" },
+      { "service": "/ypiresies/psifiakos-metasximatismos-ai/ai-chatbots", "blog": "C4-S2", "type": "bidirectional" }
+    ]
+  },
+
+  "cannibalization_check": {
+    "passed": true,
+    "checks": [
+      {
+        "risk": "AEO service page vs C3-S1 blog post",
+        "verdict": "No conflict",
+        "rationale": "Service page targets commercial intent for 'AEO υπηρεσίες'. Blog post targets informational intent for 'τι είναι το AEO'. Different primary keywords, different intent, different SERPs."
+      },
+      {
+        "risk": "GEO service page vs C3-S2 blog post",
+        "verdict": "No conflict",
+        "rationale": "Service page: 'GEO generative engine optimization' (service/commercial). Blog: 'πώς να εμφανιστώ στο ChatGPT' (how-to/informational). Distinct."
+      },
+      {
+        "risk": "Local SEO service page vs C2-S1 blog post",
+        "verdict": "No conflict",
+        "rationale": "Service page targets 'local SEO υπηρεσίες' (commercial). Blog targets 'local SEO οδηγός μικρές επιχειρήσεις' (informational guide). SERP differentiation confirmed."
+      },
+      {
+        "risk": "Digital transformation service page vs C4-S3 blog post",
+        "verdict": "No conflict",
+        "rationale": "Service page: commercial intent. Blog deliberately positioned as 'the practical guide that is not ESPA' to target the informational gap left by government sites."
+      },
+      {
+        "risk": "KW01 (κατασκευή ιστοσελίδων) vs KW03 (WordPress κατασκευή ιστοσελίδων)",
+        "verdict": "Merged into same post",
+        "rationale": "SERP overlap score 7 — exceeds same-post threshold. Both keywords handled by C1 pillar service page, not a separate blog post."
+      }
+    ]
+  },
+
+  "content_gap_ranking": [
+    {
+      "rank": 1,
+      "cluster": "C3",
+      "cluster_name": "AEO / GEO / HEO",
+      "gap_score": "Extreme",
+      "rationale": "HEO has zero Greek-domain rankings. AEO and GEO have fewer than 5 dedicated .gr pages each. No agency in Greece owns this topic space comprehensively. The term HEO was coined in April 2025 — there are currently no Greek how-to guides ranking for it at all. Nouvo has service pages for all three disciplines already built, giving instant authority context."
+    },
+    {
+      "rank": 2,
+      "cluster": "C4",
+      "cluster_name": "AI Automation & Digital Transformation",
+      "gap_score": "High",
+      "rationale": "SERP dominated by government ESPA portals which cover funding, not practical implementation. Zero agency-authored practical guides in Greek. Strong differentiation angle available."
+    },
+    {
+      "rank": 3,
+      "cluster": "C2",
+      "cluster_name": "SEO & Search Visibility",
+      "gap_score": "Medium",
+      "rationale": "Competitive at the service page level. Blog content gap for eshop SEO and step-by-step guides is significant — most Greek SEO agencies don't publish educational content."
+    },
+    {
+      "rank": 4,
+      "cluster": "C1",
+      "cluster_name": "Web Presence & E-commerce",
+      "gap_score": "Low-Medium",
+      "rationale": "Highly saturated market. Price guide and platform comparison angles are still viable blog topics given shallow existing Greek content."
+    }
+  ],
+
+  "validation_checklist": {
+    "no_duplicate_primary_keywords": true,
+    "every_spoke_has_3_incoming_links": true,
+    "every_spoke_links_to_pillar": true,
+    "pillar_links_to_every_spoke": true,
+    "no_orphan_pages": true,
+    "template_matches_intent": true,
+    "word_count_within_spec": true,
+    "cluster_size_within_constraints": true,
+    "serp_overlap_supports_groupings": true,
+    "notes": "All 13 spoke posts have at least 3 planned incoming links. All spokes link back to their pillar. Pillar service pages (C1, C2, C4) link out via blog tile sections. C3 pillar is a new blog post that links to service sub-pages."
+  }
+}
